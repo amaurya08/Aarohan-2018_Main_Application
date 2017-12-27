@@ -19,30 +19,35 @@
         android:layout_centerInParent="true">
 
         <com.imangazaliev.circlemenu.CircleMenuButton
-
+            android:id="@+id/yourevents"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:colorNormal="#000000"
+            app:colorPressed="#000000"
+            app:hintText="Your Events"
+            app:icon="@drawable/menu_center_icon" />
+
+        <com.imangazaliev.circlemenu.CircleMenuButton
+            android:id="@+id/maps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:colorNormal="#000000"
+            app:hintText="Maps"
+            app:colorPressed="#000000"
+            app:icon="@drawable/menu_center_icon" />
+
+        <com.imangazaliev.circlemenu.CircleMenuButton
+            android:id="@+id/schedule"
+            android:layout_width="wrap_content"
+            app:hintText="schedule"
             android:layout_height="wrap_content"
             app:colorNormal="#000000"
             app:colorPressed="#000000"
             app:icon="@drawable/menu_center_icon" />
 
         <com.imangazaliev.circlemenu.CircleMenuButton
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:colorNormal="#000000"
-            app:colorPressed="#000000"
-            app:icon="@drawable/menu_center_icon" />
-
-        <com.imangazaliev.circlemenu.CircleMenuButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:colorNormal="#000000"
-            app:colorPressed="#000000"
-            app:icon="@drawable/menu_center_icon" />
-
-        <com.imangazaliev.circlemenu.CircleMenuButton
-
+            android:id="@+id/profile"
+            app:hintText="profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:colorNormal="#2196F3"
@@ -50,7 +55,8 @@
             app:icon="@drawable/menu_center_icon" />
 
         <com.imangazaliev.circlemenu.CircleMenuButton
-
+            android:id="@+id/contactus"
+            app:hintText="Contact Us"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:colorNormal="#4CAF50"
@@ -58,6 +64,8 @@
             app:icon="@drawable/menu_center_icon" />
 
         <com.imangazaliev.circlemenu.CircleMenuButton
+            android:id="@+id/developer"
+            app:hintText="Developer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:colorNormal="#F44336"
