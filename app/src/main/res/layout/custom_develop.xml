@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="3"
         android:orientation="horizontal"
+        android:background="@drawable/shape"
+        android:padding="5dp"
         >
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <android.support.v4.widget.CircleImageView
+            android:layout_weight="0.75">
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="5dp"/>
+                android:src="@drawable/img"
+                app:civ_border_width="3dp"
+                app:civ_border_color="@color/colorPrimaryDark"
+                />
 
 
         </LinearLayout>
@@ -37,9 +43,9 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:gravity="left"
-                        android:text="Event 1"
-                        android:paddingLeft="12dp"
+                        android:gravity="center"
+                        android:text="Name name"
+
                         android:textSize="18sp"
 
                         android:textStyle="bold">
@@ -53,12 +59,10 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:gravity="left"
+                        android:gravity="center"
                         android:text="Info"
-                        android:paddingLeft="12dp"
-                        android:textSize="16sp"
 
-                        android:textStyle="bold">
+                        android:textSize="16sp">
 
                     </TextView>
 
@@ -68,36 +72,25 @@
                     android:layout_height="wrap_content"
                     android:weightSum="4">
 
+
                     <ImageView
+                        android:src="@drawable/ic_sentiment_satisfied_black_24dp"
+                        android:layout_weight="2"
+                        android:layout_height="35dp"
                         android:layout_width="0dp"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/ic_access_time_black_24dp"
-                        ></ImageView>
+                        android:layout_gravity="right"
 
-                    <TextView
 
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:gravity="left"
-                        android:text="Time"
-                        android:textSize="16sp">
+                        />
 
-                    </TextView>
                     <ImageView
+                        android:src="@drawable/ic_sentiment_satisfied_black_24dp"
+                        android:layout_weight="2"
+                        android:layout_height="35dp"
                         android:layout_width="0dp"
-                        android:layout_height="25dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/ic_location_on_black_24dp">
-                    </ImageView>
-                    <TextView
 
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:gravity="left"
-                        android:text="Venue"
-                        android:textSize="16sp"></TextView>
 
+                        />
                     >
                 </TableRow>
             </TableLayout>
