@@ -12,17 +12,15 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".SplashActivity"></activity>
         <activity android:name=".MapsActivity" />
-        <activity android:name=".YourEventsActivity" />
+        <activity android:name=".YourEventsActivity"/>
         <activity android:name=".ScheduleActivity" />
-        <activity android:name=".ProfileActivity">
-        </activity>
-        <activity android:name=".ContactUsActivity" />
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ContactUsActivity"></activity>
         <activity android:name=".DevelopersActivity" />
         <activity android:name=".AboutAarohanActivity"></activity>
     </application>

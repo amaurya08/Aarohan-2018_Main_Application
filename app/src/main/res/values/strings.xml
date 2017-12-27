@@ -1,3 +1,5 @@
-<resources>
+<resources xmlns:align="http://schemas.android.com/tools">
     <string name="app_name">Aarohan 2017</string>
+    <string name="my_phone_number">My phone number</string>
+
 </resources>
