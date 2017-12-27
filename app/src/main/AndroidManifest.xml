@@ -23,7 +23,9 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".ContactUsActivity" />
         <activity android:name=".DevelopersActivity" />
-        <activity android:name=".AboutAarohanActivity"></activity>
+        <activity android:name=".AboutAarohanActivity" />
+        <activity android:name=".PromptUserLogin" />
+        <activity android:name=".LoginActivity"></activity>
     </application>
 
 </manifest>
