@@ -11,18 +11,20 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
         <activity android:name=".SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".MapsActivity" />
         <activity android:name=".YourEventsActivity" />
         <activity android:name=".ScheduleActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".ContactUsActivity" />
-        <activity android:name=".DevelopersActivity" />
+        <activity android:name=".DevelopersActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".AboutAarohanActivity"></activity>
     </application>
 
