@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://E:\Aarohan\AarohanApplication\Aarohan.iml" filepath="E:\Aarohan\AarohanApplication\Aarohan.iml" />
+      <module fileurl="file://E:\aarohanapp\AarohanApplication\Aarohan.iml" filepath="E:\aarohanapp\AarohanApplication\Aarohan.iml" />
       <module fileurl="file://$PROJECT_DIR$/AarohanApplication.iml" filepath="$PROJECT_DIR$/AarohanApplication.iml" />
+      <module fileurl="file://E:\Aarohan\AarohanApplication\.idea\AarohanApplication.iml" filepath="E:\Aarohan\AarohanApplication\.idea\AarohanApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
