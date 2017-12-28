@@ -14,9 +14,6 @@ import org.poornima.aarohan.aarohan2017.Fragments.Fragment_two;
 
 public class BottomActivity extends AppCompatActivity {
 
-
-
-
     final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 

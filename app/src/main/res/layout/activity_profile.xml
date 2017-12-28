@@ -61,7 +61,7 @@ android:weightSum="1">
                 android:id="@+id/phonetxt"
                 android:layout_weight="3"
                 android:paddingLeft="20dp"
-                android:text="@string/my_phone_number"
+                android:text="phone no"
                 android:textSize="20sp"/>
         </TableRow>
         <TableRow
