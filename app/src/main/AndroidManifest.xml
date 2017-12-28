@@ -18,12 +18,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".MapsActivity" />
-        <activity android:name=".YourEventsActivity"/>
+        <activity android:name=".YourEventsActivity">
+        </activity>
         <activity android:name=".ScheduleActivity" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProfileActivity">
+        </activity>
         <activity android:name=".ContactUsActivity"></activity>
         <activity android:name=".DevelopersActivity" />
-        <activity android:name=".AboutAarohanActivity"></activity>
+        <activity android:name=".AboutAarohanActivity">
+        </activity>
     </application>
 
 </manifest>
