@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
                         switchActivity(YourEventsActivity.class);
                         break;
                     case R.id.maps:
-                        switchActivity(MapsActivity.class);
+                        switchActivity(MapActivity.class);
                         break;
                     case R.id.schedule:
                         switchActivity(ScheduleActivity.class);
