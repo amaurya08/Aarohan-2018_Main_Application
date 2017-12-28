@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Aarohan 2017</string>
+    <string name="technical">Technical</string>
+    <string name="sports">Sports</string>
+    <string name="club">Club</string>
+    <string name="cultural">Cultural</string>
 </resources>

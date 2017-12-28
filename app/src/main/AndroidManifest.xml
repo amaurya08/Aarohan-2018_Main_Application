@@ -13,16 +13,31 @@
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+<<<<<<< HEAD
+=======
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+>>>>>>> 7dca809... Schedule activity done, developers page done, bottom navigation updated.
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".MapsActivity" />
+        <activity android:name=".BottomActivity">
+
+        </activity>
         <activity android:name=".YourEventsActivity" />
         <activity android:name=".ScheduleActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".ContactUsActivity" />
+<<<<<<< HEAD
         <activity android:name=".DevelopersActivity" />
+=======
+        <activity android:name=".DevelopersActivity" >
+
+        </activity>
+>>>>>>> 7dca809... Schedule activity done, developers page done, bottom navigation updated.
         <activity android:name=".AboutAarohanActivity"></activity>
     </application>
 

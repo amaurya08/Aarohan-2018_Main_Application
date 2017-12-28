@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.poornima.aarohan.aarohan2017.BottomActivity">
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_alignParentBottom="true"
+        android:background="#000000"
+        app:itemIconTint="#ffffff"
+        app:itemTextColor="#ffffff"
+        app:menu="@menu/navigation" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/navi"
+        android:id="@+id/containers">
+
+    </FrameLayout>
+
+</RelativeLayout>
