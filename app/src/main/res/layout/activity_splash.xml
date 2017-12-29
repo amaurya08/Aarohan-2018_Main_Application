@@ -4,7 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="#000"
     tools:context="org.poornima.aarohan.aarohan2017.SplashActivity">
+
+    <ProgressBar
+        android:id="@+id/splash_screen_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignTop="@+id/splash_progress"
+        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal" />
+    <TextView
+        android:id="@+id/splash_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="right"
+        android:textSize="20sp"
+        android:textColor="@color/colorAccent"
+        />
 
 </RelativeLayout>
