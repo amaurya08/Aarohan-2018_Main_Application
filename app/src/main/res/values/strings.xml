@@ -4,4 +4,5 @@
     <string name="sports">Sports</string>
     <string name="club">Club</string>
     <string name="cultural">Cultural</string>
+    <string name="title_activity_map">Map</string>
 </resources>

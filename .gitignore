@@ -7,6 +7,7 @@
 /build
 /captures
 .externalNativeBuild
+<<<<<<< Updated upstream
 
 Conversation opened. 1 read message.
 
@@ -65,6 +66,8 @@ Open in 1 other location  Details
 /build
 /captures
 .externalNativeBuild
+=======
+>>>>>>> Stashed changes
 # Built application files
 
 /*/build/
@@ -137,7 +140,11 @@ local.properties
 
 ehthumbs.db
 
+<<<<<<< Updated upstream
 Thumbs.db
 .gitignore
 Open with Google Docs
 Displaying .gitignore.
+=======
+Thumbs.db
+>>>>>>> Stashed changes
