@@ -7,67 +7,6 @@
 /build
 /captures
 .externalNativeBuild
-<<<<<<< Updated upstream
-
-Conversation opened. 1 read message.
-
-Skip to content
-Using Gmail with screen readers
-4
-Search
-
-
-in:sent 
-
-The attachment has been saved to Google Drive.  Learn more
-Gmail
-COMPOSE
-Labels
-Inbox (18)
-Starred
-Important
-Sent Mail
-Drafts (2)
-Categories
-Personal
-Travel
-More 
-Hangouts
-
- 
- 
-Move to Inbox More 
-1 of 62  
- 
-Print all In new window
-gitignore file
-
-Ashish Maurya <amaurya080197@gmail.com>
-Attachments14:56 (7 minutes ago)
-
-to Kuldeep, Mayank 
-
-Attachments area
-	
-Click here to Reply, Reply to all or Forward
-0.93 GB (6%) of 15 GB used
-Manage
-Terms - Privacy
-Last account activity: 1 minute ago
-Open in 1 other location  Details
-
-
-*.iml
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-=======
->>>>>>> Stashed changes
 # Built application files
 
 /*/build/
@@ -140,11 +79,4 @@ local.properties
 
 ehthumbs.db
 
-<<<<<<< Updated upstream
 Thumbs.db
-.gitignore
-Open with Google Docs
-Displaying .gitignore.
-=======
-Thumbs.db
->>>>>>> Stashed changes
