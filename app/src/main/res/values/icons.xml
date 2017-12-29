@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="icons">
+        <item>@drawable/menu_btn_your_events</item>
+        <item>@drawable/menu_btn_your_profile</item>
+        <item>@drawable/menu_btn_schedule</item>
+        <item>@drawable/menu_btn_map</item>
+        <item>@drawable/menu_btn_contact_us</item>
+        <item>@drawable/menu_btn_ic_developer</item>
+    </array>
+    <array name="colors">
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+        <item>#FFFFFF</item>
+    </array>
+</resources>

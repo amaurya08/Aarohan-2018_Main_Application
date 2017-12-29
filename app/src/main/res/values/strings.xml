@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Aarohan 2017</string>
+    <string name="title_activity_map">Map</string>
+    <string name="enter_your_email_here">Enter your email here</string>
+    <string name="enter_password_here">Enter your password here</string>
+    <string name="log_in">LOG IN</string>
 </resources>
