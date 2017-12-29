@@ -2,12 +2,16 @@ package org.poornima.aarohan.aarohan2017;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
-import com.imangazaliev.circlemenu.CircleMenu;
-import com.imangazaliev.circlemenu.CircleMenuButton;
+import com.ramotion.circlemenu.CircleMenuView;
+
+import pl.droidsonroids.gif.GifImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,46 +20,59 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        CircleMenuView circleMenu = findViewById(R.id.circleMenu);
+        circleMenu.setEventListener(new CircleMenuView.EventListener() {
+                                        @Override
+                                        public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int buttonIndex) {
+                                            switch(buttonIndex){
+                                                case 0:
+                                                    switchActivity(ProfileActivity.class);
+                                                    break;
+                                                case 1:
+                                                    switchActivity(YourEventsActivity.class);
+                                                    break;
+                                                case 2:
+                                                    switchActivity(ScheduleActivity.class);
+                                                    break;
+                                                case 3:
+                                                    switchActivity(MapActivity.class);
+                                                    break;
+                                                case 4:
+                                                    switchActivity(ContactUsActivity.class);
+                                                    break;
+                                                case 5:
+                                                    switchActivity(DevelopersActivity.class);
+                                                    break;
+                                                default:
+                                                    Toast.makeText(MainActivity.this, ":)", Toast.LENGTH_SHORT).show();
+                                                    break;
 
+                                            }
+                                        }
 
-        CircleMenu circleMenu = findViewById(R.id.circleMenu);
-        circleMenu.setOnItemClickListener(new CircleMenu.OnItemClickListener() {
-            @Override
-            public void onItemClick(CircleMenuButton menuButton) {
-                switch (menuButton.getId()) {
+                                        @Override
+                                        public void onMenuOpenAnimationStart(@NonNull CircleMenuView view) {
 
-                    case R.id.your_events:
-                        switchActivity(YourEventsActivity.class);
-                        break;
-                    case R.id.maps:
-                        switchActivity(MapActivity.class);
-                        break;
-                    case R.id.schedule:
-                        switchActivity(ScheduleActivity.class);
-                        break;
-                    case R.id.your_profile:
-                        switchActivity(ProfileActivity.class);
-                        break;
-                    case R.id.contact_us:
-                        switchActivity(ContactUsActivity.class);
-                        break;
-                    case R.id.developers:
-                        switchActivity(DevelopersActivity.class);
-                        break;
-                    default:
-                        Toast.makeText(MainActivity.this, "None CLicked", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-            }
-        });
+                                        }
+
+                                        @Override
+                                        public void onMenuCloseAnimationEnd(@NonNull CircleMenuView view) {
+
+                                        }
+                                    }
+
+        );
+                /*
+                }*/
     }
-    private void switchActivity(final Class myclass){
+
+    private void switchActivity(final Class myclass) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 startActivity(new Intent(MainActivity.this, myclass));
             }
-        },600);
+        }, 600);
     }
 
 }

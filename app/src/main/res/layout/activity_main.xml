@@ -8,57 +8,19 @@
     tools:context="org.poornima.aarohan.aarohan2017.MainActivity">
 
     <pl.droidsonroids.gif.GifImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="center"
-        android:src="@drawable/jarvis" />
-
-    <com.imangazaliev.circlemenu.CircleMenu
-        android:id="@+id/circleMenu"
+        android:id="@+id/center_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:scaleType="center"
+        android:src="@drawable/void_g"/>
+
+    <com.ramotion.circlemenu.CircleMenuView
+        android:id="@+id/circleMenu"
+        android:layout_width="wrap_content"
+        app:button_colors="@array/colors"
+        app:button_icons="@array/icons"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true">
-
-        <com.imangazaliev.circlemenu.CircleMenuButton
-            android:id="@+id/schedule"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/schedule"
-            app:hintText="Schedule" />
-
-        <com.imangazaliev.circlemenu.CircleMenuButton
-            android:id="@+id/your_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/your_profile"
-            app:hintText="Schedule" />
-
-        <com.imangazaliev.circlemenu.CircleMenuButton
-            android:id="@+id/your_events"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/your_events"
-            app:hintText="Schedule" />
-
-        <com.imangazaliev.circlemenu.CircleMenuButton
-            android:id="@+id/maps"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/map"
-            app:hintText="Schedule" />
-
-        <com.imangazaliev.circlemenu.CircleMenuButton
-            android:id="@+id/contact_us"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/contact_us"
-            app:hintText="Schedule" />
-
-        <com.imangazaliev.circlemenu.CircleMenuButton
-            android:id="@+id/developers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/ic_developer"
-            app:hintText="Schedule" />
-    </com.imangazaliev.circlemenu.CircleMenu>
+    </com.ramotion.circlemenu.CircleMenuView>
 </RelativeLayout>
