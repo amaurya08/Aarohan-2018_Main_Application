@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.toolbox.StringRequest;
@@ -15,11 +16,12 @@ import com.ramotion.circlemenu.CircleMenuView;
 import pl.droidsonroids.gif.GifImageView;
 
 public class MainActivity extends AppCompatActivity {
-
+private ImageView aarohan_selfi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        aarohan_selfi=(ImageView)findViewById(R.id.header);
         CircleMenuView circleMenu = findViewById(R.id.circleMenu);
         circleMenu.setEventListener(new CircleMenuView.EventListener() {
                                         @Override
@@ -62,8 +64,13 @@ public class MainActivity extends AppCompatActivity {
                                     }
 
         );
-                /*
-                }*/
+//openind camera activity
+        aarohan_selfi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),FaceFilterActivity.class));
+            }
+        });
     }
 
     private void switchActivity(final Class myclass) {
