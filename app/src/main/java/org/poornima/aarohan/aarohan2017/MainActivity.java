@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.android.volley.toolbox.StringRequest;
 import com.ramotion.circlemenu.CircleMenuView;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -19,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         CircleMenuView circleMenu = findViewById(R.id.circleMenu);
         circleMenu.setEventListener(new CircleMenuView.EventListener() {
                                         @Override
