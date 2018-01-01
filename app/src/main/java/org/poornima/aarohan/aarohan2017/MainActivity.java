@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+//switiching Activity on menu item click
     private void switchActivity(final Class myclass) {
         new Handler().postDelayed(new Runnable() {
             @Override

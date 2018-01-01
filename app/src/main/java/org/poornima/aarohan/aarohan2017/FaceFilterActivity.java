@@ -188,7 +188,7 @@ public class FaceFilterActivity extends AppCompatActivity {
 //writing the image into storage
             try {
                 FileOutputStream fos = new FileOutputStream(myImage);
-                newImage.compress(Bitmap.CompressFormat.JPEG, 80, fos);
+                newImage.compress(Bitmap.CompressFormat.JPEG, 100, fos);
                 fos.close();
             } catch (IOException e) {
                 Toast.makeText(FaceFilterActivity.this, "Pic not saved", Toast.LENGTH_SHORT).show();
@@ -197,6 +197,10 @@ public class FaceFilterActivity extends AppCompatActivity {
             Toast.makeText(FaceFilterActivity.this, "Pic saved in: " + photoPath, Toast.LENGTH_SHORT).show();
             newImage.recycle();
             cameraBitmap.recycle();
+
+            Intent i = new Intent(FaceFilterActivity.this, PicPreview.class);
+            i.putExtra("filepath", photoPath);
+            startActivity(i);
         }
     };
     //flif camera image like mirror image
@@ -257,7 +261,7 @@ public class FaceFilterActivity extends AppCompatActivity {
         mCameraSource = new CameraSource.Builder(context, detector)
                 .setRequestedPreviewSize(height, width)
                 .setFacing(CameraSource.CAMERA_FACING_FRONT)
-                .setRequestedFps(30.0f)
+                .setRequestedFps(15.0f)
                 .build();
     }
 
