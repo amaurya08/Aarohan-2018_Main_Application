@@ -3,7 +3,6 @@ package org.poornima.aarohan.aarohan2017.AarohanClasses;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.widget.Toast;
 
 /**
  * Created by HeartBeat on 31-12-2017.
