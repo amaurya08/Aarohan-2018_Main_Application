@@ -1,58 +1,19 @@
 {
   "project_info": {
-    "project_number": "198826713470",
-    "project_id": "ashish-d8870"
+    "project_number": "758732122990",
+    "project_id": "aarohan-apis"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:198826713470:android:1fd1886f6c900206",
-        "android_client_info": {
-          "package_name": "org.poornima.aarohan.checklogingoogle"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "198826713470-31oji9sooe5i0ectmut2qt79fij2uss0.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "org.poornima.aarohan.checklogingoogle",
-            "certificate_hash": "9e4865640865985d1277d9349bb429d9db740aff"
-          }
-        },
-        {
-          "client_id": "198826713470-odd64qab3vhkmo6ptqsdohao7gktanjt.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBLF2YS1HnTMVziQWzgDHYBjDY2m8F4Kk8"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 1
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:198826713470:android:c6e46c58f830b2fb",
+        "mobilesdk_app_id": "1:758732122990:android:c6e46c58f830b2fb",
         "android_client_info": {
           "package_name": "org.poornima.aarohan.aarohan2017"
         }
       },
       "oauth_client": [
         {
-          "client_id": "198826713470-c7nj65mu03frtvhi598q8vj9dv4d1p7k.apps.googleusercontent.com",
+          "client_id": "758732122990-ge7f9r4erg4qp89qdclr3chpmuoh37jo.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "org.poornima.aarohan.aarohan2017",
@@ -60,13 +21,13 @@
           }
         },
         {
-          "client_id": "198826713470-odd64qab3vhkmo6ptqsdohao7gktanjt.apps.googleusercontent.com",
+          "client_id": "758732122990-8p7q8s5g14dj2vio1em3p6ug36im4hnp.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBLF2YS1HnTMVziQWzgDHYBjDY2m8F4Kk8"
+          "current_key": "AIzaSyChE2NSuNnHcK_8igjDYHfbQ7uENQtkJpY"
         }
       ],
       "services": {
