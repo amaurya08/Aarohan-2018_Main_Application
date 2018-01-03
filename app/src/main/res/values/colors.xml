@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#00ACC1</color>
     <color name="menu_button_color">#0e91b3</color>
+    <color name="colowhite">#ffffff</color>
 
 </resources>

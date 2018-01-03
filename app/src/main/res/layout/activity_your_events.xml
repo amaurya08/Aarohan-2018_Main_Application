@@ -4,21 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/youreventback"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="40dp"
+    android:paddingTop="75dp"
     android:layout_height="match_parent"
     tools:context="org.poornima.aarohan.aarohan2017.YourEventsActivity">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="MY EVENTS"
-        android:padding="30dp"
-        android:gravity="center"
-        android:textSize="32dp"
-        android:textStyle="bold" />
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/mylist"
-        android:dividerHeight="10dp">
-    </ListView>
+        android:dividerHeight="5dp"/>
 </LinearLayout>
 

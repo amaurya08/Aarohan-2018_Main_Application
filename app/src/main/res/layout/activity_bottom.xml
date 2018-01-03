@@ -14,9 +14,9 @@
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
         android:layout_alignParentBottom="true"
-        android:background="#000000"
-        app:itemIconTint="#ffffff"
-        app:itemTextColor="#ffffff"
+        android:background="@color/menu_button_color"
+        app:itemIconTint="#000000"
+        app:itemTextColor="#000000"
         app:menu="@menu/navigation" />
     <FrameLayout
         android:layout_width="match_parent"

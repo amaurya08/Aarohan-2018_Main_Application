@@ -17,7 +17,7 @@ public class YourEventsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_events);
 
-        String[] taskname={"event 1","event 2","event 3","event 4","event 5","event 6","event 7"};
+        String[] taskname={"Event 1","Event 2","Event 3","Event 4","Event 5","Event 6","Event 7"};
         String[] date={"1/1/18","3/1/18","4/1/18","7/1/18"};
         String[] time={"t1","t2","t3","t4"};
 
