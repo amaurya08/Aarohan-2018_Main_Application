@@ -97,10 +97,11 @@ public class MainActivity extends AppCompatActivity {
                                         public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int buttonIndex) {
                                             switch (buttonIndex) {
                                                 case 0:
-                                                    switchActivity(ProfileActivity.class);
+                                                    switchActivity(YourEventsActivity.class);
                                                     break;
                                                 case 1:
-                                                    switchActivity(YourEventsActivity.class);
+                                                    switchActivity(ProfileActivity.class);
+
                                                     break;
                                                 case 2:
                                                     switchActivity(ScheduleActivity.class);

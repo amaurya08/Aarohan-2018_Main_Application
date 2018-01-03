@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="#da000000"
     android:orientation="vertical"
     android:weightSum="1"
     tools:context="org.poornima.aarohan.aarohan2017.LoginActivity">
@@ -44,12 +44,20 @@
             android:text="Resend OTP"
             android:layout_centerHorizontal="true"
             android:layout_above="@id/verify"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/countdownTimer"
+            android:layout_below="@+id/resend"
+            android:textColor="#fff"
+            android:visibility="invisible"
+            android:layout_centerHorizontal="true"/>
         <Button
             android:id="@+id/verify"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginTop="10dp"
-            android:text="Submit" />
+            android:text="Verify OTP" />
     </RelativeLayout>
 </LinearLayout>

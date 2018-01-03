@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -36,6 +37,8 @@ public class LoginActivity extends AppCompatActivity {
     private String intentEmail;
     private Button verify;
     private ProgressDialog progressDialog;
+    
+    private TextView countdownTextView;
 
 
     @Override
@@ -59,6 +62,8 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(LoginActivity.this);
         verify = findViewById(R.id.verify);
         resend = findViewById(R.id.resend);
+        
+        countdownTextView=(TextView)findViewById(R.id.countdownTimer);
     }
 
     private void methodListener() {
@@ -80,9 +85,29 @@ public class LoginActivity extends AppCompatActivity {
         resend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendOTP(intentEmail);
+                resendotp();
             }
         });
+    }
+
+    private void resendotp() {
+        resend.setVisibility(View.INVISIBLE);
+        countdownTextView.setVisibility(View.VISIBLE);
+        sendOTP(intentEmail);
+        countdown();
+    }
+
+    private void countdown() {
+        new CountDownTimer(30000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                countdownTextView.setText("Retry after: " + millisUntilFinished / 1000 +"seconds");
+            }
+            public void onFinish() {
+                resend.setVisibility(View.VISIBLE);
+                countdownTextView.setVisibility(View.INVISIBLE);
+            }
+        }.start();
     }
 
     private void checkOTP(final String text) {

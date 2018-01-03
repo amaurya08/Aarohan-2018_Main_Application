@@ -3,6 +3,7 @@ package org.poornima.aarohan.aarohan2017;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -37,6 +38,7 @@ import java.util.Map;
 public class PromptUserLogin extends AppCompatActivity {
     private com.google.android.gms.common.SignInButton loginButton;
     private TextView skipTextView;
+
     private static final int RC_SIGN_IN = 0;
     private static final String TAG = "DEBUG";
     private final static String errorNoInternet = "No Internet Access";
@@ -79,7 +81,10 @@ public class PromptUserLogin extends AppCompatActivity {
                 finish();
             }
         });
+
     }
+
+
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -204,6 +209,7 @@ public class PromptUserLogin extends AppCompatActivity {
         progressDialog = new ProgressDialog(PromptUserLogin.this);
         loginButton = findViewById(R.id.sign_in_button);
         skipTextView = findViewById(R.id.skip_text);
+
     }
 
     private void googleLogOut() {

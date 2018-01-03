@@ -1,132 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
 tools:context="org.poornima.aarohan.aarohan2017.ProfileActivity"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:gravity="center"
 android:orientation="vertical"
-android:weightSum="1">
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="0.5"
-    android:background="@drawable/backi"
-    android:orientation="vertical"
-    android:weightSum="1">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginRight="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/barcodeimg"
-        android:layout_weight="0.2"
-        android:contentDescription="TODO" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_weight="0.8"
-        android:id="@+id/myname"
-        android:text="Name"
-        android:textColor="#000"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-</LinearLayout>
-
+android:weightSum="1"
+android:background="@drawable/background_profile">
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="0dp"
-    android:layout_weight="0.5">
-    <TableLayout
-        android:layout_centerInParent="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp"
-            android:weightSum="4">
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:src="@drawable/ic_phone_android_black_24dp"/>
-            <TextView
-                android:id="@+id/phonetxt"
-                android:layout_weight="3"
-                android:paddingLeft="20dp"
-                android:text="phone no"
-                android:textSize="20sp"/>
-        </TableRow>
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp"
-            android:weightSum="4">
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:src="@drawable/ic_school_black_24dp"
-                ></ImageView>
-
-            <TextView
-                android:id="@+id/clgtxt"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="3"
-                android:paddingLeft="20dp"
-                android:text="College"
-                android:textSize="20sp"></TextView>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp"
-            android:weightSum="4">
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:src="@drawable/ic_email_black_24dp"/>
-            <TextView
-                android:id="@+id/mailtxt"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="3"
-                android:text="mail id"
-                android:paddingLeft="20dp"
-                android:textSize="20sp"/>
-        </TableRow>
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp"
-            android:weightSum="4">
-
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:src="@drawable/myprofile_person"
-                />
-            <TextView
-                android:id="@+id/gentxt"
-                android:layout_weight="3"
-                android:text="gender"
-                android:paddingLeft="20dp"
-                android:textSize="20sp"/>
-        </TableRow>
-
-
-    </TableLayout>
+    android:layout_weight="0.4">
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/demoqrcode"/>
 </RelativeLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.1">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/textfieldbackground">
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_profile_name"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignBottom="@+id/imageView1"
+            android:layout_marginStart="23dp"
+            android:layout_toEndOf="@+id/imageView1"
+            android:text="Name"
+            android:textSize="20dp"
+            android:layout_centerInParent="true"
+            android:paddingTop="10dp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.1">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/textfieldbackground">
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_profile_email"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_alignBottom="@+id/imageView2"
+            android:layout_marginStart="23dp"
+            android:layout_toEndOf="@+id/imageView2"
+            android:text="Email"
+            android:textSize="20dp"
+            android:layout_centerInParent="true"
+            android:paddingTop="10dp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.1">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/textfieldbackground">
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_profile_college"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_alignBottom="@+id/imageView3"
+            android:layout_marginStart="23dp"
+            android:layout_toEndOf="@+id/imageView3"
+            android:text="PCE"
+            android:textSize="20dp"
+            android:layout_centerInParent="true"
+            android:paddingTop="10dp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.1">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/textfieldbackground">
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_profile_name"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_alignBottom="@+id/imageView4"
+            android:layout_marginStart="23dp"
+            android:layout_toEndOf="@+id/imageView4"
+            android:text="Gender"
+            android:textSize="20dp"
+            android:layout_centerInParent="true"
+            android:paddingTop="10dp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+</LinearLayout>
 </LinearLayout>

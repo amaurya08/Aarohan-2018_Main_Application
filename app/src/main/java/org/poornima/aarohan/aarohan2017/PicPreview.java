@@ -57,7 +57,7 @@ public class PicPreview extends AppCompatActivity {
                 share.setType("image/*");
                 //  share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File("file:///assets/epic/adv.png")));
                 share.putExtra(Intent.EXTRA_STREAM, Uri.parse(Environment.getExternalStorageDirectory()+finalimagepath));
-                getApplicationContext().startActivity(Intent.createChooser(share, "Share AAROHAN-2K18 Selfie With"));
+                PicPreview.this.startActivity(Intent.createChooser(share, "Share AAROHAN-2K18 Selfie With"));
             }
         });
     }
