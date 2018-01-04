@@ -2,8 +2,14 @@ package org.poornima.aarohan.aarohan2017;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -12,47 +18,68 @@ import org.poornima.aarohan.aarohan2017.Fragments.Fragment_one;
 import org.poornima.aarohan.aarohan2017.Fragments.Fragment_three;
 import org.poornima.aarohan.aarohan2017.Fragments.Fragment_two;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BottomActivity extends AppCompatActivity {
 
-    final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    changeFragment(new Fragment_one());
-                    return true;
-                case R.id.navigation_dashboard:
-                    changeFragment(new Fragment_two());
-                    return true;
-                case R.id.navigation_notifications:
-                    changeFragment(new Fragment_three());
-                    return true;
-                case R.id.cultural:
-                    changeFragment(new Fragment_four());
-                    return true;
-            }
-            return false;
-        }
-    };
+    private TabLayout tablayout;
+    private ViewPager viewpager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom);
-        changeFragment(new Fragment_one());
 
-        BottomNavigationView navigation = findViewById(R.id.navi);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        viewpager = findViewById(R.id.viewpager);
+        setupViewPager(viewpager);
+
+        tablayout = findViewById(R.id.tabs);
+        tablayout.setupWithViewPager(viewpager);
+
+
     }
-    public void changeFragment(android.support.v4.app.Fragment fragment)
-    {
-        android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
-        android.support.v4.app.FragmentTransaction transaction=fm.beginTransaction();
-        transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
-        transaction.replace(R.id.containers,fragment);
-        transaction.commit();
 
+    public void setupViewPager(ViewPager viewpager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new Fragment_one(), "Technical");
+        adapter.addFragment(new Fragment_two(), "Club");
+        adapter.addFragment(new Fragment_three(), "Sports");
+        adapter.addFragment(new Fragment_four(), "Cultural");
+        viewpager.setAdapter(adapter);
+
+    }
+
+    class ViewPagerAdapter extends FragmentPagerAdapter {
+
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> getmFragmentTitleList = new ArrayList<>();
+
+        public ViewPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            getmFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return getmFragmentTitleList.get(position);
+        }
     }
 }
