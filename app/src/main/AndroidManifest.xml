@@ -25,11 +25,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".SplashActivity" />
         <activity android:name=".YourEventsActivity" />
@@ -38,7 +34,13 @@
         <activity android:name=".ContactUsActivity" />
         <activity android:name=".DevelopersActivity" />
         <activity android:name=".BottomActivity" />
-        <activity android:name=".AboutAarohanActivity" />
+        <activity android:name=".InfoActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".PromptUserLogin" />
         <activity android:name=".LoginActivity" />
         <!--

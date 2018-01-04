@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:weightSum="1.0"
     android:orientation="vertical"
-    tools:context="org.poornima.aarohan.aarohan2017.AboutAarohanActivity">
+    tools:context="org.poornima.aarohan.aarohan2017.InfoActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
