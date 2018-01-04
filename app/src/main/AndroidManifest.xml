@@ -37,6 +37,7 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".ContactUsActivity" />
         <activity android:name=".DevelopersActivity" />
+        <activity android:name=".BottomActivity"/>
         <activity android:name=".AboutAarohanActivity" />
         <activity android:name=".PromptUserLogin" />
         <activity android:name=".LoginActivity" />

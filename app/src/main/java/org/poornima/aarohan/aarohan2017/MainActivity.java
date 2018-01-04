@@ -52,8 +52,11 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         mGoogleSignInClient.signOut();
-        startActivity(new Intent(MainActivity.this,MainActivity.class));
+        revokeAccess();
+
     }
+
+
     private void revokeAccess() {
 
         mGoogleSignInClient.revokeAccess()
@@ -71,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if(checkSession())
                 {
                     SharedPreferences sharedPref = getSharedPreferences("aarohan", MODE_PRIVATE);
@@ -81,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
                     editor.putBoolean("is",false);
                     editor.commit();
                     googleLogOut();
-                    revokeAccess();
                 }
                 else
                 {

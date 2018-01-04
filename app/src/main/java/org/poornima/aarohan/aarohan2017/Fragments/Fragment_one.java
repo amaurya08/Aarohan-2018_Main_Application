@@ -23,7 +23,7 @@ public class Fragment_one extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
         View view=inflater.inflate(R.layout.one_frag,null);
-        final String [] events={"RoboSoccer","RoboWar","Circuitary","RoboRace","BallGripper","StairClimber"};
+        final String [] events={"RoboSoccer","RoboWar","Circuitary","RoboRace","BallGripper","StairClimber","Sputgun","WaterRocketry"};
         ListAdapter Myadapter= new CustomAdapter(getActivity(),events);
         ListView mylist = (ListView) view.findViewById(R.id.List);
         mylist.setAdapter(Myadapter);

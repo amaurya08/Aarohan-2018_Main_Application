@@ -29,7 +29,6 @@ public class YourEventsAdapter extends ArrayAdapter<String> {
         String singleevent = getItem(position);
         TextView t1;
         t1 = CustomView.findViewById(R.id.mytext1);
-        t1.setTextColor(Color.BLACK);
         t1.setText(singleevent);
         return CustomView;
     }
