@@ -5,7 +5,7 @@
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality. 
+         location permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -25,22 +25,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".SplashActivity" />
         <activity android:name=".YourEventsActivity" />
-        <activity android:name=".ScheduleActivity" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".ScheduleActivity" android:theme="@style/ThemeForActivity" />
+        <activity android:name=".ProfileActivity" android:theme="@style/ThemeForActivity"/>
         <activity android:name=".ContactUsActivity" />
         <activity android:name=".DevelopersActivity" />
-        <activity android:name=".BottomActivity" />
-        <activity android:name=".InfoActivity" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
+        <activity android:name=".ScheduleEventListActivity" />
         <activity android:name=".PromptUserLogin" />
         <activity android:name=".LoginActivity" />
         <!--
@@ -61,7 +58,7 @@
         <activity android:name=".FaceFilterActivity" />
         <activity android:name=".PicPreview" />
         <activity android:name=".WorkshopActivity" />
-        <activity android:name=".AccmodationActivity"></activity>
+        <activity android:name=".AccmodationActivity"/>
     </application>
 
 </manifest>
