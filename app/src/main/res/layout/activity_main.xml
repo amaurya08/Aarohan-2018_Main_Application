@@ -28,11 +28,11 @@
         android:weightSum="1">
 
         <ImageView
-            android:id="@+id/about"
+            android:id="@+id/selfi"
             android:layout_width="0dp"
-            android:src="@drawable/about_four_fifty"
             android:layout_height="match_parent"
-            android:layout_weight="0.5" />
+            android:layout_weight="0.5"
+            android:src="@drawable/about_four_fifty" />
 
         <ImageView
             android:id="@+id/login_logout"

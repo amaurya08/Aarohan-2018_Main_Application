@@ -19,7 +19,7 @@ import com.ramotion.circlemenu.CircleMenuView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView aarohan_selfi, imageView;
+    private ImageView  Loginlogout,aarohan_selfi;
     private  CircleMenuView circleMenu;
     private GoogleSignInClient mGoogleSignInClient;
 
@@ -32,17 +32,18 @@ public class MainActivity extends AppCompatActivity {
         methodListener();
 
         if (checkSession()) {
-            imageView.setImageDrawable(getDrawable(R.drawable.logout_four_fity));
+            Loginlogout.setImageDrawable(getDrawable(R.drawable.logout_four_fity));
         } else {
-            imageView.setImageDrawable(getDrawable(R.drawable.login_four_fifty));
+            Loginlogout.setImageDrawable(getDrawable(R.drawable.login_four_fifty));
         }
 
     }
 
     private void init() {
-        aarohan_selfi = findViewById(R.id.header);
+
+        aarohan_selfi=(ImageView)findViewById(R.id.selfi);
         circleMenu = findViewById(R.id.circleMenu);
-        imageView = findViewById(R.id.login_logout);
+        Loginlogout = findViewById(R.id.login_logout);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
     private void methodListener() {
-        imageView.setOnClickListener(new View.OnClickListener() {
+        Loginlogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -100,23 +101,22 @@ public class MainActivity extends AppCompatActivity {
                                         public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int buttonIndex) {
                                             switch (buttonIndex) {
                                                 case 0:
-                                                    switchActivity(YourEventsActivity.class);
+                                                    switchActivity(ProfileActivity.class);
                                                     break;
                                                 case 1:
-                                                    switchActivity(ProfileActivity.class);
-
+                                                    switchActivity(ScheduleActivity.class);
                                                     break;
                                                 case 2:
-                                                    switchActivity(ScheduleActivity.class);
+                                                  switchActivity(WorkshopActivity.class);
                                                     break;
                                                 case 3:
                                                     switchActivity(MapActivity.class);
                                                     break;
                                                 case 4:
-                                                    switchActivity(ContactUsActivity.class);
+                                                    switchActivity(AccmodationActivity.class);
                                                     break;
                                                 case 5:
-                                                    switchActivity(DevelopersActivity.class);
+                                                //    switchActivity(InfoActivity.class);
                                                     break;
                                                 default:
                                                     Toast.makeText(MainActivity.this, ":)", Toast.LENGTH_SHORT).show();
