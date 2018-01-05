@@ -36,7 +36,7 @@
         <activity android:name=".ContactUsActivity" />
         <activity android:name=".ScheduleEventListActivity" />
         <activity android:name=".PromptUserLogin" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".OTPActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -55,6 +55,8 @@
         <activity android:name=".FaceFilterActivity" />
         <activity android:name=".PicPreview" />
         <activity android:name=".WorkshopActivity" />
+        <activity android:name=".AccmodationActivity" />
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".AccmodationActivity"/>
         <activity android:name=".InfoActivity"/>
     </application>

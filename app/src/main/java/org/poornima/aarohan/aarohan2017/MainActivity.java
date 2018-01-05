@@ -44,33 +44,8 @@ public class MainActivity extends AppCompatActivity {
         aarohan_selfi=(ImageView)findViewById(R.id.selfi);
         circleMenu = findViewById(R.id.circleMenu);
         Loginlogout = findViewById(R.id.login_logout);
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-    }
-    private void googleLogOut() {
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .build();
-        GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        mGoogleSignInClient.signOut();
-        revokeAccess();
-
     }
 
-
-    private void revokeAccess() {
-
-        mGoogleSignInClient.revokeAccess()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(MainActivity.this, "Have A Good Day :)", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainActivity.this,MainActivity.class));
-                        finish();
-
-                    }
-                });
-    }
     private void methodListener() {
         Loginlogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     editor.putString("otp","");
                     editor.putString("sid","");
                     editor.putBoolean("is",false);
-                    editor.commit();
-                    googleLogOut();
+                    editor.apply();
                 }
                 else
                 {

@@ -3,36 +3,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#f21a1818"
+    android:orientation="vertical"
+    android:weightSum="1"
     tools:context="org.poornima.aarohan.aarohan2017.PromptUserLogin">
 
 
     <RelativeLayout
-        android:layout_weight="0.5"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="0.4" />
+
     <RelativeLayout
-        android:layout_weight="0.5"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <com.google.android.gms.common.SignInButton
+        android:layout_height="0dp"
+        android:layout_weight="0.6">
+
+        <Button
             android:id="@+id/sign_in_button"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="110dp"
-            android:foregroundGravity=""
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:text="Sign in With Email" />
+
         <TextView
-            android:id="@+id/skip_text"
-            android:layout_below="@+id/sign_in_button"
-            android:layout_marginTop="20dp"
+            android:id="@+id/or_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/sign_in_button"
             android:layout_centerHorizontal="true"
-            android:text="SKIP"
+            android:layout_marginTop="5dp"
+            android:text="Or"
             android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/or_text"
+            android:layout_marginTop="5dp"
+            android:text="Register with Aarohan" />
+
+        <TextView
+            android:id="@+id/skip_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/register_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Skip" />
     </RelativeLayout>
 
 
