@@ -2,13 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#bf000000"
-    tools:context="org.poornima.aarohan.aarohan2017.Fragments.Fragment_Profile_events">
+    tools:context="org.poornima.aarohan.aarohan2017.Fragments.Fragment_Profile_workshop">
 
-    <ListView
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/myeventlistview"
-        android:dividerHeight="5dp"/>
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>

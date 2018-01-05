@@ -8,13 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.support.v7.widget.Toolbar;
-import android.webkit.WebView;
-import android.widget.TextView;
-
 import org.poornima.aarohan.aarohan2017.Fragments.Frag_AboutAarohan;
-import org.poornima.aarohan.aarohan2017.Fragments.Frag_Contactus;
-import org.poornima.aarohan.aarohan2017.Fragments.Frag_Developers;
+import org.poornima.aarohan.aarohan2017.Fragments.Frag_OurTeam;
 import org.poornima.aarohan.aarohan2017.Fragments.Frag_Sponsers;
 
 import java.util.ArrayList;
@@ -39,8 +34,7 @@ public class InfoActivity extends AppCompatActivity {
         ViewPagerAdapter adapter =new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new Frag_AboutAarohan(),"About");
         adapter.addFragment(new Frag_Sponsers(),"Sponsers");
-        adapter.addFragment(new Frag_Contactus(),"Contact Us");
-        adapter.addFragment(new Frag_Developers(),"Developers");
+        adapter.addFragment(new Frag_OurTeam(),"Our Team");
         viewpager.setAdapter(adapter);
 
     }

@@ -9,14 +9,14 @@ import android.widget.TextView;
 
 public class SplashActivity extends AppCompatActivity {
     private ProgressBar mProgress;
-    TextView splash_prog;
+  //  TextView splash_prog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         mProgress = (ProgressBar) findViewById(R.id.splash_screen_progress_bar);
-        splash_prog = (TextView) findViewById(R.id.splash_progress);
+       // splash_prog = (TextView) findViewById(R.id.splash_progress);
 
 
         new Thread(new Runnable() {
@@ -33,8 +33,8 @@ public class SplashActivity extends AppCompatActivity {
         for (int progress = 0; progress < 100; progress += 1) {
             try {
                 Thread.sleep(30);
-                splash_prog.setText("Loading..." + String.valueOf(progress) + "%");
-                mProgress.setProgress(progress);
+              /*  splash_prog.setText(String.valueOf(progress) + "%");
+                mProgress.setProgress(progress);*/
             } catch (Exception e) {
                 e.printStackTrace();
             }
