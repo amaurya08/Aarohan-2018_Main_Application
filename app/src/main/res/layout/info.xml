@@ -16,7 +16,10 @@
     android:id="@+id/tabs"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:tabMode="fixed"
+    android:background="#000000"
+    android:foregroundTint="@color/menu_button_color"
+    app:tabMode="scrollable"
+    app:tabTextColor="@color/menu_button_color"
     app:tabGravity="fill"/>
 
         </android.support.design.widget.AppBarLayout>
