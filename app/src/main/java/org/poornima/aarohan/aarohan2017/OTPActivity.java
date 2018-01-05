@@ -39,7 +39,6 @@ public class OTPActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private TextView countdownTextView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,11 +135,21 @@ public class OTPActivity extends AppCompatActivity {
                     HashMap<String, String> map = new HashMap<>();
                     map.put("email", intentEmail);
                     map.put("otp", text);
+                    map.put("type","STUDENT");
                     return map;
                 }
             };
+            stringRequest.setRetryPolicy(
+                    new DefaultRetryPolicy(
+                            10000,
+                            DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                            DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+                    )
+            );
             RequestQueue queue = Volley.newRequestQueue(OTPActivity.this);
             queue.add(stringRequest);
+            /*RequestQueue queue = Volley.newRequestQueue(OTPActivity.this);
+            queue.add(stringRequest);*/
 
         } catch (Exception e) {
             Log.d(TAG, "" + e.toString());
@@ -196,6 +205,7 @@ public class OTPActivity extends AppCompatActivity {
                 protected Map<String, String> getParams() throws AuthFailureError {
                     HashMap<String, String> map = new HashMap<>();
                     map.put("email", intentEmail);
+                    map.put("type","STUDENT");
                     return map;
                 }
             };

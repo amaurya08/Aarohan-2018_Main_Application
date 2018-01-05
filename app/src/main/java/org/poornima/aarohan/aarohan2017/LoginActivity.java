@@ -11,10 +11,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,6 +28,7 @@ import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 private Button submit;
+public static final String TAG = "DEBUG";
 private EditText emailEditText;
 private ProgressDialog progressDialog;
 
@@ -40,6 +44,7 @@ private ProgressDialog progressDialog;
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG,"Verifying EMail");
                 progressDialog.show();
                 verifyEmail(emailEditText.getText().toString());
             }
@@ -55,10 +60,12 @@ private ProgressDialog progressDialog;
     }
     private void verifyEmail(final String s) {
         try{
+            Log.d(TAG,"Request Sent");
             StringRequest request = new StringRequest(Request.Method.POST, URLHelper.verifyEmail, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     progressDialog.cancel();
+                    Log.d(TAG,"Response Recieved");
                     verifyParseString(response,s);
                 }
             }, new Response.ErrorListener() {
@@ -73,15 +80,24 @@ private ProgressDialog progressDialog;
                 protected Map<String, String> getParams() throws AuthFailureError {
                     HashMap <String,String> map = new HashMap<>();
                     map.put("email",s);
-
+                    map.put("type","STUDENT");
                     return map;
                 }
-            }
-                    ;
+            };
+            request.setRetryPolicy(
+                    new DefaultRetryPolicy(
+                            10000,
+                            DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                            DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+                    )
+            );
+            RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+            queue.add(request);
         }
         catch(Exception e){
             
         }
+
     }
 
     private void verifyParseString(String response,String s) {

@@ -1,5 +1,6 @@
 package org.poornima.aarohan.aarohan2017;
-
+//TODO SPlash Activity
+//intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
