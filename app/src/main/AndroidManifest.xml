@@ -24,22 +24,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SplashActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".YourEventsActivity" />
-        <activity android:name=".ScheduleActivity" android:theme="@style/ThemeForActivity" />
-        <activity android:name=".ProfileActivity" android:theme="@style/ThemeForActivity"/>
+        <activity
+            android:name=".ScheduleActivity"
+            android:theme="@style/ThemeForActivity" />
+        <activity
+            android:name=".ProfileActivity"
+            android:theme="@style/ThemeForActivity" />
         <activity android:name=".ContactUsActivity" />
         <activity android:name=".DevelopersActivity" />
         <activity android:name=".ScheduleEventListActivity" />
         <activity android:name=".PromptUserLogin" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".OTPActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -58,7 +62,8 @@
         <activity android:name=".FaceFilterActivity" />
         <activity android:name=".PicPreview" />
         <activity android:name=".WorkshopActivity" />
-        <activity android:name=".AccmodationActivity"/>
+        <activity android:name=".AccmodationActivity" />
+        <activity android:name=".LoginActivity"></activity>
     </application>
 
 </manifest>
