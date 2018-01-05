@@ -11,6 +11,7 @@ import android.os.Bundle;
 
 import org.poornima.aarohan.aarohan2017.Fragments.Fragment_Profile_Barcode;
 import org.poornima.aarohan.aarohan2017.Fragments.Fragment_Profile_events;
+import org.poornima.aarohan.aarohan2017.Fragments.Fragment_Profile_workshop;
 import org.poornima.aarohan.aarohan2017.Fragments.Fragment_four;
 import org.poornima.aarohan.aarohan2017.Fragments.Fragment_one;
 import org.poornima.aarohan.aarohan2017.Fragments.Fragment_three;
@@ -38,8 +39,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewpager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Fragment_Profile_Barcode(), "My BarCode");
+        adapter.addFragment(new Fragment_Profile_Barcode(), "My Profile");
         adapter.addFragment(new Fragment_Profile_events(), "My Events");
+        adapter.addFragment(new Fragment_Profile_workshop(), "My Workshops");
         viewpager.setAdapter(adapter);
     }
     class ViewPagerAdapter extends FragmentPagerAdapter {

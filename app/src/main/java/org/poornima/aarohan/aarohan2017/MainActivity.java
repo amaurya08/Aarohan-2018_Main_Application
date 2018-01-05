@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                                                     switchActivity(AccmodationActivity.class);
                                                     break;
                                                 case 5:
-                                                //    switchActivity(InfoActivity.class);
+                                                   switchActivity(InfoActivity.class);
                                                     break;
                                                 default:
                                                     Toast.makeText(MainActivity.this, ":)", Toast.LENGTH_SHORT).show();

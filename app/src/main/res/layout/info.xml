@@ -3,24 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-     <android.support.design.widget.AppBarLayout
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    android:id="@+id/appbar"
-    >
-        
-            <android.support.design.widget.TabLayout
-    android:id="@+id/tabs"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:tabMode="fixed"
-    app:tabGravity="fill"/>
+    android:layout_height="match_parent">
 
-        </android.support.design.widget.AppBarLayout>
-     <android.support.v4.view.ViewPager
+     <android.support.design.widget.AppBarLayout
+      android:layout_height="wrap_content"
+      android:layout_width="match_parent"
+      android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+      android:id="@+id/appbar">
+      <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@android:color/white"
+        app:tabIndicatorHeight="2dp"
+        app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+        app:tabSelectedTextColor="@android:color/holo_green_dark"
+        app:tabTextColor="@android:color/white" />
+    </android.support.design.widget.AppBarLayout>
+
+     
+
+ <android.support.v4.view.ViewPager
 android:id="@+id/viewpager"
 android:layout_width="match_parent"
 android:layout_height="match_parent"

@@ -13,10 +13,10 @@ import org.poornima.aarohan.aarohan2017.R;
  * Created by ADMIN on 04-Jan-18.
  */
 
-public class Frag_Contactus extends Fragment {
+public class Frag_OurTeam extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        View customview = inflater.inflate(R.layout.frag_contactus, container, false);
+        View customview = inflater.inflate(R.layout.frag_ourteam, container, false);
         return  customview;
     }
 }
