@@ -1,11 +1,13 @@
 package org.poornima.aarohan.aarohan2017;
 //TODO SPlash Activity
 //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -26,23 +28,23 @@ import org.poornima.aarohan.aarohan2017.Tables.TableSponserDetails;
 
 public class SplashActivity extends AppCompatActivity {
     private ProgressBar mProgress;
-  //  TextView splash_prog;
+    //  TextView splash_prog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        mProgress=findViewById(R.id.splash_screen_progress_bar);
+        mProgress = findViewById(R.id.splash_screen_progress_bar);
         mProgress.setVisibility(View.VISIBLE);
         loadSponsersDetails();
     }
+
     private void loadSponsersDetails() {
-        try{
-            StringRequest stringRequest=new StringRequest(Request.Method.GET, URLHelper.getsponsorsDetails, new Response.Listener<String>() {
+        try {
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, URLHelper.getsponsorsDetails, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     try {
-                        //TODO parse the response
                         parseSponserDetail(response);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -56,31 +58,41 @@ public class SplashActivity extends AppCompatActivity {
             });
             RequestQueue queue = Volley.newRequestQueue(SplashActivity.this);
             queue.add(stringRequest);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     private void parseSponserDetail(String response) throws JSONException {
-        JSONObject jsonObject=new JSONObject(response);
+
+        JSONObject jsonObject = new JSONObject(response);
         String error = jsonObject.getString("error");
-        if (error.equals(false)){
-            JSONArray jsonArray=jsonObject.getJSONArray("message");
-            for (int i=0;i<jsonArray.length();i++){
-                JSONObject jsonObjectNode=jsonArray.getJSONObject(i);
-                String sponser_name=jsonObjectNode.getString("spons_name");
-                String sponser_image_url=jsonObjectNode.getString("spons_img_location");
-                ContentValues cv=new ContentValues();
-                cv.put(TableSponserDetails.SNAME,sponser_name);
-                cv.put(TableSponserDetails.SURL,sponser_image_url);
-                DatabaseHelper db=new DatabaseHelper(SplashActivity.this);
-                TableSponserDetails.insert(db.getWritableDatabase(),cv);
+        Log.d("DEBUG",""+error);
+
+        if(error.equals("false"))
+        {
+            JSONArray jsonArray = new JSONArray(jsonObject.getString("message"));
+            Log.d("DEBUG",jsonArray.toString());
+
+            DatabaseHelper db = new DatabaseHelper(SplashActivity.this);
+            TableSponserDetails.deleteTableData(db.getWritableDatabase(),"delete from "+TableSponserDetails.TABLE_NAME);
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectNode = jsonArray.getJSONObject(i);
+                String sponser_name = jsonObjectNode.getString("spons_name");
+                String sponser_image_url = jsonObjectNode.getString("spons_img_location");
+                ContentValues cv = new ContentValues();
+                cv.put(TableSponserDetails.SNAME, sponser_name);
+                cv.put(TableSponserDetails.SURL, sponser_image_url);
+
+                  TableSponserDetails.insert(db.getWritableDatabase(), cv);
+
             }
         }
         else{
-            //TODO show error
+            Toast.makeText(this, "Dataarsing error", Toast.LENGTH_SHORT);
         }
-        mProgress.setVisibility(View.INVISIBLE);
+         mProgress.setVisibility(View.INVISIBLE);
         startApp();
     }
 
@@ -98,6 +110,7 @@ public class SplashActivity extends AppCompatActivity {
             finish();
         }
     }
+
     public Boolean checkSession() {
         SharedPreferences sharedPref = getSharedPreferences("aarohan", MODE_PRIVATE);
         if (sharedPref.getBoolean("is", false))

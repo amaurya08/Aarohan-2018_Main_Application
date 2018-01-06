@@ -14,7 +14,7 @@ public class TableSponserDetails {
     public final static String SNAME = "sname";
     public final static String SURL = "surl";
 
-    private final static String createTable ="CREATE TABLE `` (\n" +
+    private final static String createTable ="CREATE TABLE `SponserDetails` (\n" +
             "\t`id`\tINTEGER PRIMARY KEY AUTOINCREMENT,\n" +
             "\t`sname`\tTEXT,\n" +
             "\t`surl`\tTEXT\n" +
@@ -22,6 +22,9 @@ public class TableSponserDetails {
     public static void createTable(SQLiteDatabase db) {
         db.execSQL(createTable);
         Log.d("DATABASE", "Table Created");
+    }
+    public  static void deleteTableData(SQLiteDatabase db,String query){
+        db.execSQL(query);
     }
 
     public static long insert(SQLiteDatabase db, ContentValues cv) {

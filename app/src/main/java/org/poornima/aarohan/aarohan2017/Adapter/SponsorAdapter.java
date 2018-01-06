@@ -12,24 +12,25 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.poornima.aarohan.aarohan2017.Pojo.sponserPojo;
 import org.poornima.aarohan.aarohan2017.R;
+
+import java.util.ArrayList;
 
 /**
  * Created by kuldeep on 04-01-2018.
  */
 
 
-public class SponsorAdapter extends ArrayAdapter<String> {
-
-    private String[] SponserName;
-    private String[] SponserLogoUrl;
+public class SponsorAdapter extends ArrayAdapter{
 
 
-    public SponsorAdapter(Context context, String[] SponserName, String[] SponserLogoUrl)
+  private ArrayList arraylist;
+
+    public SponsorAdapter(Context context,ArrayList<sponserPojo> objects)
     {
-        super(context, R.layout.sponser_list_row, SponserName);
-        this.SponserName=SponserName;
-        this.SponserLogoUrl=SponserLogoUrl;
+        super(context, R.layout.sponser_list_row, objects);
+        arraylist=objects;
     }
     @NonNull
     @Override
@@ -37,12 +38,13 @@ public class SponsorAdapter extends ArrayAdapter<String> {
     {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
         View CustomView = layoutInflater.inflate(R.layout.sponser_list_row, parent, false);
+        sponserPojo sp= (sponserPojo) arraylist.get(position);
 
-        ((TextView)CustomView.findViewById(R.id.name_sponser)).setText(SponserName[position]);
+        ((TextView)CustomView.findViewById(R.id.name_sponser)).setText(sp.getSponserName());
        ImageView sponserlogImageView= (ImageView)CustomView.findViewById(R.id.image_sponser);
 
         Picasso.with(getContext())
-                .load(SponserLogoUrl[position])
+                .load(sp.getSponserUrl())
                 .placeholder(R.drawable.placeholder)
                .error(R.drawable.error)
                 .resize(600,200)
