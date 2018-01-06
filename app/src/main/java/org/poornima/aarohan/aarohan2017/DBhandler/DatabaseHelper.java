@@ -5,10 +5,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class DBprofile extends SQLiteOpenHelper
+public class DatabaseHelper extends SQLiteOpenHelper
 {
-    public  DBprofile(Context context){
-        super(context,"profile.db",null,1);
+    public DatabaseHelper(Context context){
+        super(context,"aarohanDb.db",null,1);
     }
 
     @Override
@@ -20,4 +20,5 @@ public class DBprofile extends SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
 }
