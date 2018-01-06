@@ -1,24 +1,17 @@
 <resources>
     <string name="app_name">Aarohan 2017</string>
-    <string name="technical">Technical</string>
-    <string name="sports">Sports</string>
-    <string name="club">Club</string>
-    <string name="cultural">Cultural</string>
     <string name="dummy">On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.
 </string>
     <string name="title_activity_map">Map</string>
-    <string name="enter_your_email_here">Enter your email here</string>
-    <string name="enter_password_here">Enter your password here</string>
-    <string name="log_in">LOG IN</string>
 
 
     <string name="ok">OK</string>
     <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
     <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
-    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ashish_maurya">ashish maurya</string>
 
 
 </resources>
