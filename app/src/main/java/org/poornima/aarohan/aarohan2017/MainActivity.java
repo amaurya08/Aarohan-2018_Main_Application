@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -38,8 +40,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView  Loginlogout,aarohan_selfi;
-    private  CircleMenuView circleMenu;
+    private ImageView Loginlogout, aarohan_selfi;
+    private CircleMenuView circleMenu;
     private GoogleSignInClient mGoogleSignInClient;
 
     @Override
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
-                Log.d("DEBUG","response recieved");
+                Log.d("DEBUG", "response recieved");
                 parseProfile(response);
             }
         }, new Response.ErrorListener() {
@@ -73,28 +75,29 @@ public class MainActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String,String> map = new HashMap<>();
+                HashMap<String, String> map = new HashMap<>();
                 SharedPreferences sharedPref = getSharedPreferences("aarohan", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
-                String emailprof = sharedPref.getString("email","");
-                String otpprof = sharedPref.getString("otp","");
-                map.put("email",emailprof);
-                map.put("otp",otpprof);
+                String emailprof = sharedPref.getString("email", "");
+                String otpprof = sharedPref.getString("otp", "");
+                map.put("email", emailprof);
+                map.put("otp", otpprof);
                 return map;
             }
         };
         RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
         queue.add(request);
     }
+
     private void parseProfile(String response) {
         try {
 
             JSONObject jsonObject = new JSONObject(response);
             String error = jsonObject.getString("error");
-            if(error.equals("false")){
+            if (error.equals("false")) {
                 String message = jsonObject.getString("message");
                 JSONArray jsonArray = new JSONArray(message);
                 JSONObject jsonObject1 = jsonArray.getJSONObject(0);
@@ -102,20 +105,19 @@ public class MainActivity extends AppCompatActivity {
                 String stu_email = jsonObject1.getString("stu_email");
                 String stu_college = jsonObject1.getString("stu_college");
                 String stu_reg_no = jsonObject1.getString("stu_reg_no");
-                String stu_name= jsonObject1.getString("stu_name");
+                String stu_name = jsonObject1.getString("stu_name");
                 String stu_contact = jsonObject1.getString("stu_contact");
                 ContentValues cv = new ContentValues();
-                cv.put(ProfileTable.Col_mail,stu_email);
-                cv.put(ProfileTable.Col_college,stu_college);
-                cv.put(ProfileTable.Col_mobileno,stu_contact);
-                cv.put(ProfileTable.Col_rid,stu_reg_no);
-                cv.put(ProfileTable.Col_name,stu_name);
-                DatabaseHelper db =new DatabaseHelper(MainActivity.this);
-                long x=ProfileTable.insertDetails(db.getWritableDatabase(),cv);
-                Log.d("Debug",""+x);
+                cv.put(ProfileTable.Col_mail, stu_email);
+                cv.put(ProfileTable.Col_college, stu_college);
+                cv.put(ProfileTable.Col_mobileno, stu_contact);
+                cv.put(ProfileTable.Col_rid, stu_reg_no);
+                cv.put(ProfileTable.Col_name, stu_name);
+                DatabaseHelper db = new DatabaseHelper(MainActivity.this);
+                long x = ProfileTable.insertDetails(db.getWritableDatabase(), cv);
+                Log.d("Debug", "" + x);
                 Toast.makeText(MainActivity.this, "Valid Profile", Toast.LENGTH_SHORT).show();
-            }
-            else{
+            } else {
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -125,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
 
-        aarohan_selfi=(ImageView)findViewById(R.id.selfi);
+        aarohan_selfi = (ImageView) findViewById(R.id.selfi);
         circleMenu = findViewById(R.id.circleMenu);
         Loginlogout = findViewById(R.id.login_logout);
     }
@@ -134,22 +136,20 @@ public class MainActivity extends AppCompatActivity {
         Loginlogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if(checkSession())
-                {
+                if (checkSession()) {
+                    logout();
                     SharedPreferences sharedPref = getSharedPreferences("aarohan", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString("email","");
-                    editor.putString("otp","");
-                    editor.putString("sid","");
-                    editor.putBoolean("is",false);
+                    editor.putString("email", "");
+                    editor.putString("otp", "");
+                    editor.putString("sid", "");
+                    editor.putBoolean("is", false);
                     editor.apply();
-                    DatabaseHelper db=new DatabaseHelper(MainActivity.this);
-                    ProfileTable.clearProfile(db.getWritableDatabase(),"delete from "+ProfileTable.tablename);
-                }
-                else
-                {
-                    startActivity(new Intent(MainActivity.this,PromptUserLogin.class));
+                    DatabaseHelper db = new DatabaseHelper(MainActivity.this);
+                    ProfileTable.clearProfile(db.getWritableDatabase(), "delete from " + ProfileTable.tablename);
+
+                } else {
+                    startActivity(new Intent(MainActivity.this, PromptUserLogin.class));
                     finish();
                 }
             }
@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
                                                     switchActivity(ScheduleActivity.class);
                                                     break;
                                                 case 2:
-                                                  switchActivity(WorkshopActivity.class);
+                                                    switchActivity(WorkshopActivity.class);
                                                     break;
                                                 case 3:
                                                     switchActivity(MapActivity.class);
@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
                                                     switchActivity(AccmodationActivity.class);
                                                     break;
                                                 case 5:
-                                                   switchActivity(InfoActivity.class);
+                                                    switchActivity(InfoActivity.class);
                                                     break;
                                                 default:
                                                     Toast.makeText(MainActivity.this, ":)", Toast.LENGTH_SHORT).show();
@@ -205,7 +205,50 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-//switiching Activity on menu item click
+
+    private void logout() {
+        try {
+            Log.d("DEBUG", "Request Sent");
+            StringRequest request = new StringRequest(Request.Method.POST, URLHelper.logOut, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Log.d("DEBUG", "Response Recieved");
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.d("TAG", error + "");
+                    Toast.makeText(MainActivity.this, "" + error, Toast.LENGTH_SHORT).show();
+                }
+            }) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    HashMap<String, String> map = new HashMap<>();
+                    SharedPreferences sharedPref = getSharedPreferences("aarohan", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    String emailprof = sharedPref.getString("email", "");
+                    String otpprof = sharedPref.getString("otp", "");
+                    map.put("email",emailprof);
+                    map.put("otp",otpprof);
+                    map.put("type","STUDENT");
+                    return map;
+                }
+            };
+            request.setRetryPolicy(
+                    new DefaultRetryPolicy(
+                            10000,
+                            DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                            DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+                    )
+            );
+            RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+            queue.add(request);
+        } catch (Exception e) {
+
+        }
+
+    }
+    //switiching Activity on menu item click
     private void switchActivity(final Class myclass) {
         new Handler().postDelayed(new Runnable() {
             @Override
