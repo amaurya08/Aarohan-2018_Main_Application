@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -56,6 +57,14 @@ public class SplashActivity extends AppCompatActivity {
                     Toast.makeText(SplashActivity.this, "Error in loding sponsers", Toast.LENGTH_SHORT).show();
                 }
             });
+            stringRequest.setRetryPolicy(
+                    new DefaultRetryPolicy(
+                            10000,
+                            DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                            DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+                    )
+            );
+
             RequestQueue queue = Volley.newRequestQueue(SplashActivity.this);
             queue.add(stringRequest);
         } catch (Exception e) {
