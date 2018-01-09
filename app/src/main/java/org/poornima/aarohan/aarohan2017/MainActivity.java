@@ -34,6 +34,8 @@ import org.json.JSONObject;
 import org.poornima.aarohan.aarohan2017.AarohanClasses.URLHelper;
 import org.poornima.aarohan.aarohan2017.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2017.Tables.ProfileTable;
+import org.poornima.aarohan.aarohan2017.Tables.TableMyeventsDetails;
+import org.poornima.aarohan.aarohan2017.Tables.TableSponserDetails;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,13 +53,74 @@ public class MainActivity extends AppCompatActivity {
 
         init();
         profileAPI();
-
         methodListener();
-
+        profileMyeventAPI();
         if (checkSession()) {
             Loginlogout.setImageDrawable(getDrawable(R.drawable.logout_four_fity));
         } else {
             Loginlogout.setImageDrawable(getDrawable(R.drawable.login_four_fifty));
+        }
+    }
+    private void profileMyeventAPI() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URLHelper.studenteventdetails, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    parsestudenteventDetail(response);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MainActivity.this, "Error in loding myevents", Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> map = new HashMap<>();
+                SharedPreferences sharedPref = getSharedPreferences("aarohan", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                String emailprof = sharedPref.getString("email", "");
+                String otpprof = sharedPref.getString("otp", "");
+                map.put("email", emailprof);
+                map.put("otp", otpprof);
+                map.put("type","STUDENT");
+                return map;
+            }
+        };
+        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+        queue.add(stringRequest);
+    }
+    private void parsestudenteventDetail(String response) throws JSONException {
+        JSONObject jsonObject = new JSONObject(response);
+        String error = jsonObject.getString("error");
+        Log.d("DEBUG", "" + error);
+
+        if (error.equals("false")) {
+            JSONArray jsonArray = new JSONArray(jsonObject.getString("message"));
+            Log.d("DEBUG", jsonArray.toString());
+
+            DatabaseHelper db = new DatabaseHelper(MainActivity.this);
+            TableMyeventsDetails.deleteTableData(db.getWritableDatabase(), "delete from " + TableMyeventsDetails.TABLE_NAME);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectNode = jsonArray.getJSONObject(i);
+                String event_name = jsonObjectNode.getString("event_name");
+                String event_time = jsonObjectNode.getString("event_time");
+                String event_date = jsonObjectNode.getString("event_date");
+                String event_map_coordinates_long = jsonObjectNode.getString("event_map_coordinates_long");
+                String event_map_coordinates_latt = jsonObjectNode.getString("event_map_coordinates_latt");
+                ContentValues cv = new ContentValues();
+                cv.put(TableMyeventsDetails.Col_eventname, event_name);
+                cv.put(TableMyeventsDetails.Col_eventtime, event_time);
+                cv.put(TableMyeventsDetails.Col_eventdate, event_date);
+                cv.put(TableMyeventsDetails.Col_eventmaplong, event_map_coordinates_long);
+                cv.put(TableMyeventsDetails.Col_eventmaplati, event_map_coordinates_latt);
+                long j=TableMyeventsDetails.insertDetails(db.getWritableDatabase(), cv);
+Log.d("DEBUG","DATA INSERTED"+j);
+
+            }
         }
     }
 
@@ -122,8 +185,6 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
-
     private void init() {
 
         aarohan_selfi = (ImageView) findViewById(R.id.selfi);

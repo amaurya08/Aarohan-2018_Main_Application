@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import org.poornima.aarohan.aarohan2017.Tables.ProfileTable;
+import org.poornima.aarohan.aarohan2017.Tables.TableMyeventsDetails;
 import org.poornima.aarohan.aarohan2017.Tables.TableSponserDetails;
 
 public class DatabaseHelper extends SQLiteOpenHelper
@@ -20,7 +21,9 @@ public class DatabaseHelper extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db) {
         TableSponserDetails.createTable(db);
+        TableMyeventsDetails.createTable(db);
         ProfileTable.createTable(db);
+
 
     }
 

@@ -11,4 +11,5 @@ public class URLHelper {
     public static final String  logOut="http://aarohan.poornima.org/api/logout";
     public static final String  getsponsorsDetails="http://aarohan.poornima.org/api/sponsors";
     public static final String  ProfileData="http://aarohan.poornima.org/api/student-profile";
+    public static final String  studenteventdetails="http://aarohan.poornima.org/api/student-event-details";
 }

@@ -20,6 +20,7 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 import org.poornima.aarohan.aarohan2017.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2017.R;
 import org.poornima.aarohan.aarohan2017.Tables.ProfileTable;
+import org.poornima.aarohan.aarohan2017.Tables.TableMyeventsDetails;
 
 
 public class Fragment_Profile_Barcode extends Fragment {
