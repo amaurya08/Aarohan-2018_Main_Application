@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Loginlogout.setImageDrawable(getDrawable(R.drawable.login_four_fifty));
         }
-
     }
 
     private void profileAPI() {

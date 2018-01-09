@@ -77,7 +77,6 @@ public class ProfileActivity extends AppCompatActivity {
         }
         @Override
         public int getCount() {
-
             return mFragmentList.size();
         }
         public void addFragment(Fragment fragment, String title) {
