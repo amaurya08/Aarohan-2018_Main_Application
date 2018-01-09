@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -21,11 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.ramotion.circlemenu.CircleMenuView;
 
 import org.json.JSONArray;
@@ -35,7 +30,6 @@ import org.poornima.aarohan.aarohan2017.AarohanClasses.URLHelper;
 import org.poornima.aarohan.aarohan2017.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2017.Tables.ProfileTable;
 import org.poornima.aarohan.aarohan2017.Tables.TableMyeventsDetails;
-import org.poornima.aarohan.aarohan2017.Tables.TableSponserDetails;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         init();
         profileAPI();
         methodListener();
@@ -325,4 +318,11 @@ Log.d("DEBUG","DATA INSERTED"+j);
             return false;
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+    }
 }
+
