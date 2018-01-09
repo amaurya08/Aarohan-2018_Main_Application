@@ -155,7 +155,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         circleMenu.setEventListener(new CircleMenuView.EventListener() {
                                         @Override
                                         public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int buttonIndex) {

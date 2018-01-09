@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://H:\AndroidStudioProjects\AarohanApplication\Aarohan.iml" filepath="H:\AndroidStudioProjects\AarohanApplication\Aarohan.iml" />
       <module fileurl="file://$PROJECT_DIR$/AarohanApplication.iml" filepath="$PROJECT_DIR$/AarohanApplication.iml" />
-      <module fileurl="file://D:\Project&amp;work\Android\AndroidStudioProjects\Aarohan\AarohanApplication.iml" filepath="D:\Project&amp;work\Android\AndroidStudioProjects\Aarohan\AarohanApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

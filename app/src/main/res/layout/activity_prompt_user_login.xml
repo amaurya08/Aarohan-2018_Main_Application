@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f21a1818"
-    android:orientation="vertical"
-    android:weightSum="1"
     tools:context="org.poornima.aarohan.aarohan2017.PromptUserLogin">
 
+<!--
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -55,5 +55,6 @@
             android:text="Skip" />
     </RelativeLayout>
 
+-->
 
-</LinearLayout>
+</FrameLayout>

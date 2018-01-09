@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#da000000"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:id="@+id/first_half"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/source"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/second_half"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+        <EditText
+            android:id="@+id/otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter OTP Here"
+            android:gravity="center"
+            android:layout_above="@id/resend"
+            android:layout_marginBottom="8dp"
+            android:layout_centerHorizontal="true"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/resend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:text="Resend OTP"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/verify"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/countdownTimer"
+            android:layout_below="@+id/resend"
+            android:textColor="#fff"
+            android:visibility="invisible"
+            android:layout_centerHorizontal="true"/>
+        <Button
+            android:id="@+id/verify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:text="Verify OTP" />
+    </RelativeLayout>
+</LinearLayout>
