@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView Loginlogout, aarohan_selfi;
     private CircleMenuView circleMenu;
+    private boolean back = false;
     private GoogleSignInClient mGoogleSignInClient;
 
     @Override
@@ -179,7 +181,6 @@ Log.d("DEBUG","DATA INSERTED"+j);
         }
     }
     private void init() {
-
         aarohan_selfi = (ImageView) findViewById(R.id.selfi);
         circleMenu = findViewById(R.id.circleMenu);
         Loginlogout = findViewById(R.id.login_logout);
@@ -318,10 +319,21 @@ Log.d("DEBUG","DATA INSERTED"+j);
             return false;
 
     }
-
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+
+        if(back){
+            super.onBackPressed();
+            return ;
+        }
+        this.back=true;
+        Toast.makeText(this, "Please Click Twice to Exit", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                back=false;
+            }
+        },2000);
 
     }
 }
