@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -21,7 +20,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.ramotion.circlemenu.CircleMenuView;
 
 import org.json.JSONArray;
@@ -40,24 +38,30 @@ public class MainActivity extends AppCompatActivity {
     private ImageView Loginlogout, aarohan_selfi;
     private CircleMenuView circleMenu;
     private boolean back = false;
-    private GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        profileAPI();
-        methodListener();
-        profileMyeventAPI();
         if (checkSession()) {
             Loginlogout.setImageDrawable(getDrawable(R.drawable.logout_four_fity));
         } else {
             Loginlogout.setImageDrawable(getDrawable(R.drawable.login_four_fifty));
         }
+        profileAPI();
+        methodListener();
+        profileMyeventAPI();
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
     private void profileMyeventAPI() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URLHelper.studenteventdetails, new Response.Listener<String>() {
+        StringRequest stringRequest;
+        stringRequest = new StringRequest(Request.Method.POST, URLHelper.studenteventdetails, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -76,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> map = new HashMap<>();
                 SharedPreferences sharedPref = getSharedPreferences("aarohan", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
                 String emailprof = sharedPref.getString("email", "");
                 String otpprof = sharedPref.getString("otp", "");
                 map.put("email", emailprof);
@@ -113,15 +116,15 @@ public class MainActivity extends AppCompatActivity {
                 cv.put(TableMyeventsDetails.Col_eventmaplong, event_map_coordinates_long);
                 cv.put(TableMyeventsDetails.Col_eventmaplati, event_map_coordinates_latt);
                 long j=TableMyeventsDetails.insertDetails(db.getWritableDatabase(), cv);
-Log.d("DEBUG","DATA INSERTED"+j);
+                Log.d("DEBUG", "DATA INSERTED" + j);
 
             }
         }
     }
 
     private void profileAPI() {
-        StringRequest request = new StringRequest(Request.Method.POST, URLHelper.ProfileData, new Response.Listener<String>() {
-
+        StringRequest request;
+        request = new StringRequest(Request.Method.POST, URLHelper.ProfileData, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("DEBUG", "response recieved");
@@ -137,7 +140,6 @@ Log.d("DEBUG","DATA INSERTED"+j);
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> map = new HashMap<>();
                 SharedPreferences sharedPref = getSharedPreferences("aarohan", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
                 String emailprof = sharedPref.getString("email", "");
                 String otpprof = sharedPref.getString("otp", "");
                 map.put("email", emailprof);
@@ -175,13 +177,14 @@ Log.d("DEBUG","DATA INSERTED"+j);
                 Log.d("Debug", "" + x);
                 Toast.makeText(MainActivity.this, "Valid Profile", Toast.LENGTH_SHORT).show();
             } else {
+                Toast.makeText(this, "" + jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
     private void init() {
-        aarohan_selfi = (ImageView) findViewById(R.id.selfi);
+        aarohan_selfi = findViewById(R.id.selfi);
         circleMenu = findViewById(R.id.circleMenu);
         Loginlogout = findViewById(R.id.login_logout);
     }
@@ -278,7 +281,6 @@ Log.d("DEBUG","DATA INSERTED"+j);
                 protected Map<String, String> getParams() throws AuthFailureError {
                     HashMap<String, String> map = new HashMap<>();
                     SharedPreferences sharedPref = getSharedPreferences("aarohan", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPref.edit();
                     String emailprof = sharedPref.getString("email", "");
                     String otpprof = sharedPref.getString("otp", "");
                     map.put("email",emailprof);
@@ -297,7 +299,7 @@ Log.d("DEBUG","DATA INSERTED"+j);
             RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
             queue.add(request);
         } catch (Exception e) {
-
+            Toast.makeText(this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -313,10 +315,7 @@ Log.d("DEBUG","DATA INSERTED"+j);
 
     public Boolean checkSession() {
         SharedPreferences sharedPref = getSharedPreferences("aarohan", MODE_PRIVATE);
-        if (sharedPref.getBoolean("is", false))
-            return true;
-        else
-            return false;
+        return sharedPref.getBoolean("is", false);
 
     }
     @Override

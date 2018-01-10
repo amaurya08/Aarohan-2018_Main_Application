@@ -1,22 +1,20 @@
 package org.poornima.aarohan.aarohan2017.Fragments;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.poornima.aarohan.aarohan2017.LoginActivity;
 import org.poornima.aarohan.aarohan2017.MainActivity;
-import org.poornima.aarohan.aarohan2017.PromptUserLogin;
 import org.poornima.aarohan.aarohan2017.R;
 
 
@@ -26,11 +24,6 @@ public class FragmentPromptUser extends Fragment {
     private static final int RC_SIGN_IN = 0;
     private static final String TAG = "DEBUG";
     private final static String errorNoInternet = "No Internet Access";
-    private ProgressDialog progressDialog;
-    public FragmentPromptUser() {
-
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -68,12 +61,11 @@ public class FragmentPromptUser extends Fragment {
     }
 
     private void init(View view) {
-        progressDialog = new ProgressDialog(getActivity());
         loginButton = view.findViewById(R.id.sign_in_button);
         skipTextView = view.findViewById(R.id.skip_text);
         register = view.findViewById(R.id.register_button);
-
     }
+
     public void changeFragment(Fragment fragment) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();

@@ -1,10 +1,8 @@
 package org.poornima.aarohan.aarohan2017.Fragments;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
@@ -31,7 +29,6 @@ import org.json.JSONObject;
 import org.poornima.aarohan.aarohan2017.AarohanClasses.NetWorkManager;
 import org.poornima.aarohan.aarohan2017.AarohanClasses.URLHelper;
 import org.poornima.aarohan.aarohan2017.MainActivity;
-import org.poornima.aarohan.aarohan2017.OTPActivity;
 import org.poornima.aarohan.aarohan2017.R;
 
 import java.util.HashMap;

@@ -1,14 +1,13 @@
 package org.poornima.aarohan.aarohan2017.Fragments;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,8 +28,6 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.poornima.aarohan.aarohan2017.AarohanClasses.URLHelper;
-import org.poornima.aarohan.aarohan2017.LoginActivity;
-import org.poornima.aarohan.aarohan2017.OTPActivity;
 import org.poornima.aarohan.aarohan2017.R;
 
 import java.util.HashMap;
@@ -65,7 +62,29 @@ public class FragmentLogin extends Fragment {
                 Log.d(TAG, "Verifying EMail");
                 progressDialog.show();
                 email = emailEditText.getText().toString();
-                verifyEmail(email);
+                final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                emailEditText.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+                        if (email.matches(emailPattern) && editable.length() > 0){
+                            Toast.makeText(getActivity(), "email is good " + email, Toast.LENGTH_SHORT).show();
+                            verifyEmail(email);
+                        }
+                        else
+                            Toast.makeText(getActivity(), "Invalid Email", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
             }
         });
     }
@@ -131,6 +150,7 @@ public class FragmentLogin extends Fragment {
                 editor.putString("email",email);
                 editor.apply();
                 changeFragment(new FragmentOTP());
+                getActivity().finish();
             } else {
                 Toast.makeText(getActivity(), ""+message, Toast.LENGTH_SHORT).show();
             }
