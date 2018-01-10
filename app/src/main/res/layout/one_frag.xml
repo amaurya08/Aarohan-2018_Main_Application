@@ -7,6 +7,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:dividerHeight="5dp"
-        android:id="@+id/List"
+        android:id="@+id/lv_events"
         />
 </LinearLayout>

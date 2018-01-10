@@ -43,7 +43,7 @@ public class Fragment_Profile_Barcode extends Fragment {
     private void generatrqrcode(String studentid) {
         try {
             qrcodeimg.setImageBitmap(new BarcodeEncoder().createBitmap(new MultiFormatWriter()
-                    .encode(studentid, BarcodeFormat.QR_CODE, 300, 300)));
+                    .encode(""+studentid, BarcodeFormat.QR_CODE, 300, 300)));
         } catch (WriterException e) {
             e.printStackTrace();
         }

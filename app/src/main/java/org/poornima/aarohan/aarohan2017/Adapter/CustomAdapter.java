@@ -18,17 +18,17 @@ import org.poornima.aarohan.aarohan2017.R;
 public class CustomAdapter extends ArrayAdapter<String> {
 
     public CustomAdapter(@NonNull Context context, String [] events) {
-        super(context, R.layout.custom_layout,events);
+        super(context, R.layout.event_list_row_layout,events);
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater myinflator=LayoutInflater.from(getContext());
-        View customview=myinflator.inflate(R.layout.custom_layout,parent,false);
-        String single=getItem(position);
+        View customview=myinflator.inflate(R.layout.event_list_row_layout,parent,false);
+       /* String single=getItem(position);
         TextView mytext=(TextView) customview.findViewById(R.id.mytext);
-        mytext.setText(single);
+        mytext.setText(single);*/
         return customview;
     }
 }

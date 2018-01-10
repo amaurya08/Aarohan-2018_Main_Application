@@ -21,12 +21,16 @@ public class ScheduleEventListActivity extends AppCompatActivity {
 
     private TabLayout tablayout;
     private ViewPager viewpager;
-
+   private Bundle data_daybundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_event_list);
+
+         data_daybundle = new Bundle();
+        data_daybundle.putString("day",getIntent().getStringExtra("day"));
+
 
         viewpager = findViewById(R.id.viewpager);
         setupViewPager(viewpager);
@@ -35,10 +39,22 @@ public class ScheduleEventListActivity extends AppCompatActivity {
     }
     public void setupViewPager(ViewPager viewpager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Fragment_one(), "Technical");
-        adapter.addFragment(new Fragment_two(), "Club");
-        adapter.addFragment(new Fragment_three(), "Sports");
-        adapter.addFragment(new Fragment_four(), "Cultural");
+
+        Fragment event_Technical_fragment=new Fragment_one();
+        Fragment event_Club_fragment=new Fragment_two();
+        Fragment event_Sports_fragment=new Fragment_three();
+        Fragment event_Cultural_fragment=new Fragment_four();
+
+        event_Technical_fragment.setArguments(data_daybundle);
+        event_Club_fragment.setArguments(data_daybundle);
+        event_Sports_fragment.setArguments(data_daybundle);
+        event_Cultural_fragment.setArguments(data_daybundle);
+
+
+        adapter.addFragment(event_Technical_fragment, "Technical");
+        adapter.addFragment(event_Club_fragment, "Club");
+        adapter.addFragment(event_Sports_fragment, "Sports");
+        adapter.addFragment(event_Cultural_fragment, "Cultural");
         viewpager.setAdapter(adapter);
     }
 
