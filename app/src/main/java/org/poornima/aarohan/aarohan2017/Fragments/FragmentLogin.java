@@ -3,6 +3,7 @@ package org.poornima.aarohan.aarohan2017.Fragments;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -27,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.poornima.aarohan.aarohan2017.AarohanClasses.NetWorkManager;
 import org.poornima.aarohan.aarohan2017.AarohanClasses.URLHelper;
 import org.poornima.aarohan.aarohan2017.R;
 
@@ -36,6 +38,7 @@ import java.util.Map;
 public class FragmentLogin extends Fragment {
     private Button submit;
     public static final String TAG = "DEBUG";
+    private TextInputLayout inputLayout;
     private EditText emailEditText;
     private String email;
     private ProgressDialog progressDialog;
@@ -60,33 +63,41 @@ public class FragmentLogin extends Fragment {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "Verifying EMail");
-                progressDialog.show();
-                email = emailEditText.getText().toString();
-                final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-                emailEditText.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable editable) {
-                        if (email.matches(emailPattern) && editable.length() > 0){
-                            Toast.makeText(getActivity(), "email is good " + email, Toast.LENGTH_SHORT).show();
-                            verifyEmail(email);
-                        }
-                        else
-                            Toast.makeText(getActivity(), "Invalid Email", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
+                if (NetWorkManager.checkInternetAccess(getActivity())) {
+                    email = emailEditText.getText().toString();
+                    progressDialog.show();
+                    verifyEmail(email);
+                } else {
+                    Toast.makeText(getActivity(), "No Internet", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
+        emailEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                if (editable.toString().matches(emailPattern) && editable.length() > 0) {
+                    submit.setEnabled(true);
+                    inputLayout.setErrorEnabled(false);
+                } else {
+                    submit.setEnabled(false);
+                    inputLayout.requestFocus();
+                    inputLayout.setError("Invalid typed EMail");
+                }
+            }
+        });
+
     }
 
     private void init(View view) {
@@ -95,6 +106,9 @@ public class FragmentLogin extends Fragment {
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Verifying Email...");
         progressDialog.setCancelable(false);
+        inputLayout = view.findViewById(R.id.email_layout);
+        submit.setEnabled(false);
+        email = "";
     }
     // TODO: Rename method, update argument and hook method into UI event
 
@@ -105,7 +119,7 @@ public class FragmentLogin extends Fragment {
                 @Override
                 public void onResponse(String response) {
                     progressDialog.cancel();
-                    Log.d(TAG, "Response Recieved");
+                    Log.d(TAG, "Verify E-Mail Response Recieved");
                     verifyParseString(response, s);
                 }
             }, new Response.ErrorListener() {
@@ -134,7 +148,7 @@ public class FragmentLogin extends Fragment {
             RequestQueue queue = Volley.newRequestQueue(getActivity());
             queue.add(request);
         } catch (Exception e) {
-
+            Log.d(TAG, e.getMessage());
         }
 
     }
@@ -150,12 +164,11 @@ public class FragmentLogin extends Fragment {
                 editor.putString("email",email);
                 editor.apply();
                 changeFragment(new FragmentOTP());
-                getActivity().finish();
             } else {
                 Toast.makeText(getActivity(), ""+message, Toast.LENGTH_SHORT).show();
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.d(TAG, e.getMessage());
         }
     }
     public void changeFragment(Fragment fragment) {
