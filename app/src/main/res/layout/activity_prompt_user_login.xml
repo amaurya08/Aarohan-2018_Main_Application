@@ -4,7 +4,7 @@
     android:id="@+id/fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f21a1818"
+   android:background="@drawable/background_login"
     tools:context="org.poornima.aarohan.aarohan2017.PromptUserLogin">
 
 <!--

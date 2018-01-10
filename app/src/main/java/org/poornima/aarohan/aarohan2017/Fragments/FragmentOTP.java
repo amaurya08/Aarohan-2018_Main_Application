@@ -112,7 +112,7 @@ public class FragmentOTP extends Fragment {
     }
 
     private void countdown() {
-        new CountDownTimer(30000, 1000) {
+        new CountDownTimer(20000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 countdownTextView.setText("Retry after: " + millisUntilFinished / 1000 +"seconds");
