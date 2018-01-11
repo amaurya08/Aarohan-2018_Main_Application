@@ -7,8 +7,6 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +39,7 @@ public class FragmentLogin extends Fragment {
     private TextInputLayout inputLayout;
     private EditText emailEditText;
     private String email;
+    private String emailMatcher;
     private ProgressDialog progressDialog;
 
     public FragmentLogin() {
@@ -54,8 +53,8 @@ public class FragmentLogin extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fragment_login, container, false);
         init(view);
         methodListener();
-        return view;
 
+        return view;
     }
 
     private void methodListener() {
@@ -65,55 +64,32 @@ public class FragmentLogin extends Fragment {
                 Log.d(TAG, "Verifying EMail");
                 if (NetWorkManager.checkInternetAccess(getActivity())) {
                     email = emailEditText.getText().toString();
-                    progressDialog.show();
-                    verifyEmail(email);
+                    if (email.matches(emailMatcher) && email.length() > 0) {
+                        progressDialog.show();
+                        verifyEmail(email);
+                    } else {
+                        inputLayout.setError("Invalid Email");
+                    }
                 } else {
                     Toast.makeText(getActivity(), "No Internet", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-        emailEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-                if (editable.toString().matches(emailPattern) && editable.length() > 0) {
-                    submit.setEnabled(true);
-                    inputLayout.setErrorEnabled(false);
-                } else {
-                    submit.setEnabled(false);
-                    inputLayout.requestFocus();
-                    inputLayout.setError("Invalid EMail");
-                }
-            }
-        });
-
     }
 
     private void init(View view) {
+        emailMatcher = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         emailEditText = view.findViewById(R.id.email);
         submit = view.findViewById(R.id.submit_email);
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Verifying Email...");
         progressDialog.setCancelable(false);
         inputLayout = view.findViewById(R.id.email_layout);
-        submit.setEnabled(false);
         email = "";
     }
-    // TODO: Rename method, update argument and hook method into UI event
+
 
     private void verifyEmail(final String s) {
-        try {
             Log.d(TAG, "Request Sent");
             StringRequest request = new StringRequest(Request.Method.POST, URLHelper.verifyEmail, new Response.Listener<String>() {
                 @Override
@@ -140,18 +116,15 @@ public class FragmentLogin extends Fragment {
             };
             request.setRetryPolicy(
                     new DefaultRetryPolicy(
-                            3000,
+                            10000,
                             DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                             DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
                     )
             );
             RequestQueue queue = Volley.newRequestQueue(getActivity());
             queue.add(request);
-        } catch (Exception e) {
-            Log.d(TAG, e.getMessage());
-        }
-
     }
+
 
     private void verifyParseString(String response, String s) {
         try {

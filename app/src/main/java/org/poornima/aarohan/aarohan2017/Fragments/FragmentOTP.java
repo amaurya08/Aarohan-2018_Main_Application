@@ -56,13 +56,16 @@ public class FragmentOTP extends Fragment {
         progressDialog.setMessage("Sending OTP....");
         progressDialog.setCancelable(false);
         progressDialog.show();
-        sendOTP(email);
+        if (NetWorkManager.checkInternetAccess(getActivity())) {
+            sendOTP(email);
+        } else {
+            Toast.makeText(getActivity(), "Enable Network Access", Toast.LENGTH_SHORT).show();
+        }
         return view;
     }
 
 
     private void init(View view) {
-        /*intentEmail = getIntent().getStringExtra("email");*/
         SharedPreferences sharedPref = getActivity().getSharedPreferences("aarohan", getActivity().MODE_PRIVATE);
         email = sharedPref.getString("email","");
         otp = view.findViewById(R.id.otp);
@@ -114,8 +117,7 @@ public class FragmentOTP extends Fragment {
     }
 
     private void checkOTP(final String text) {
-        if (NetWorkManager.checkInternetAccess(getActivity())) {
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, URLHelper.verifyOTP, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URLHelper.verifyOTP, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     try {
@@ -154,11 +156,6 @@ public class FragmentOTP extends Fragment {
             queue.add(stringRequest);
             /*RequestQueue queue = Volley.newRequestQueue(OTPActivity.this);
             queue.add(stringRequest);*/
-
-        } else {
-            progressDialog.cancel();
-            Toast.makeText(getActivity(), "No Internet", Toast.LENGTH_SHORT).show();
-        }
     }
 
     private void parseCheckOTPString(String response) throws JSONException {
@@ -187,7 +184,6 @@ public class FragmentOTP extends Fragment {
     }
 
     private void sendOTP(final String email) {
-        if (NetWorkManager.checkInternetAccess(getActivity())) {
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URLHelper.sendOTP, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -223,10 +219,6 @@ public class FragmentOTP extends Fragment {
             );
             RequestQueue queue = Volley.newRequestQueue(getActivity());
             queue.add(stringRequest);
-
-        } else {
-            Toast.makeText(getActivity(), "No Internet", Toast.LENGTH_SHORT).show();
-        }
 
     }
 
