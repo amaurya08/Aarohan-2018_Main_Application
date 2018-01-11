@@ -11,7 +11,9 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -167,8 +169,29 @@ public class FaceFilterActivity extends AppCompatActivity {
 //Scaling mask image and draw camera capture and mask on a caanwas
             Bitmap overlayScaledBitmap = Bitmap.createScaledBitmap(overlayBitmap, wid, hgt, true);
             Canvas canvas = new Canvas(newImage);
+
+            Paint paint = new Paint();
+            paint.setStyle(Paint.Style.FILL);
+            canvas.drawPaint(paint);
+            paint.setColor(Color.WHITE);
+            paint.setTextSize(30);
+            paint.setFakeBoldText(true);
+
+
             canvas.drawBitmap(cameraScaledBitmap , 0, 0, null);
             canvas.drawBitmap(overlayScaledBitmap , 0, 0, null);
+            canvas.drawText("AAROHAN-2K18", 20, totalHeight, paint);
+
+            String clickName=(getSharedPreferences("aarohan", MODE_PRIVATE)).getString("stu_name",null);
+            paint.setTextSize(20);
+            if(clickName!=null){
+                canvas.drawText("BY"+clickName, 60, totalHeight+20, paint);
+            }
+
+
+
+
+
 //creating the path to storethe final combined canvas image
             File storagePath = new File(Environment.getExternalStorageDirectory(),"Aarohan_Images");
             storagePath.mkdirs();

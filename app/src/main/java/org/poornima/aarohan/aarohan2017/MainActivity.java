@@ -172,6 +172,13 @@ public class MainActivity extends AppCompatActivity {
                 cv.put(ProfileTable.Col_mobileno, stu_contact);
                 cv.put(ProfileTable.Col_rid, stu_reg_no);
                 cv.put(ProfileTable.Col_name, stu_name);
+
+                SharedPreferences sharedPref = getSharedPreferences("aarohan",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("stu_name",stu_name);
+                editor.apply();
+
+
                 DatabaseHelper db = new DatabaseHelper(MainActivity.this);
                 long x = ProfileTable.insertDetails(db.getWritableDatabase(), cv);
                 Log.d("DEBUG", "" + x);

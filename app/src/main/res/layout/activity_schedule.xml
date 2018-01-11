@@ -21,7 +21,6 @@
             android:orientation="vertical">
             <RelativeLayout
                 android:id="@+id/day1layout"
-                android:background="#b91a1a"
                 android:layout_width="match_parent"
                 android:layout_height="180dp">
                 <TextView
@@ -34,7 +33,6 @@
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/day2layout"
-                android:background="#4ba698"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="180dp">
@@ -48,7 +46,6 @@
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/day3layout"
-                android:background="#7f1896"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="180dp">
@@ -62,7 +59,6 @@
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/day4layout"
-                android:background="#2fd152"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="180dp">
@@ -76,7 +72,6 @@
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/day5layout"
-                android:background="#6065cf"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="180dp">
@@ -84,7 +79,6 @@
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Day-5"
                     android:textSize="40sp"
                     android:textStyle="bold"/>
             </RelativeLayout>
