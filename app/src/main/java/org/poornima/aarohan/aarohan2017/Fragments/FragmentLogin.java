@@ -93,7 +93,7 @@ public class FragmentLogin extends Fragment {
                 } else {
                     submit.setEnabled(false);
                     inputLayout.requestFocus();
-                    inputLayout.setError("Invalid typed EMail");
+                    inputLayout.setError("Invalid EMail");
                 }
             }
         });
@@ -140,7 +140,7 @@ public class FragmentLogin extends Fragment {
             };
             request.setRetryPolicy(
                     new DefaultRetryPolicy(
-                            10000,
+                            3000,
                             DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                             DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
                     )

@@ -39,20 +39,14 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5" />
     </LinearLayout>
-
-
-
-
-
     <com.ramotion.circlemenu.CircleMenuView
         android:id="@+id/circleMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
         app:button_colors="@array/colors"
         app:button_icons="@array/icons"
         app:icon_menu="@drawable/ic_all_out_black_24dp"
         app:icon_color="@color/menu_button_color" />
-
 
 </RelativeLayout>
