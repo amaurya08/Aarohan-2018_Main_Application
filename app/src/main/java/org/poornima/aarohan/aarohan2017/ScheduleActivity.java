@@ -2,8 +2,8 @@ package org.poornima.aarohan.aarohan2017;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -109,16 +109,16 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
             }
         }
         else{
-            Toast.makeText(this, "Dataarsing error", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "DataParsing error", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void init() {
-        day1event=(RelativeLayout)findViewById(R.id.day1layout);
-        day2event=(RelativeLayout)findViewById(R.id.day2layout);
-        day3event=(RelativeLayout)findViewById(R.id.day3layout);
-        day4event=(RelativeLayout)findViewById(R.id.day4layout);
-        day5event=(RelativeLayout)findViewById(R.id.day5layout);
+        day1event = findViewById(R.id.day1layout);
+        day2event = findViewById(R.id.day2layout);
+        day3event = findViewById(R.id.day3layout);
+        day4event = findViewById(R.id.day4layout);
+        day5event = findViewById(R.id.day5layout);
     }
 
     @Override

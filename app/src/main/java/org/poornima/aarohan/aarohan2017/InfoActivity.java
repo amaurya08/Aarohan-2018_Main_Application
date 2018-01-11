@@ -9,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -34,8 +33,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InfoActivity extends AppCompatActivity {
-    private TabLayout tablayout;
-    private ViewPager viewpager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,9 +40,9 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.info);
         loadSponsersDetails();
-        viewpager = findViewById(R.id.viewpager);
+        ViewPager viewpager = findViewById(R.id.viewpager);
         setupViewPager(viewpager);
-        tablayout = findViewById(R.id.tabs);
+        TabLayout tablayout = findViewById(R.id.tabs);
         tablayout.setupWithViewPager(viewpager);
     }
     private void loadSponsersDetails() {
@@ -106,7 +103,7 @@ public class InfoActivity extends AppCompatActivity {
             }
         }
         else{
-            Toast.makeText(this, "Dataarsing error", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Dataarsing error", Toast.LENGTH_SHORT).show();
         }
     }
 

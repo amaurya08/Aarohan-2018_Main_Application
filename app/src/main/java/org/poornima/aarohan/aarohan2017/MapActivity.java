@@ -1,9 +1,8 @@
 package org.poornima.aarohan.aarohan2017;
 
-import android.graphics.drawable.BitmapDrawable;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
 import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -108,9 +107,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     }
 
     private void init() {
-        map_pce=(FloatingActionButton)findViewById(R.id.fabpce);
-        map_piet=(FloatingActionButton)findViewById(R.id.fabpiet);
-        map_pgi=(FloatingActionButton)findViewById(R.id.fabpgi);
+        map_pce = findViewById(R.id.fabpce);
+        map_piet = findViewById(R.id.fabpiet);
+        map_pgi = findViewById(R.id.fabpgi);
     }
 
 

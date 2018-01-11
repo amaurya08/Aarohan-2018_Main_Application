@@ -1,12 +1,12 @@
 package org.poornima.aarohan.aarohan2017;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import org.poornima.aarohan.aarohan2017.Fragments.Fragment_four;
 import org.poornima.aarohan.aarohan2017.Fragments.Fragment_one;
@@ -19,9 +19,7 @@ import java.util.List;
 public class ScheduleEventListActivity extends AppCompatActivity {
 
 
-    private TabLayout tablayout;
-    private ViewPager viewpager;
-   private Bundle data_daybundle;
+    private Bundle data_daybundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +30,9 @@ public class ScheduleEventListActivity extends AppCompatActivity {
         data_daybundle.putString("day",getIntent().getStringExtra("day"));
 
 
-        viewpager = findViewById(R.id.viewpager);
+        ViewPager viewpager = findViewById(R.id.viewpager);
         setupViewPager(viewpager);
-        tablayout = findViewById(R.id.tabs);
+        TabLayout tablayout = findViewById(R.id.tabs);
         tablayout.setupWithViewPager(viewpager);
     }
     public void setupViewPager(ViewPager viewpager) {

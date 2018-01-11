@@ -1,13 +1,11 @@
 package org.poornima.aarohan.aarohan2017.Fragments;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +19,6 @@ import org.poornima.aarohan.aarohan2017.R;
 public class FragmentPromptUser extends Fragment {
     private Button loginButton, register;
     private TextView skipTextView;
-    private static final int RC_SIGN_IN = 0;
-    private static final String TAG = "DEBUG";
-    private final static String errorNoInternet = "No Internet Access";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

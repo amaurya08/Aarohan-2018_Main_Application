@@ -1,6 +1,7 @@
 package org.poornima.aarohan.aarohan2017.Fragments;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
@@ -132,7 +133,8 @@ public class FragmentLogin extends Fragment {
             String error = jsonObject.getString("error");
             String message = jsonObject.getString("message");
             if (error.equals("false")) {
-                SharedPreferences sharedPref = getActivity().getSharedPreferences("aarohan", getActivity().MODE_PRIVATE);
+                getActivity();
+                SharedPreferences sharedPref = getActivity().getSharedPreferences("aarohan", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putString("email",email);
                 editor.apply();

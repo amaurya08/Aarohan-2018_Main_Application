@@ -6,19 +6,13 @@
     android:layout_height="match_parent"
     android:background="#FF000000"
     tools:context="org.poornima.aarohan.aarohan2017.MainActivity">
+
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:scaleType="center"
         android:src="@drawable/void_g" />
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/aarohan" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -39,14 +33,14 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5" />
     </LinearLayout>
+
     <com.ramotion.circlemenu.CircleMenuView
         android:id="@+id/circleMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         app:button_colors="@array/colors"
         app:button_icons="@array/icons"
         app:icon_menu="@drawable/ic_all_out_black_24dp"
         app:icon_color="@color/menu_button_color" />
-
 </RelativeLayout>

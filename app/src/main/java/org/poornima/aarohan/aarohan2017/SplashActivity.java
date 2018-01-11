@@ -10,12 +10,11 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 public class SplashActivity extends AppCompatActivity {
-    private ProgressBar mProgress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        mProgress = findViewById(R.id.splash_screen_progress_bar);
+        ProgressBar mProgress = findViewById(R.id.splash_screen_progress_bar);
         mProgress.setVisibility(View.VISIBLE);
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -23,10 +22,6 @@ public class SplashActivity extends AppCompatActivity {
                 startApp();
             }
         },3000);
-    }
-
-    private void handlerCallBack() {
-
     }
 
     private void startApp() {

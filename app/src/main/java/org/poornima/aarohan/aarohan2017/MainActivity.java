@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Log.d("DEBUG", "" + error.getMessage());
             }
         }) {
             @Override
@@ -174,10 +174,10 @@ public class MainActivity extends AppCompatActivity {
                 cv.put(ProfileTable.Col_name, stu_name);
                 DatabaseHelper db = new DatabaseHelper(MainActivity.this);
                 long x = ProfileTable.insertDetails(db.getWritableDatabase(), cv);
-                Log.d("Debug", "" + x);
+                Log.d("DEBUG", "" + x);
                 Toast.makeText(MainActivity.this, "Valid Profile", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "" + jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                Log.d("DEBUG",""+jsonObject.getString("message"));
             }
         } catch (JSONException e) {
             e.printStackTrace();

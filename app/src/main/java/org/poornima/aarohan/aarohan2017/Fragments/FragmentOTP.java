@@ -1,6 +1,7 @@
 package org.poornima.aarohan.aarohan2017.Fragments;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -43,8 +44,6 @@ public class FragmentOTP extends Fragment {
     private ProgressDialog progressDialog;
     private TextView countdownTextView;
 
-    public FragmentOTP() {
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,13 +65,14 @@ public class FragmentOTP extends Fragment {
 
 
     private void init(View view) {
-        SharedPreferences sharedPref = getActivity().getSharedPreferences("aarohan", getActivity().MODE_PRIVATE);
+        getActivity();
+        SharedPreferences sharedPref = getActivity().getSharedPreferences("aarohan", Context.MODE_PRIVATE);
         email = sharedPref.getString("email","");
         otp = view.findViewById(R.id.otp);
         progressDialog = new ProgressDialog(getActivity());
         verify = view.findViewById(R.id.verify);
         resend = view.findViewById(R.id.resend);
-        countdownTextView=(TextView)view.findViewById(R.id.countdownTimer);
+        countdownTextView = view.findViewById(R.id.countdownTimer);
     }
 
     private void methodListener() {
@@ -107,7 +107,8 @@ public class FragmentOTP extends Fragment {
         new CountDownTimer(20000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                countdownTextView.setText("Retry after: " + millisUntilFinished / 1000 +"seconds");
+                String setText="Retry after: " + millisUntilFinished / 1000 +"seconds";
+                countdownTextView.setText(setText);
             }
             public void onFinish() {
                 resend.setVisibility(View.VISIBLE);
@@ -173,7 +174,8 @@ public class FragmentOTP extends Fragment {
     }
 
     private void makeSession(String message) {
-        SharedPreferences sharedPref = getActivity().getSharedPreferences("aarohan", getActivity().MODE_PRIVATE);
+        getActivity();
+        SharedPreferences sharedPref = getActivity().getSharedPreferences("aarohan", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("email", email);
         editor.putString("otp", otp.getText().toString());
