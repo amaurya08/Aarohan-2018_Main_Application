@@ -1,9 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000"
     tools:context="org.poornima.aarohan.aarohan2017.AccmodationActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_mirror">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/accomodation"
+            android:id="@+id/imageView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"
+            android:gravity="center"
+            android:text="Accomodation Facility"
+            android:textSize="30sp"
+            android:id="@+id/textView" />
+
+        <TextView
+            android:id="@+id/pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="23dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:text="150/- only forAccomodation per person in triple sharing basis"
+            android:textSize="17sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/accomodation"
+            android:textSize="15sp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@id/pay"/>
+
+
+        <Button
+            android:id="@+id/accomodation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="browser"
+            android:layout_marginBottom="47dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/background_button_curve"
+            android:text="Registration For Accomodation" />
+    </RelativeLayout>
+</RelativeLayout>
