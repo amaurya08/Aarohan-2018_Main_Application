@@ -82,4 +82,10 @@ public class ScheduleEventListActivity extends AppCompatActivity {
             return getmFragmentTitleList.get(position);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

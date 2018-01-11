@@ -1,5 +1,7 @@
 package org.poornima.aarohan.aarohan2017.Fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,18 +9,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import org.poornima.aarohan.aarohan2017.Adapter.MyEventAdapter;
-import org.poornima.aarohan.aarohan2017.Adapter.SponsorAdapter;
 import org.poornima.aarohan.aarohan2017.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2017.Pojo.myeventsPojo;
-import org.poornima.aarohan.aarohan2017.Pojo.sponserPojo;
 import org.poornima.aarohan.aarohan2017.R;
-import org.poornima.aarohan.aarohan2017.Tables.ProfileTable;
 import org.poornima.aarohan.aarohan2017.Tables.TableMyeventsDetails;
 
 import java.util.ArrayList;
@@ -30,12 +26,13 @@ public class Fragment_Profile_events extends Fragment {
     ListView myeventsListview;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        View view=inflater.inflate(R.layout.fragment_fragment__profile_events, container, false);
-        arrayList = new ArrayList<>();
-        MyEventAdapter myEventAdapter=new MyEventAdapter(getContext(),arrayList);
-        myeventsListview=(ListView)view.findViewById(R.id.myeventlistview);
-        myeventsListview.setAdapter(myEventAdapter);
+        View view = inflater.inflate(R.layout.empty_layout, container, false);
+        if (checkSession()) {
+            view = inflater.inflate(R.layout.fragment_fragment__profile_events, container, false);
+            arrayList = new ArrayList<>();
+            MyEventAdapter myEventAdapter = new MyEventAdapter(getContext(), arrayList);
+            myeventsListview = (ListView) view.findViewById(R.id.myeventlistview);
+            myeventsListview.setAdapter(myEventAdapter);
      /*   String[] task_name={"Event 1","Event 2","Event 3","Event 4"};
         String[] task_date={"1/1/18","3/1/18","4/1/18","7/1/18"};
         String[] task_time={"t1","t2","t3","t4"};
@@ -51,10 +48,22 @@ public class Fragment_Profile_events extends Fragment {
 /*
         init(view);
 */
-        fatchmyeventsValue();
+            fatchmyeventsValue();
+            return view;
+        }
         return view;
 
     }
+
+    public Boolean checkSession() {
+        SharedPreferences sharedPref;
+        getActivity();
+        sharedPref = getActivity().getSharedPreferences("aarohan", Context.MODE_PRIVATE);
+        return sharedPref.getBoolean("is", false);
+
+    }
+
+
     private void fatchmyeventsValue() {
         DatabaseHelper db = new DatabaseHelper(getContext());
         Cursor cursor = db.getReadableDatabase().rawQuery("select * from " + TableMyeventsDetails.TABLE_NAME, null);

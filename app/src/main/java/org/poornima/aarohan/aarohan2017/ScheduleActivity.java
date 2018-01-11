@@ -149,4 +149,10 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
      intent.putExtra("day",day);
      startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

@@ -112,5 +112,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         map_pgi = findViewById(R.id.fabpgi);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

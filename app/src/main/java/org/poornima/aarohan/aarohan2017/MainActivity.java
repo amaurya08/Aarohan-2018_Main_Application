@@ -46,12 +46,14 @@ public class MainActivity extends AppCompatActivity {
         init();
         if (checkSession()) {
             Loginlogout.setImageDrawable(getDrawable(R.drawable.logout_four_fity));
+            profileAPI();
+            profileMyeventAPI();
         } else {
             Loginlogout.setImageDrawable(getDrawable(R.drawable.login_four_fifty));
         }
-        profileAPI();
+
         methodListener();
-        profileMyeventAPI();
+
     }
 
     @Override
@@ -182,7 +184,6 @@ public class MainActivity extends AppCompatActivity {
                 DatabaseHelper db = new DatabaseHelper(MainActivity.this);
                 long x = ProfileTable.insertDetails(db.getWritableDatabase(), cv);
                 Log.d("DEBUG", "" + x);
-                Toast.makeText(MainActivity.this, "Valid Profile", Toast.LENGTH_SHORT).show();
             } else {
                 Log.d("DEBUG",""+jsonObject.getString("message"));
             }

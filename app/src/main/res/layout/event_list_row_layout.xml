@@ -19,7 +19,6 @@
                 android:id="@+id/event_img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/menu_button_color"
                 android:padding="5dp" />
         </LinearLayout>
         <LinearLayout

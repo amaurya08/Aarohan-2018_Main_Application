@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -23,11 +23,11 @@ public class PicPreview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pic_preview);
 
-        cancelLayout=(RelativeLayout)findViewById(R.id.layout_cancel);
-        saveLayout=(RelativeLayout)findViewById(R.id.layout_save);
-        shareLaayout=(RelativeLayout)findViewById(R.id.layout_share);
+        cancelLayout = findViewById(R.id.layout_cancel);
+        saveLayout = findViewById(R.id.layout_save);
+        shareLaayout = findViewById(R.id.layout_share);
 
-        previewImageview = (ImageView) findViewById(R.id.image_preview_id);
+        previewImageview = findViewById(R.id.image_preview_id);
 
 
         finalimagepath = (String) getIntent().getExtras().get("filepath");
@@ -76,5 +76,6 @@ public class PicPreview extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         deleteStoredImage();
+        /*finish();*/
     }
 }

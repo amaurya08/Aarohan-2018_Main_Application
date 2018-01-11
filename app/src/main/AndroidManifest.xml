@@ -58,7 +58,6 @@
         <activity android:name=".WorkshopActivity" />
         <activity android:name=".AccmodationActivity" />
         <activity android:name=".InfoActivity" />
-        <activity android:name=".activity_accmodation_package"></activity>
     </application>
 
 </manifest>

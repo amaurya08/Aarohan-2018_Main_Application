@@ -8,8 +8,7 @@
     tools:context="org.poornima.aarohan.aarohan2017.AccmodationActivity">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background_mirror">
+        android:layout_height="match_parent">
 
         <ImageView
             android:layout_width="100dp"

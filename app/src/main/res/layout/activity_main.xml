@@ -41,6 +41,5 @@
         android:layout_centerInParent="true"
         app:button_colors="@array/colors"
         app:button_icons="@array/icons"
-        app:icon_menu="@drawable/ic_all_out_black_24dp"
-        app:icon_color="@color/menu_button_color" />
+        app:icon_menu="@drawable/ic_all_out_black_24dp" />
 </RelativeLayout>

@@ -10,7 +10,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Enter OTP Here"
-            android:gravity="center"
+            android:gravity="left"
             android:layout_above="@id/resend"
             android:layout_centerHorizontal="true"
             android:inputType="number" />

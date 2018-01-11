@@ -15,7 +15,14 @@ public class AccmodationActivity extends AppCompatActivity {
 
     }
 public void browser(View view){
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://aarohan.poornima.org.com"));
-        startActivity(browserIntent);
+    Intent browserIntent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://aarohan.poornima.org.com"));
+    startActivity(browserIntent);
+
+}
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

@@ -24,4 +24,10 @@ public class PromptUserLogin extends AppCompatActivity {
         transaction.replace(R.id.fragment_container, fragment);
         transaction.commit();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }
