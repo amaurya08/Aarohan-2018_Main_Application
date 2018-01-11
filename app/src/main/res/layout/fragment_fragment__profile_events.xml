@@ -2,13 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#bf000000"
+    android:background="#000000"
     tools:context="org.poornima.aarohan.aarohan2017.Fragments.Fragment_Profile_events">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_mirror">
     <ListView
+        android:paddingTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/myeventlistview"
         android:dividerHeight="5dp"/>
-
+</RelativeLayout>
 </FrameLayout>

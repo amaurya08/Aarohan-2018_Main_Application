@@ -118,7 +118,6 @@ public class InfoActivity extends AppCompatActivity {
         adapter.addFragment(new Frag_Sponsers(),"Sponsers");
         adapter.addFragment(new Frag_OurTeam(),"Our Team");
         viewpager.setAdapter(adapter);
-
     }
     class ViewPagerAdapter extends FragmentPagerAdapter {
 
