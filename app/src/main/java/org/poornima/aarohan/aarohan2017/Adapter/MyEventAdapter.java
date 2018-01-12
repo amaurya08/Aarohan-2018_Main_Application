@@ -24,7 +24,6 @@ import static org.poornima.aarohan.aarohan2017.R.layout.myevent_customlist_row;
 
 public class MyEventAdapter extends ArrayAdapter {
     private ArrayList arraylist;
-
     public MyEventAdapter(Context context, ArrayList<myeventsPojo> objects) {
         super(context,R.layout.myevent_customlist_row,objects);
         arraylist=objects;

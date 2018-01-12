@@ -47,7 +47,6 @@ public class Fragment_four extends Fragment {
 
                     }
                 }
-
         );
         eventdialog.dismiss();*/
 
