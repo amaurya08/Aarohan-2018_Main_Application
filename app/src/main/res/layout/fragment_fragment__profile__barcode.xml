@@ -6,126 +6,100 @@
     android:weightSum="1"
     android:background="@drawable/background_main"
     tools:context="org.poornima.aarohan.aarohan2017.Fragments.Fragment_Profile_Barcode">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
             <RelativeLayout
+                android:id="@+id/layour1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.5">
                 <ImageView
+                    android:padding="15dp"
+                    android:background="@drawable/shadow_qrcode"
                     android:id="@+id/qrcodeimgbox"
                     android:layout_width="180dp"
                     android:layout_height="180dp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/demoqrcode" />
+                    android:src="@drawable/demoqrcode"/>
+                <TextView
+                    android:textColor="#ffffff"
+                    android:text="QR Code"
+                    android:fontFamily="@font/comicsansmsregular"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:textSize="20dp"
+                    android:layout_below="@+id/qrcodeimgbox"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </RelativeLayout>
-
-
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="18dp"
-                android:src="@drawable/ic_profile_name" />
-
-            <TextView
-                android:id="@+id/profname"
+            <RelativeLayout
+                android:paddingRight="5dp"
+                android:paddingLeft="20dp"
+                android:layout_weight="0.5"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_alignBottom="@+id/imageView1"
-                android:layout_centerHorizontal="true"
-                android:layout_centerInParent="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="23dp"
-                android:layout_toEndOf="@+id/imageView1"
-                android:paddingTop="10dp"
-                android:text="Name"
-                android:textColor="#fff"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="18dp"
-                android:src="@drawable/ic_profile_email"/>
-            <TextView
-                android:textColor="#fff"
-                android:id="@+id/profemail"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_alignBottom="@+id/imageView2"
-                android:layout_marginStart="23dp"
-                android:layout_toEndOf="@+id/imageView2"
-                android:text="E-mail"
-                android:textSize="15sp"
-                android:layout_centerInParent="true"
-                android:paddingTop="10dp"
-                android:textStyle="bold"/>
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="18dp"
-                android:src="@drawable/ic_profile_college"/>
-
-            <TextView
-                android:id="@+id/profcollege"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_alignBottom="@+id/imageView3"
-                android:layout_centerHorizontal="true"
-                android:layout_centerInParent="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="23dp"
-                android:layout_toEndOf="@+id/imageView3"
-                android:paddingTop="10dp"
-                android:text="College"
-                android:textColor="#fff"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="18dp"
-                android:src="@drawable/ic_phone_black_24dp"
-                />
-            <TextView
-                android:id="@+id/mobileno"
-                android:textColor="#fff"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_alignBottom="@+id/imageView4"
-                android:layout_marginStart="23dp"
-                android:layout_toEndOf="@+id/imageView4"
-                android:text="Mobile no."
-                android:textSize="15sp"
-                android:layout_centerInParent="true"
-                android:paddingTop="10dp"
-                android:textStyle="bold"/>
-
-
+                android:layout_height="0dp">
+                    <TextView
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:drawablePadding="10dp"
+                        android:drawableStart="@drawable/ic_profile_name"
+                        android:fontFamily="@font/comicsansmsregular"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFFFF"
+                        android:text="name"
+                        android:textSize="18sp"
+                        android:id="@+id/profname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/profname"
+                        android:drawablePadding="10dp"
+                        android:drawableStart="@drawable/ic_profile_email"
+                        android:fontFamily="@font/comicsansmsregular"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFFFF"
+                        android:text="Email"
+                        android:textSize="18sp"
+                        android:id="@+id/profemail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                <TextView
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/profemail"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_profile_college"
+                    android:fontFamily="@font/comicsansmsregular"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFFFF"
+                    android:text="College"
+                    android:textSize="18sp"
+                    android:id="@+id/profcollege"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/profcollege"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_phone_black_24dp"
+                    android:fontFamily="@font/comicsansmsregular"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFFFF"
+                    android:text="Mobile"
+                    android:textSize="18sp"
+                    android:id="@+id/mobileno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
         </LinearLayout>
 </LinearLayout>

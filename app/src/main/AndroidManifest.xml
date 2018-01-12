@@ -25,8 +25,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".MainActivity" android:theme="@style/splash_theme"/>
+        <activity android:name=".SplashActivity" android:theme="@style/splash_theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,10 +34,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ScheduleActivity" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".ProfileActivity" android:theme="@style/splash_theme"/>
         <activity android:name=".ContactUsActivity" />
         <activity android:name=".ScheduleEventListActivity" />
-        <activity android:name=".PromptUserLogin" />
+        <activity android:name=".PromptUserLogin" android:theme="@style/splash_theme"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -53,8 +53,8 @@
         <activity
             android:name=".MapActivity"
             android:label="@string/title_activity_map" />
-        <activity android:name=".FaceFilterActivity" />
-        <activity android:name=".PicPreview" />
+        <activity android:name=".FaceFilterActivity" android:theme="@style/splash_theme"/>
+        <activity android:name=".PicPreview" android:theme="@style/splash_theme"/>
         <activity android:name=".WorkshopActivity" />
         <activity android:name=".AccmodationActivity" />
         <activity android:name=".InfoActivity" />

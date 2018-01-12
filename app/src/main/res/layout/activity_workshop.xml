@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@drawable/background_main"
     tools:context="org.poornima.aarohan.aarohan2017.WorkshopActivity">
     <TextView
         android:layout_width="wrap_content"
