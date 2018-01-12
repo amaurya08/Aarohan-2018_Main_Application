@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
+    android:background="@drawable/background_star"
     tools:context="org.poornima.aarohan.aarohan2017.AccmodationActivity">
     <RelativeLayout
         android:layout_width="match_parent"
