@@ -1,6 +1,5 @@
 package org.poornima.aarohan.aarohan2017.Fragments;
 
-import android.app.AlertDialog;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,13 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import org.poornima.aarohan.aarohan2017.Adapter.CustomAdapter;
 import org.poornima.aarohan.aarohan2017.Adapter.EventAdapter;
 import org.poornima.aarohan.aarohan2017.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2017.Pojo.eventPojo;
