@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private Button aarohan_selfi,Loginlogout;
     private CircleMenuView circleMenu;
     private boolean back = false;
+    View toplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,16 +54,38 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Loginlogout.setText("Log In");
         }
+        toplay = findViewById(R.id.overlayscreen);
 
+        if(isFirstTime()){
+            toplay.setVisibility(View.INVISIBLE);
+        }
         methodListener();
+    }
+    private boolean isFirstTime()
+    {
+        SharedPreferences prefernces = getPreferences(MODE_PRIVATE);
+        boolean ranBefore = prefernces.getBoolean("ranbefore",false);
+        if(!ranBefore)
+        {
+            SharedPreferences.Editor editor=prefernces.edit();
+            editor.putBoolean("ranbefore",true);
+            editor.commit();
+            toplay.setVisibility(View.VISIBLE);
+            toplay.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    toplay.setVisibility(View.INVISIBLE);
+                    return false;
+                }
+            });
+        }
+        return ranBefore;
 
     }
-
     @Override
     protected void onRestart() {
         super.onRestart();
     }
-
     private void profileMyeventAPI() {
         StringRequest stringRequest;
         stringRequest = new StringRequest(Request.Method.POST, URLHelper.studenteventdetails, new Response.Listener<String>() {
