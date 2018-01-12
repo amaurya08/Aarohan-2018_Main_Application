@@ -206,6 +206,7 @@ public class MainActivity extends AppCompatActivity {
                     SharedPreferences sharedPref = getSharedPreferences("aarohan", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPref.edit();
                     editor.putString("email", "");
+                    editor.putString("stu_name", "");
                     editor.putString("otp", "");
                     editor.putString("sid", "");
                     editor.putBoolean("is", false);

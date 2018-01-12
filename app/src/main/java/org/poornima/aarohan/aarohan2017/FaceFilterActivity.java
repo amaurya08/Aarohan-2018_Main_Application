@@ -14,6 +14,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -171,21 +172,27 @@ public class FaceFilterActivity extends AppCompatActivity {
             Canvas canvas = new Canvas(newImage);
 
             Paint paint = new Paint();
-            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(Color.WHITE);
+            paint.setStrokeWidth(3);
+            paint.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/ComicSansMSRegular.ttf"));
+
+          /*  paint.setStyle(Paint.Style.FILL);
             canvas.drawPaint(paint);
             paint.setColor(Color.WHITE);
             paint.setTextSize(30);
-            paint.setFakeBoldText(true);
+            paint.setFakeBoldText(true);*/
 
 
             canvas.drawBitmap(cameraScaledBitmap , 0, 0, null);
             canvas.drawBitmap(overlayScaledBitmap , 0, 0, null);
-            canvas.drawText("AAROHAN-2K18", 20, totalHeight, paint);
 
-            String clickName=(getSharedPreferences("aarohan", MODE_PRIVATE)).getString("stu_name",null);
+            canvas.drawBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icons_camera_64),10,height-150,paint);
+            paint.setTextSize(30);
+            canvas.drawText("AAROHAN-2018", 120, totalHeight-45, paint);
+            String clickName=(getSharedPreferences("aarohan", MODE_PRIVATE)).getString("stu_name","");
             paint.setTextSize(20);
-            if(clickName!=null){
-                canvas.drawText("BY"+clickName, 60, totalHeight+20, paint);
+            if(!clickName.equals("")){
+                canvas.drawText("By- "+clickName, 140, totalHeight-20, paint);
             }
 
 
