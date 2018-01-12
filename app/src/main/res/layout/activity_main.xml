@@ -4,12 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_home_main"
+    android:background="@drawable/background_main"
     tools:context="org.poornima.aarohan.aarohan2017.MainActivity">
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/background_main_moon"
+    android:scaleType="centerInside"/>
+    <TextView
+        android:id="@+id/aarohan_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AAROHAN"
+        android:textSize="60dp"
+        android:textColor="#FFFFFFFF"
+        android:fontFamily="@font/trashco"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:id="@+id/aarohan_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFFFF"
+        android:text="2018"
+        android:layout_below="@+id/aarohan_name"
+        android:textSize="50dp"
+        android:fontFamily="@font/shogunsclan"
+        android:layout_centerHorizontal="true"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:padding="10dp"
         android:weightSum="1">
@@ -19,16 +44,22 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:text="Selfie"
-            android:textSize="30dp"
-            android:fontFamily="@font/saucerbb"
-            android:background="@drawable/background_button_main_transparent" />
+            android:textSize="25dp"
+            android:fontFamily="@font/comicsansmsregular"
+            android:background="@drawable/background_button_main_transparent"
+            android:layout_marginRight="5dp"/>
 
-        <ImageView
+        <Button
             android:id="@+id/login_logout"
             android:layout_width="0dp"
             android:src="@drawable/login_four_fifty"
             android:layout_height="match_parent"
-            android:layout_weight="0.5" />
+            android:layout_weight="0.5"
+            android:fontFamily="@font/comicsansmsregular"
+            android:background="@drawable/background_button_main_transparent"
+            android:textSize="25dp"
+            android:text="Login"
+            android:layout_marginLeft="5dp"/>
     </LinearLayout>
 
     <com.ramotion.circlemenu.CircleMenuView

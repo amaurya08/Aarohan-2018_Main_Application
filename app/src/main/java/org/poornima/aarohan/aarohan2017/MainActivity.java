@@ -36,8 +36,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView Loginlogout;
-    private Button aarohan_selfi;
+    private Button aarohan_selfi,Loginlogout;
     private CircleMenuView circleMenu;
     private boolean back = false;
 
@@ -47,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
         if (checkSession()) {
-            Loginlogout.setImageDrawable(getDrawable(R.drawable.logout_four_fity));
+            Loginlogout.setText("Log Out");
             profileAPI();
             profileMyeventAPI();
         } else {
-            Loginlogout.setImageDrawable(getDrawable(R.drawable.login_four_fifty));
+            Loginlogout.setText("Log In");
         }
 
         methodListener();
