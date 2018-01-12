@@ -36,7 +36,7 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
         day2event.setOnClickListener(this);
         day3event.setOnClickListener(this);
         day4event.setOnClickListener(this);
-        day5event.setOnClickListener(this);
+      //  day5event.setOnClickListener(this);
         loadEventDetails();
     }
 
@@ -76,7 +76,6 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
         JSONObject jsonObject = new JSONObject(response);
         String error = jsonObject.getString("error");
         Log.d("DEBUG",""+error);
-
         if(error.equals("false"))
         {
             JSONArray jsonArray = new JSONArray(jsonObject.getString("message"));
@@ -118,7 +117,7 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
         day2event = findViewById(R.id.day2layout);
         day3event = findViewById(R.id.day3layout);
         day4event = findViewById(R.id.day4layout);
-        day5event = findViewById(R.id.day5layout);
+       // day5event = findViewById(R.id.day5layout);
     }
 
     @Override
@@ -136,9 +135,9 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
             case R.id.day4layout:
                 callNextActivity("02/02/2018");
                 break;
-            case R.id.day5layout:
+          /*  case R.id.day5layout:
                 callNextActivity("03/02/2018");
-                break;
+                break;*/
                 default:
         }
 

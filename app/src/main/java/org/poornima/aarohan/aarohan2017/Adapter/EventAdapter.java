@@ -30,7 +30,7 @@ public class EventAdapter extends ArrayAdapter{
 
     public EventAdapter(Context context, ArrayList<eventPojo> objects)
     {
-        super(context, R.layout.event_list_row_layout, objects);
+        super(context, R.layout.schedule_list_row_layout, objects);
         arraylist=objects;
     }
     @NonNull
@@ -38,7 +38,7 @@ public class EventAdapter extends ArrayAdapter{
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
     {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-        View CustomView = layoutInflater.inflate(R.layout.event_list_row_layout, parent, false);
+        View CustomView = layoutInflater.inflate(R.layout.schedule_list_row_layout, parent, false);
         eventPojo ep= (eventPojo) arraylist.get(position);
 
         ((TextView)CustomView.findViewById(R.id.event_name)).setText(ep.getEvent_name());

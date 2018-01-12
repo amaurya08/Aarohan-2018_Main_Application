@@ -22,7 +22,6 @@
             app:tabIndicatorColor="@android:color/white"
             app:tabIndicatorHeight="2dp"
             app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
-            app:tabSelectedTextColor="@android:color/holo_green_dark"
             app:tabTextColor="@android:color/white"/>
     </android.support.design.widget.AppBarLayout>
 
