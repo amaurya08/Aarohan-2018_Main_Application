@@ -1,12 +1,20 @@
 package org.poornima.aarohan.aarohan2017.Fragments;
 
+import android.app.Dialog;
 import android.database.Cursor;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
+import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import org.poornima.aarohan.aarohan2017.Adapter.EventAdapter;
@@ -27,29 +35,6 @@ public class Fragment_one extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-    /*    LayoutInflater factory = LayoutInflater.from(getActivity());
-        final View eventdialogview= factory.inflate(R.layout.dialog_event,null);
-        final AlertDialog eventdialog = new AlertDialog.Builder(getActivity()).create();
-        eventdialog.setView(eventdialogview);
-        final TextView eveName =eventdialogview.findViewById(R.id.evename);
-        View view=inflater.inflate(R.layout.one_frag,null);
-        final String [] events={"RoboSoccer","RoboWar","Circuitary","RoboRace","BallGripper","StairClimber","Sputgun","WaterRocketry"};
-        ListAdapter Myadapter= new CustomAdapter(getActivity(),events);
-        ListView mylist = (ListView) view.findViewById(R.id.List);
-        mylist.setAdapter(Myadapter);
-        mylist.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        String event = events[i];
-                        eveName.setText(event);
-                        eventdialog.show();
-
-                    }
-                }
-
-        );
-        eventdialog.dismiss();*/
 
         View view = inflater.inflate(R.layout.one_frag, container, false);
         arrayList = new ArrayList<>();
@@ -58,13 +43,35 @@ public class Fragment_one extends Fragment {
         eventListview=(ListView)view.findViewById(R.id.lv_events);
         eventListview.setAdapter(eventAdapter);
 
-
+        eventListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showEventDetails(view,position);
+            }
+        });
 
         return view;
     }
 
-    private void fatchevents() {
+    private void showEventDetails(View view, int position) {
+        LayoutInflater factory = LayoutInflater.from(getActivity());
+        final View dilog_view= factory.inflate(R.layout.dialog_schedule_listitem_event_details,null);
+        final AlertDialog dialog_Event_detail = new AlertDialog.Builder(getActivity()).create();
+        dialog_Event_detail.setView(dilog_view);
+        dialog_Event_detail.show();
 
+        Window window = dialog_Event_detail.getWindow();
+        window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        Animation animation = new ScaleAnimation((float) 1.0, (float) 1.0,
+                (float) 0, (float) 1.0);
+        animation.setDuration(500);
+        dilog_view.startAnimation(animation);
+
+
+
+    }
+
+    private void fatchevents() {
         DatabaseHelper db=new DatabaseHelper(getContext());
         Cursor cursor= db.getReadableDatabase().rawQuery("SELECT * FROM " + TableEventDetails.TABLE_NAME + " WHERE " + TableEventDetails.Event_date + "=?" + " AND " + TableEventDetails.Event_category + "=?" ,new String[]{getArguments().getString("day"),"Technical"});
         while(cursor.moveToNext()){

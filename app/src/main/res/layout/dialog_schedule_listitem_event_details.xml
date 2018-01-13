@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="#c3000000"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/comicsansmsregular"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:text="Event_name"
+                android:textSize="30sp"
+                android:id="@+id/d_event_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/d_event_name"
+                android:fontFamily="@font/comicsansmsregular"
+                android:textColor="#ffffff"
+                android:text="Coordinator name"
+                android:textSize="16sp"
+                android:id="@+id/d_co_name"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/d_co_name"
+                android:fontFamily="@font/comicsansmsregular"
+                android:textColor="#ffffff"
+                android:text="Coordinator email"
+                android:textSize="16sp"
+                android:id="@+id/d_co_email"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/d_co_email"
+                android:fontFamily="@font/comicsansmsregular"
+                android:textColor="#ffffff"
+                android:text="Coordinator email"
+                android:textSize="16sp"
+                android:id="@+id/d_co_contact_no"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginTop="3dp"
+                android:layout_below="@+id/d_co_contact_no"
+                android:fontFamily="@font/comicsansmsregular"
+                android:textColor="#ffffff"
+                android:text="Event Details"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:id="@+id/d_detail"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/d_detail"
+                android:fontFamily="@font/comicsansmsregular"
+                android:textColor="#ffffff"
+                android:text="Category"
+                android:textSize="16sp"
+                android:id="@+id/d_event_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/d_event_category"
+                android:fontFamily="@font/comicsansmsregular"
+                android:textColor="#ffffff"
+                android:text="type"
+                android:textSize="16sp"
+                android:id="@+id/d_event_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/d_event_type"
+                android:fontFamily="@font/comicsansmsregular"
+                android:textColor="#ffffff"
+                android:text="location"
+                android:textSize="16sp"
+                android:id="@+id/d_event_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/d_event_location"
+                android:fontFamily="@font/comicsansmsregular"
+                android:textColor="#ffffff"
+                android:text="date"
+                android:textSize="16sp"
+                android:id="@+id/d_event_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/d_event_date"
+                android:fontFamily="@font/comicsansmsregular"
+                android:textColor="#ffffff"
+                android:text="time"
+                android:textSize="16sp"
+                android:id="@+id/d_event_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/d_event_time"
+                android:fontFamily="@font/comicsansmsregular"
+                android:textColor="#ffffff"
+                android:text="event details"
+                android:textSize="16sp"
+                android:id="@+id/d_event_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

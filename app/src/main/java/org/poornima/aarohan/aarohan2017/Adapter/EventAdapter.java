@@ -6,6 +6,9 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.ScaleAnimation;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,18 +30,19 @@ public class EventAdapter extends ArrayAdapter{
 
 
   private ArrayList arraylist;
-
+    Context context;
     public EventAdapter(Context context, ArrayList<eventPojo> objects)
     {
-        super(context, R.layout.schedule_list_row_layout, objects);
+        super(context, R.layout.schedule_eventlist_row_layout, objects);
         arraylist=objects;
+        this.context=context;
     }
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
     {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-        View CustomView = layoutInflater.inflate(R.layout.schedule_list_row_layout, parent, false);
+        View CustomView = layoutInflater.inflate(R.layout.schedule_eventlist_row_layout, parent, false);
         eventPojo ep= (eventPojo) arraylist.get(position);
 
         ((TextView)CustomView.findViewById(R.id.event_name)).setText(ep.getEvent_name());
@@ -50,8 +54,15 @@ public class EventAdapter extends ArrayAdapter{
                 .load("http://aarohan.poornima.org/"+ep.getEvent_image_location())
                 .placeholder(R.drawable.placeholder)
                .error(R.drawable.error)
-                .resize(600,400)
                 .into(sponserlogImageView);
+
+       /* Animation animation= new ScaleAnimation((float) 1.0, (float) 1.0,
+            (float) 0, (float) 1.0);*/
+       Animation animation= AnimationUtils.loadAnimation(context, R.anim.listview_anim);
+        animation.setDuration(800);
+        CustomView.startAnimation(animation);
+        animation = null;
+
         return CustomView;
     }
 
