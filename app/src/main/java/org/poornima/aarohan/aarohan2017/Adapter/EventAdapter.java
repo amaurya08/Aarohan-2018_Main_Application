@@ -59,7 +59,7 @@ public class EventAdapter extends ArrayAdapter{
        /* Animation animation= new ScaleAnimation((float) 1.0, (float) 1.0,
             (float) 0, (float) 1.0);*/
        Animation animation= AnimationUtils.loadAnimation(context, R.anim.listview_anim);
-        animation.setDuration(800);
+        animation.setDuration(500);
         CustomView.startAnimation(animation);
         animation = null;
 
