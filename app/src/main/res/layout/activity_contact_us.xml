@@ -40,7 +40,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingRight="30dp"
-                            android:text="@string/ashish_maurya"
+                            android:text="mayankjain"
                             android:textAlignment="center"
                             android:textSize="17dp"
                             android:textStyle="bold"/>
@@ -57,7 +57,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingRight="30dp"
-                            android:text="(Co-ordinator)"
+                            android:text="2015pcecsmayank025@poornima.org"
                             android:textAlignment="center" />
                     </LinearLayout>
 
@@ -71,7 +71,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/ashish_maurya"
+                            android:text="jagrati kataria"
                             android:textAlignment="center"
 
                             android:textSize="17dp"
@@ -87,7 +87,7 @@
                             android:id="@id/email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="(Co-ordinator)"
+                            android:text="2015pcecsmayank025@poornima.org"
                             android:textAlignment="center" />
                     </LinearLayout>
                 </TableRow>

@@ -26,6 +26,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="22dp"
             android:gravity="center"
+            android:textColor="#ffffff"
             android:text="Accomodation Facility"
             android:textSize="30sp"
             android:id="@+id/textView" />
@@ -37,13 +38,15 @@
             android:layout_below="@+id/textView"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="23dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="50dp"
+            android:textColor="#ffffff"
             android:layout_marginRight="10dp"
             android:text="150/- only forAccomodation per person in triple sharing basis"
             android:textSize="17sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffffff"
             android:text="@string/accomodation"
             android:textSize="15sp"
             android:layout_marginLeft="30dp"
@@ -60,7 +63,9 @@
             android:layout_marginBottom="47dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:background="@drawable/background_button_curve"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/comicsansmsregular"
+            android:background="@drawable/background_button_main_transparent"
             android:text="Registration For Accomodation" />
     </RelativeLayout>
 </RelativeLayout>

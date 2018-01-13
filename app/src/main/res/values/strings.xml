@@ -11,8 +11,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="ashish_maurya">ashish maurya</string>
-    <string name="accomodation"> \n * 1 Night Stay \n * 2 Meals/day \n * 24*7 Security \n * Free Transportation \n * Free Wifi \n * Under CCTV surveillance</string>
+    <string name="accomodation"> \n * 1 Night Stay \n * 2 Meals/day \n * 24*7 Security \n * Free Transportation \n * Under CCTV surveillance</string>
 
 
 </resources>
