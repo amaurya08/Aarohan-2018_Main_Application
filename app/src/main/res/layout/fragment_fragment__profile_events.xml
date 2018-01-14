@@ -6,7 +6,7 @@
     tools:context="org.poornima.aarohan.aarohan2017.Fragments.Fragment_Profile_events">
 
     <ListView
-        android:paddingTop="30dp"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/myeventlistview"
