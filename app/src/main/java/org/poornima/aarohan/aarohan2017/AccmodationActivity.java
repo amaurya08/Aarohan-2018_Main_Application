@@ -22,7 +22,7 @@ public class AccmodationActivity extends AppCompatActivity {
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_accmodation);
         textView=(TextView)findViewById(R.id.accomodation);
-        Animation anim = new AlphaAnimation(0.62f,1.0f);
+        Animation anim = new AlphaAnimation(0.5f,1.0f);
         anim.setDuration(300);
         anim.setStartOffset(15);
         anim.setRepeatMode(Animation.REVERSE);

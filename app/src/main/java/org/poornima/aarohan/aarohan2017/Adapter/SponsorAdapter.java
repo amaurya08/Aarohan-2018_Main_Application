@@ -40,7 +40,7 @@ public class SponsorAdapter extends ArrayAdapter{
         View CustomView = layoutInflater.inflate(R.layout.sponser_list_row, parent, false);
         sponserPojo sp= (sponserPojo) arraylist.get(position);
 
-        ((TextView)CustomView.findViewById(R.id.name_sponser)).setText(sp.getSponserName());
+       // ((TextView)CustomView.findViewById(R.id.name_sponser)).setText(sp.getSponserName());
        ImageView sponserlogImageView= (ImageView)CustomView.findViewById(R.id.image_sponser);
 
         Picasso.with(getContext())
