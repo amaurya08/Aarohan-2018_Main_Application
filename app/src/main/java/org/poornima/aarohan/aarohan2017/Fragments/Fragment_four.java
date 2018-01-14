@@ -7,10 +7,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.crashlytics.android.Crashlytics;
 
+import org.poornima.aarohan.aarohan2017.AarohanClasses.ScheduleEventDetails;
 import org.poornima.aarohan.aarohan2017.Adapter.EventAdapter;
 import org.poornima.aarohan.aarohan2017.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2017.Pojo.eventPojo;
@@ -32,43 +34,21 @@ public class Fragment_four extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
         Fabric.with(getActivity(),new Crashlytics());
-    /*    LayoutInflater factory = LayoutInflater.from(getActivity());
-        final View eventdialogview= factory.inflate(R.layout.dialog_event,null);
-        final AlertDialog eventdialog = new AlertDialog.Builder(getActivity()).create();
-        eventdialog.setView(eventdialogview);
-        final TextView eveName =eventdialogview.findViewById(R.id.evename);
-        View view=inflater.inflate(R.layout.one_frag,null);
-        final String [] events={"RoboSoccer","RoboWar","Circuitary","RoboRace","BallGripper","StairClimber","Sputgun","WaterRocketry"};
-        ListAdapter Myadapter= new CustomAdapter(getActivity(),events);
-        ListView mylist = (ListView) view.findViewById(R.id.List);
-        mylist.setAdapter(Myadapter);
-        mylist.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        String event = events[i];
-                        eveName.setText(event);
-                        eventdialog.show();
-
-                    }
-                }
-        );
-        eventdialog.dismiss();*/
-
         View view = inflater.inflate(R.layout.four_frag, container, false);
         arrayList = new ArrayList<>();
         fatchevents();
         EventAdapter eventAdapter=new EventAdapter(getContext(),arrayList);
         eventListview=(ListView)view.findViewById(R.id.lv_events);
         eventListview.setAdapter(eventAdapter);
-
-
-
+        eventListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ScheduleEventDetails.showEventDetails(view,position,getContext(),getActivity());
+            }
+        });
         return view;
     }
-
     private void fatchevents() {
-
         DatabaseHelper db=new DatabaseHelper(getContext());
         Cursor cursor= db.getReadableDatabase().rawQuery("SELECT * FROM " + TableEventDetails.TABLE_NAME + " WHERE " + TableEventDetails.Event_date + "=?" + " AND " + TableEventDetails.Event_category + "=?" ,new String[]{getArguments().getString("day"),"Cultural"});
         while(cursor.moveToNext()){
