@@ -59,6 +59,9 @@
         <activity android:name=".WorkshopActivity" />
         <activity android:name=".AccmodationActivity" />
         <activity android:name=".InfoActivity" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="9cc8939b567d4227169c5129755ce4372e029b25" />
     </application>
 
 </manifest>

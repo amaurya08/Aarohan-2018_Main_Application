@@ -6,7 +6,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import com.crashlytics.android.Crashlytics;
+
 import org.poornima.aarohan.aarohan2017.Fragments.FragmentPromptUser;
+
+import io.fabric.sdk.android.Fabric;
 
 public class PromptUserLogin extends AppCompatActivity {
 
@@ -14,6 +18,7 @@ public class PromptUserLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_prompt_user_login);
         changeFragment(new FragmentPromptUser());
     }

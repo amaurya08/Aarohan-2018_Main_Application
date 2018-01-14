@@ -28,6 +28,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.vision.CameraSource;
@@ -43,6 +44,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import io.fabric.sdk.android.Fabric;
+
 public class FaceFilterActivity extends AppCompatActivity {
     private static final String TAG = "FaceTracker";
     private CameraSource mCameraSource = null;
@@ -56,6 +59,7 @@ public class FaceFilterActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_face_filter);
 
         mPreview = (CameraSourcePreview) findViewById(R.id.preview);

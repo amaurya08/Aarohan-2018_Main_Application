@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.crashlytics.android.Crashlytics;
+
 import org.poornima.aarohan.aarohan2017.Fragments.Fragment_four;
 import org.poornima.aarohan.aarohan2017.Fragments.Fragment_one;
 import org.poornima.aarohan.aarohan2017.Fragments.Fragment_three;
@@ -15,6 +17,8 @@ import org.poornima.aarohan.aarohan2017.Fragments.Fragment_two;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.fabric.sdk.android.Fabric;
 
 public class ScheduleEventListActivity extends AppCompatActivity {
 
@@ -24,6 +28,7 @@ public class ScheduleEventListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_schedule_event_list);
 
          data_daybundle = new Bundle();

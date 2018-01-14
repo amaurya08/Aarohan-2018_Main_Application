@@ -9,12 +9,17 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
+
+import io.fabric.sdk.android.Fabric;
+
 public class AccmodationActivity extends AppCompatActivity {
     TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_accmodation);
         textView=(TextView)findViewById(R.id.accomodation);
         Animation anim = new AlphaAnimation(0.62f,1.0f);

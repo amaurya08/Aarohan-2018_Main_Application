@@ -11,7 +11,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.crashlytics.android.Crashlytics;
+
 import java.io.File;
+
+import io.fabric.sdk.android.Fabric;
 
 public class PicPreview extends AppCompatActivity {
 
@@ -21,6 +25,7 @@ public class PicPreview extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_pic_preview);
 
         cancelLayout = findViewById(R.id.layout_cancel);

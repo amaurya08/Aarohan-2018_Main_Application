@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.crashlytics.android.Crashlytics;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,11 +27,14 @@ import org.poornima.aarohan.aarohan2017.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2017.Tables.TableEventDetails;
 import org.poornima.aarohan.aarohan2017.Tables.TableSponserDetails;
 
+import io.fabric.sdk.android.Fabric;
+
 public class ScheduleActivity extends AppCompatActivity implements View.OnClickListener {
     RelativeLayout day1event,day2event,day3event,day4event,day5event;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_schedule);
         init();
         day1event.setOnClickListener(this);
