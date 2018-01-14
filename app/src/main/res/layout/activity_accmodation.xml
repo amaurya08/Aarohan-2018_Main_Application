@@ -7,6 +7,7 @@
     android:background="@drawable/background_main"
     tools:context="org.poornima.aarohan.aarohan2017.AccmodationActivity">
     <RelativeLayout
+        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -24,9 +25,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
-            android:textColor="#ffffff"
+            android:textColor="@color/colorAccent"
             android:text="Accomodation Facility"
             android:textSize="30sp"
             android:id="@+id/textView" />

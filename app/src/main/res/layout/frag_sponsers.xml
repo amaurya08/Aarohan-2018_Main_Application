@@ -4,6 +4,9 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_main">
     <ListView
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="50dp"
         android:id="@+id/lv_sponsor"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
