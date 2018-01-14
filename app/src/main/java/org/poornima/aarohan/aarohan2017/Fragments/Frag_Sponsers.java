@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.crashlytics.android.Crashlytics;
+
 import org.poornima.aarohan.aarohan2017.Adapter.MyEventAdapter;
 import org.poornima.aarohan.aarohan2017.Adapter.SponsorAdapter;
 import org.poornima.aarohan.aarohan2017.DBhandler.DatabaseHelper;
@@ -19,6 +21,8 @@ import org.poornima.aarohan.aarohan2017.R;
 import org.poornima.aarohan.aarohan2017.Tables.TableSponserDetails;
 
 import java.util.ArrayList;
+
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by ADMIN on 04-Jan-18.
@@ -30,6 +34,7 @@ public class Frag_Sponsers extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
+        Fabric.with(getActivity(),new Crashlytics());
         View view = inflater.inflate(R.layout.frag_sponsers, container, false);
         arrayList = new ArrayList<>();
         fatchsponsers();

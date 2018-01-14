@@ -12,8 +12,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
+
 import org.poornima.aarohan.aarohan2017.MainActivity;
 import org.poornima.aarohan.aarohan2017.R;
+
+import io.fabric.sdk.android.Fabric;
 
 
 public class FragmentPromptUser extends Fragment {
@@ -22,6 +26,7 @@ public class FragmentPromptUser extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Fabric.with(getActivity(),new Crashlytics());
         View view = inflater.inflate(R.layout.fragment_prompt_user, container, false);
         init(view); //will Initialize All The Variables
         methodListener(); //All Click Listeners

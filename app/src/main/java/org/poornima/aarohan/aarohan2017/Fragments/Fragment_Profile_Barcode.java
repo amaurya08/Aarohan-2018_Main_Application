@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -20,6 +21,8 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 import org.poornima.aarohan.aarohan2017.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2017.R;
 import org.poornima.aarohan.aarohan2017.Tables.ProfileTable;
+
+import io.fabric.sdk.android.Fabric;
 
 
 public class Fragment_Profile_Barcode extends Fragment {
@@ -30,6 +33,7 @@ public class Fragment_Profile_Barcode extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.empty_layout, container, false);
+        Fabric.with(getActivity(),new Crashlytics());
         if (checkSession()) {
             view = inflater.inflate(R.layout.fragment_fragment__profile__barcode, container, false);
             init(view);

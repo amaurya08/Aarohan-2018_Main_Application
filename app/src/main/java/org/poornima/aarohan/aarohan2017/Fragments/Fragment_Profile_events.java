@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.crashlytics.android.Crashlytics;
+
 import org.poornima.aarohan.aarohan2017.Adapter.MyEventAdapter;
 import org.poornima.aarohan.aarohan2017.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2017.Pojo.myeventsPojo;
@@ -19,6 +21,8 @@ import org.poornima.aarohan.aarohan2017.Tables.TableMyeventsDetails;
 
 import java.util.ArrayList;
 
+import io.fabric.sdk.android.Fabric;
+
 public class Fragment_Profile_events extends Fragment {
 
 /*TextView eventname,eventtime,eventdate;*/
@@ -26,6 +30,7 @@ public class Fragment_Profile_events extends Fragment {
     ListView myeventsListview;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Fabric.with(getActivity(),new Crashlytics());
         View view = inflater.inflate(R.layout.empty_layout, container, false);
         if (checkSession()) {
             view = inflater.inflate(R.layout.fragment_fragment__profile_events, container, false);

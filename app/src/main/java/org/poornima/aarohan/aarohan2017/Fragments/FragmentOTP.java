@@ -24,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.crashlytics.android.Crashlytics;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,6 +35,8 @@ import org.poornima.aarohan.aarohan2017.R;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import io.fabric.sdk.android.Fabric;
 
 public class FragmentOTP extends Fragment {
     private static final String TAG = "DEBUG";
@@ -49,6 +52,7 @@ public class FragmentOTP extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Fabric.with(getActivity(),new Crashlytics());
         View view = inflater.inflate(R.layout.fragment_fragment_ot, container, false);
         init(view);
         methodListener();
@@ -178,7 +182,9 @@ public class FragmentOTP extends Fragment {
         SharedPreferences sharedPref = getActivity().getSharedPreferences("aarohan", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("email", email);
+        Crashlytics.setUserIdentifier(message);
         editor.putString("otp", otp.getText().toString());
+        Crashlytics.setUserEmail(email);
         editor.putString("sid", message);
         editor.putBoolean("is", true);
         Log.d(TAG, "Making Session with " + email + " " + otp.getText().toString() + " " + message);

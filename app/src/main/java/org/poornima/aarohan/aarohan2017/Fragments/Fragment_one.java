@@ -18,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
+
 import org.poornima.aarohan.aarohan2017.Adapter.EventAdapter;
 import org.poornima.aarohan.aarohan2017.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2017.Pojo.eventPojo;
@@ -25,6 +27,8 @@ import org.poornima.aarohan.aarohan2017.R;
 import org.poornima.aarohan.aarohan2017.Tables.TableEventDetails;
 
 import java.util.ArrayList;
+
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by ADMIN on 28-Dec-17.
@@ -36,7 +40,7 @@ public class Fragment_one extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-
+        Fabric.with(getActivity(),new Crashlytics());
         View view = inflater.inflate(R.layout.one_frag, container, false);
         arrayList = new ArrayList<>();
         fatchevents();

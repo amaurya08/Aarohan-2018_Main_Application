@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.crashlytics.android.Crashlytics;
+
 import org.poornima.aarohan.aarohan2017.Adapter.EventAdapter;
 import org.poornima.aarohan.aarohan2017.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2017.Pojo.eventPojo;
@@ -16,6 +18,8 @@ import org.poornima.aarohan.aarohan2017.R;
 import org.poornima.aarohan.aarohan2017.Tables.TableEventDetails;
 
 import java.util.ArrayList;
+
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by ADMIN on 28-Dec-17.
@@ -27,6 +31,7 @@ public class Fragment_three extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
+        Fabric.with(getActivity(),new Crashlytics());
     /*    LayoutInflater factory = LayoutInflater.from(getActivity());
         final View eventdialogview= factory.inflate(R.layout.dialog_event,null);
         final AlertDialog eventdialog = new AlertDialog.Builder(getActivity()).create();

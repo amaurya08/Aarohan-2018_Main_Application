@@ -8,7 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.crashlytics.android.Crashlytics;
+
 import org.poornima.aarohan.aarohan2017.R;
+
+import io.fabric.sdk.android.Fabric;
 
 public class Fragment_Profile_workshop extends Fragment {
 
@@ -17,6 +21,7 @@ public class Fragment_Profile_workshop extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Fabric.with(getActivity(),new Crashlytics());
         View view = inflater.inflate(R.layout.empty_layout, container, false);
         if (checkSession()) {
             view = inflater.inflate(R.layout.fragment_fragment__profile_workshop, container, false);
