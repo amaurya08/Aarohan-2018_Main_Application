@@ -8,25 +8,24 @@
     tools:context="org.poornima.aarohan.aarohan2017.ScheduleActivity">
     <ScrollView
         android:layout_marginTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="1">
+        android:orientation="vertical">
         <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <RelativeLayout
+                android:padding="3dp"
                 android:background="@drawable/background_button_main_transparent"
                 android:id="@+id/day1layout"
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
                 <ImageView
-                    android:paddingLeft="2dp"
-                    android:paddingRight="2dp"
-                    android:src="@drawable/schedule_day1"
+                    android:foreground="#87000000"
+                    android:background="@drawable/schedule_day1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
                 <TextView
@@ -50,15 +49,15 @@
 
             </RelativeLayout>
             <RelativeLayout
+                android:padding="3dp"
                 android:background="@drawable/background_button_main_transparent"
                 android:layout_marginTop="10dp"
                 android:id="@+id/day2layout"
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
                 <ImageView
-                    android:paddingLeft="2dp"
-                    android:paddingRight="2dp"
-                    android:src="@drawable/schedule_day2"
+                    android:foreground="#87000000"
+                    android:background="@drawable/schedule_day2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
                 <TextView
@@ -82,15 +81,15 @@
 
             </RelativeLayout>
             <RelativeLayout
+                android:padding="3dp"
                 android:background="@drawable/background_button_main_transparent"
                 android:layout_marginTop="10dp"
                 android:id="@+id/day3layout"
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
                 <ImageView
-                    android:paddingLeft="2dp"
-                    android:paddingRight="2dp"
-                    android:src="@drawable/schedule_day3"
+                    android:foreground="#87000000"
+                    android:background="@drawable/schedule_day3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
                 <TextView
@@ -113,15 +112,15 @@
                     android:layout_height="wrap_content" />
             </RelativeLayout>
             <RelativeLayout
+                android:padding="3dp"
                 android:background="@drawable/background_button_main_transparent"
                 android:layout_marginTop="10dp"
                 android:id="@+id/day4layout"
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
                 <ImageView
-                    android:paddingLeft="2dp"
-                    android:paddingRight="2dp"
-                    android:src="@drawable/schedule_day4"
+                    android:foreground="#87000000"
+                    android:background="@drawable/schedule_day4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
                 <TextView
@@ -149,11 +148,7 @@
 
 
 
-    <RelativeLayout
-        android:alpha="0.2"
-        android:background="@drawable/background_main_home"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+
 
 </RelativeLayout>
 

@@ -19,6 +19,7 @@ import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -51,7 +52,6 @@ public class FaceFilterActivity extends AppCompatActivity {
     private CameraSource mCameraSource = null;
     private CameraSourcePreview mPreview;
     private GraphicOverlay mGraphicOverlay;
-    private Button click_img;
 
     private static final int RC_HANDLE_GMS = 9001;
     private static final int RC_HANDLE_CAMERA_PERM = 2;
@@ -62,9 +62,9 @@ public class FaceFilterActivity extends AppCompatActivity {
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_face_filter);
 
-        mPreview = (CameraSourcePreview) findViewById(R.id.preview);
-        mGraphicOverlay = (GraphicOverlay) findViewById(R.id.faceOverlay);
-        click_img = (Button) findViewById(R.id.btn_img_click);
+        mPreview =  findViewById(R.id.preview);
+        mGraphicOverlay =  findViewById(R.id.faceOverlay);
+        Button click_img = findViewById(R.id.btn_img_click);
 
 
         // Check for the camera permission before accessing the camera.  If the
@@ -141,7 +141,9 @@ public class FaceFilterActivity extends AppCompatActivity {
         public void onShutter() {
             // MediaPlayer.create(SecondCamera.this,R.raw.camera_click).start();
             AudioManager mgr = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-            mgr.playSoundEffect(AudioManager.FLAG_PLAY_SOUND);
+            if (mgr != null) {
+                mgr.playSoundEffect(AudioManager.FLAG_PLAY_SOUND);
+            }
         }
     };
 
@@ -343,7 +345,7 @@ public class FaceFilterActivity extends AppCompatActivity {
      * @see #requestPermissions(String[], int)
      */
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode != RC_HANDLE_CAMERA_PERM) {
             Log.d(TAG, "Got unexpected permission result: " + requestCode);
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
