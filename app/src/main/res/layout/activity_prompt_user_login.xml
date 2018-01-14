@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_container"
+    android:background="@drawable/background_main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   android:background="@drawable/background_login"
+    android:weightSum="1"
     tools:context="org.poornima.aarohan.aarohan2017.PromptUserLogin">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+
+        <TextView
+            android:id="@+id/aarohan_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/shogunsclan"
+            android:layout_centerHorizontal="true"
+            android:text="Towards The Horizon"
+            android:textColor="#FFFFFFFF"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/aarohan_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/aarohan_year"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/trashco"
+            android:text="AAROHAN"
+            android:textColor="#FFFFFFFF"
+            android:textSize="60dp" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+    </FrameLayout>
 <!--
 
     <RelativeLayout
@@ -57,4 +92,4 @@
 
 -->
 
-</FrameLayout>
+</LinearLayout>

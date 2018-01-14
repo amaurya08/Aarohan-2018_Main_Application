@@ -74,31 +74,33 @@
         app:button_icons="@array/icons"
         />
 </RelativeLayout>
-<RelativeLayout
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:id="@+id/overlayscreen">
-<View
-    android:layout_width="wrap_content"
-    android:layout_height="0dp"
-    android:layout_centerVertical="true"
-    android:layout_centerHorizontal="true"
-    android:id="@+id/center"/>
 
-<ImageView
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:layout_below="@+id/center"
-    android:id="@+id/hand"
-    android:layout_centerHorizontal="true"
-    android:src="@drawable/hand" />
+    <RelativeLayout
+        android:id="@+id/overlayscreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-<ImageView
-    android:layout_width="150dp"
-    android:layout_height="100dp"
-    android:layout_centerHorizontal="true"
-    android:layout_below="@+id/hand"
-    android:src="@drawable/touchhere" />
-</RelativeLayout>
+        <View
+            android:id="@+id/center"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <ImageView
+            android:id="@+id/hand"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/center"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/hand" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/hand"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/touchhere" />
+    </RelativeLayout>
 
 </FrameLayout>

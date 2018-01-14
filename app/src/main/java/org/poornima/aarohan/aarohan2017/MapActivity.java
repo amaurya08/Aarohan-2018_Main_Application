@@ -1,8 +1,10 @@
 package org.poornima.aarohan.aarohan2017;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 
 import com.crashlytics.android.Crashlytics;
@@ -13,6 +15,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -40,7 +43,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+       mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         pietmapmarker( mMap);
         map_pce.setOnClickListener(new View.OnClickListener() {
             @Override

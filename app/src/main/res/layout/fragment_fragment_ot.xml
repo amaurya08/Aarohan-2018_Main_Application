@@ -40,7 +40,9 @@
             android:layout_marginBottom="140dp"
             android:layout_centerHorizontal="true"
             android:id="@+id/verify"
-            android:background="@drawable/background_button_curve"
+            android:background="@drawable/background_button_main_transparent"
+            android:fontFamily="@font/comicsansmsregular"
+            android:textSize="25sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Verify OTP" />

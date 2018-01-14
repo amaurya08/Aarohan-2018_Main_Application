@@ -5,7 +5,9 @@
     tools:context="org.poornima.aarohan.aarohan2017.Fragments.FragmentPromptUser">
 
     <Button
-        android:background="@drawable/background_button_curve"
+        android:fontFamily="@font/comicsansmsregular"
+        android:background="@drawable/background_button_main_transparent"
+        android:textSize="18sp"
         android:id="@+id/sign_in_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +17,9 @@
         android:layout_marginRight="20dp"
         android:text="Sign in With Email" />
     <Button
-        android:background="@drawable/background_button_curve"
+        android:fontFamily="@font/comicsansmsregular"
+        android:background="@drawable/background_button_main_transparent"
+        android:textSize="18sp"
         android:id="@+id/register_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

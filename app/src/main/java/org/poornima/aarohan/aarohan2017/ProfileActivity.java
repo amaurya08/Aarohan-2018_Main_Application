@@ -27,13 +27,10 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_profile);
-
         ViewPager viewpager = findViewById(R.id.profile_viewpager);
         TabLayout tablayout = findViewById(R.id.profile_sliding_tabs);
-        
         setupViewPager(viewpager);
         tablayout.setupWithViewPager(viewpager);
-
     }
 
     @Override

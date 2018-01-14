@@ -90,12 +90,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
     }
+
     private void profileMyeventAPI() {
         StringRequest stringRequest;
         stringRequest = new StringRequest(Request.Method.POST, URLHelper.studenteventdetails, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
+                    Log.d("DEBUG",""+response);
                     parsestudenteventDetail(response);
                 } catch (JSONException e) {
                     e.printStackTrace();
