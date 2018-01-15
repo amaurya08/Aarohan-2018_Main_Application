@@ -73,7 +73,7 @@ public class FragmentOTP extends Fragment {
         SharedPreferences sharedPref = getActivity().getSharedPreferences("aarohan", Context.MODE_PRIVATE);
         email = sharedPref.getString("email","");
         otp = view.findViewById(R.id.otp);
-        progressDialog = new ProgressDialog(getActivity());
+        progressDialog = new ProgressDialog(getActivity(),R.style.dialog);
         verify = view.findViewById(R.id.verify);
         resend = view.findViewById(R.id.resend);
         countdownTextView = view.findViewById(R.id.countdownTimer);

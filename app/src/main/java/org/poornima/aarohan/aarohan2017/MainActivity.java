@@ -1,5 +1,6 @@
 package org.poornima.aarohan.aarohan2017;
 
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -41,6 +42,7 @@ import io.fabric.sdk.android.Fabric;
 public class MainActivity extends AppCompatActivity {
 
     private Button aarohan_selfi,Loginlogout;
+    ProgressDialog progressDialog;
     private CircleMenuView circleMenu;
     private boolean back = false;
     View toplay;
@@ -53,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
         init();
         if (checkSession()) {
             Loginlogout.setText("Log Out");
+            progressDialog.show();
             profileAPI();
-            profileMyeventAPI();
         } else {
             Loginlogout.setText("Log In");
         }
@@ -96,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         stringRequest = new StringRequest(Request.Method.POST, URLHelper.studenteventdetails, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                progressDialog.cancel();
                 try {
                     Log.d("DEBUG",""+response);
                     parsestudenteventDetail(response);
@@ -106,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressDialog.cancel();
                 Toast.makeText(MainActivity.this, "Error in loding myevents", Toast.LENGTH_SHORT).show();
             }
         }) {
@@ -162,10 +166,12 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.d("DEBUG", "response recieved");
                 parseProfile(response);
+                profileMyeventAPI();
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressDialog.cancel();
                 Log.d("DEBUG", "" + error.getMessage());
             }
         }) {
@@ -226,6 +232,9 @@ public class MainActivity extends AppCompatActivity {
         aarohan_selfi = findViewById(R.id.selfi);
         circleMenu = findViewById(R.id.circleMenu);
         Loginlogout = findViewById(R.id.login_logout);
+        progressDialog = new ProgressDialog(MainActivity.this,R.style.dialog);
+        progressDialog.setMessage("Please Wait...");
+        progressDialog.setCancelable(false);
     }
 
     private void methodListener() {

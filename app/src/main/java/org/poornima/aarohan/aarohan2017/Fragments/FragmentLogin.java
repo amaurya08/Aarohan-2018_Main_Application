@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -41,7 +42,7 @@ public class FragmentLogin extends Fragment {
     private Button submit;
     public static final String TAG = "DEBUG";
     private TextInputLayout inputLayout;
-    private EditText emailEditText;
+    private TextInputEditText emailEditText;
     private String email;
     private String emailMatcher;
     private ProgressDialog progressDialog;
@@ -86,7 +87,7 @@ public class FragmentLogin extends Fragment {
         emailMatcher = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         emailEditText = view.findViewById(R.id.email);
         submit = view.findViewById(R.id.submit_email);
-        progressDialog = new ProgressDialog(getActivity());
+        progressDialog = new ProgressDialog(getActivity(),R.style.dialog);
         progressDialog.setMessage("Verifying Email...");
         progressDialog.setCancelable(false);
         inputLayout = view.findViewById(R.id.email_layout);
