@@ -50,7 +50,7 @@ public class FragmentLogin extends Fragment {
     public FragmentLogin() {
         // Required empty public constructor
     }
-
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -158,5 +158,4 @@ public class FragmentLogin extends Fragment {
         transaction.replace(R.id.fragment_container, fragment);
         transaction.commit();
     }
-
 }

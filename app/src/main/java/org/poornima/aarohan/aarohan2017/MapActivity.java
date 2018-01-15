@@ -81,6 +81,13 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         Marker m9=mMap.addMarker(new MarkerOptions().position(new LatLng(26.785709349508345,75.85385799407959))
                 .anchor(0.5f,0.5f).title("Cafeteria PGI")
                 .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.cafeteria_marker)));
+        Marker m13=mMap.addMarker(new MarkerOptions().position(new LatLng(26.785627939767345,75.85351198911667))
+                .anchor(0.5f,0.5f).title("Accomodation")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.accomodation)));
+        Marker m19=mMap.addMarker(new MarkerOptions().position(new LatLng(26.78634386460614,75.85416778922081))
+                .anchor(0.5f,0.5f).title("HelpDesk(PGI)")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.helpdesk)));
+
     }
 
     private void pietmapmarker(GoogleMap mMap) {
@@ -97,6 +104,18 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         Marker m5=mMap.addMarker(new MarkerOptions().position(new LatLng(26.767481688451472,75.85030071437359))
                 .anchor(0.5f,0.5f).title("Cafeteria PIET")
                 .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.cafeteria_marker)));
+        Marker m10=mMap.addMarker(new MarkerOptions().position(new LatLng(26.767979803203044,75.85102155804634))
+                .anchor(0.5f,0.5f).title("Arbuda Convention Center")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.entry)));
+        Marker m11=mMap.addMarker(new MarkerOptions().position(new LatLng(26.768549758748648,75.85058838129044))
+                .anchor(0.5f,0.5f).title("ATM")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.entry)));
+        Marker m17=mMap.addMarker(new MarkerOptions().position(new LatLng(26.76846474455253,75.85053943097591))
+                .anchor(0.5f,0.5f).title("Help Desk(PIET)")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.helpdesk)));
+        Marker m20=mMap.addMarker(new MarkerOptions().position(new LatLng(26.76840128320972,75.85087940096855))
+                .anchor(0.5f,0.5f).title("PARKING)")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.parking)));
     }
     private void pcemapmarkers(GoogleMap mMap) {
         mMap.clear();
@@ -112,6 +131,20 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         Marker m3=mMap.addMarker(new MarkerOptions().position(new LatLng(26.765759823037087,75.85410341620445))
                 .anchor(0.5f,0.5f).title("Cafeteria PCE")
                 .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.cafeteria_marker)));
+        Marker m11=mMap.addMarker(new MarkerOptions().position(new LatLng(26.766188495726425,75.85360586643219))
+                .anchor(0.5f,0.5f).title("ATM")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.entry)));
+        Marker m12=mMap.addMarker(new MarkerOptions().position(new LatLng(26.765254514046642,75.85266709327698))
+                .anchor(0.5f,0.5f).title("Accomodation")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.accomodation)));
+          Marker m16=mMap.addMarker(new MarkerOptions().position(new LatLng(26.766023253372975,75.85363671183586))
+                .anchor(0.5f,0.5f).title("Help Desk(PCE)")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.helpdesk)));
+        Marker m22=mMap.addMarker(new MarkerOptions().position(new LatLng(26.76599691036687,75.85394516587257))
+                .anchor(0.5f,0.5f).title("Parking")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.parking)));
+
+
     }
 
     private void init() {
