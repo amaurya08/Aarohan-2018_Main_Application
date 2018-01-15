@@ -25,7 +25,7 @@ public class TableMyeventsDetails {
             ");";
     public static void createTable(SQLiteDatabase db){
         db.execSQL(create);
-        Log.d("DATABASE", "Table Created");
+     //   Log.d("DATABASE", "Table Created");
     }
     public  static void deleteTableData(SQLiteDatabase db,String query){
         db.execSQL(query);

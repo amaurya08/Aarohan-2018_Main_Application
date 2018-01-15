@@ -72,7 +72,7 @@ public class Fragment_Profile_Barcode extends Fragment {
     private void fatchProfileValue() {
         DatabaseHelper db = new DatabaseHelper(getContext());
         Cursor cursor = db.getReadableDatabase().rawQuery("select * from " + ProfileTable.tablename, null);
-        Log.d("DEBUG","cursor :: " + cursor.toString());
+     //   Log.d("DEBUG","cursor :: " + cursor.toString());
         while(cursor.moveToNext()){
             textname.setText(cursor.getString(1));
             textemail.setText(cursor.getString(2));

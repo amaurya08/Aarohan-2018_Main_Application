@@ -21,7 +21,7 @@ public class TableSponserDetails {
             ");";
     public static void createTable(SQLiteDatabase db) {
         db.execSQL(createTable);
-        Log.d("DATABASE", "Table Created");
+      //  Log.d("DATABASE", "Table Created");
     }
     public  static void deleteTableData(SQLiteDatabase db,String query){
         db.execSQL(query);

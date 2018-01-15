@@ -1,6 +1,5 @@
 package org.poornima.aarohan.aarohan2017;
 
-import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,11 +7,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -46,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private CustomLoading customLoading;
     private CircleMenuView circleMenu;
     private boolean back = false;
+    String errorString = "Error in Loading";
     View toplay;
 
     @Override
@@ -61,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Loginlogout.setText("Log In");
         }
+
         toplay = findViewById(R.id.overlayscreen);
 
         if(isFirstTime()){
@@ -101,17 +100,18 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 customLoading.cancel();
                 try {
-                    Log.d("DEBUG",""+response);
+                    //  Log.d("DEBUG",""+response);
                     parsestudenteventDetail(response);
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Toast.makeText(MainActivity.this, ""+errorString, Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 customLoading.cancel();
-                Toast.makeText(MainActivity.this, "Error in loding myevents", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, errorString, Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override
@@ -132,11 +132,11 @@ public class MainActivity extends AppCompatActivity {
     private void parsestudenteventDetail(String response) throws JSONException {
         JSONObject jsonObject = new JSONObject(response);
         String error = jsonObject.getString("error");
-        Log.d("DEBUG", "" + error);
+        //   Log.d("DEBUG", "" + error);
 
         if (error.equals("false")) {
             JSONArray jsonArray = new JSONArray(jsonObject.getString("message"));
-            Log.d("DEBUG", jsonArray.toString());
+            //  Log.d("DEBUG", jsonArray.toString());
 
             DatabaseHelper db = new DatabaseHelper(MainActivity.this);
             TableMyeventsDetails.deleteTableData(db.getWritableDatabase(), "delete from " + TableMyeventsDetails.TABLE_NAME);
@@ -154,10 +154,11 @@ public class MainActivity extends AppCompatActivity {
                 cv.put(TableMyeventsDetails.Col_eventmaplong, event_map_coordinates_long);
                 cv.put(TableMyeventsDetails.Col_eventmaplati, event_map_coordinates_latt);
                 long j=TableMyeventsDetails.insertDetails(db.getWritableDatabase(), cv);
-                Log.d("DEBUG", "DATA INSERTED" + j);
+                //    Log.d("DEBUG", "DATA INSERTED" + j);
 
             }
-        }
+        } else
+            Toast.makeText(this, "" + errorString, Toast.LENGTH_SHORT).show();
     }
 
     private void profileAPI() {
@@ -165,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
         request = new StringRequest(Request.Method.POST, URLHelper.ProfileData, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("DEBUG", "response recieved");
+                //    Log.d("DEBUG", "response recieved");
                 parseProfile(response);
                 profileMyeventAPI();
             }
@@ -173,7 +174,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 customLoading.cancel();
-                Log.d("DEBUG", "" + error.getMessage());
+                Toast.makeText(MainActivity.this, "" + errorString, Toast.LENGTH_SHORT).show();
+                //  Log.d("DEBUG", "" + error.getMessage());
             }
         }) {
             @Override
@@ -221,9 +223,10 @@ public class MainActivity extends AppCompatActivity {
 
                 DatabaseHelper db = new DatabaseHelper(MainActivity.this);
                 long x = ProfileTable.insertDetails(db.getWritableDatabase(), cv);
-                Log.d("DEBUG", "" + x);
+                //  Log.d("DEBUG", "" + x);
             } else {
-                Log.d("DEBUG",""+jsonObject.getString("message"));
+                Toast.makeText(this, ""+errorString, Toast.LENGTH_SHORT).show();
+                //   Log.d("DEBUG",""+jsonObject.getString("message"));
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -313,17 +316,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void logout() {
         try {
-            Log.d("DEBUG", "Request Sent");
+            //    Log.d("DEBUG", "Request Sent");
             StringRequest request = new StringRequest(Request.Method.POST, URLHelper.logOut, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Log.d("DEBUG", "Response Recieved");
+                    Toast.makeText(MainActivity.this, "Bye Bye", Toast.LENGTH_SHORT).show();
+                    // Log.d("DEBUG", "Response Recieved");
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Log.d("TAG", error + "");
-                    Toast.makeText(MainActivity.this, "" + error, Toast.LENGTH_SHORT).show();
+                    //   Log.d("TAG", error + "");
+                    Toast.makeText(MainActivity.this, "" + errorString, Toast.LENGTH_SHORT).show();
                 }
             }) {
                 @Override

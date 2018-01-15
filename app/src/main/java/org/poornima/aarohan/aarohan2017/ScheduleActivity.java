@@ -87,11 +87,11 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
     private void parseEventDetails(String response) throws JSONException {
         JSONObject jsonObject = new JSONObject(response);
         String error = jsonObject.getString("error");
-        Log.d("DEBUG",""+error);
+        //Log.d("DEBUG",""+error);
         if(error.equals("false"))
         {
             JSONArray jsonArray = new JSONArray(jsonObject.getString("message"));
-            Log.d("DEBUG",jsonArray.toString());
+//            Log.d("DEBUG",jsonArray.toString());
 
             DatabaseHelper db = new DatabaseHelper(ScheduleActivity.this);
             TableSponserDetails.deleteTableData(db.getWritableDatabase(),"delete from "+ TableEventDetails.TABLE_NAME);
@@ -116,11 +116,11 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
 
                long j= TableEventDetails.insert(db.getWritableDatabase(), cv);
 
-               Log.d("DEBUG","value inserted in event table"+j);
+             //  Log.d("DEBUG","value inserted in event table"+j);
             }
         }
         else{
-            Toast.makeText(this, "DataParsing error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error Loading Data", Toast.LENGTH_SHORT).show();
         }
     }
 

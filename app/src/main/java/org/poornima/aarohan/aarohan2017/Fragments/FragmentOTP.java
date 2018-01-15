@@ -39,7 +39,7 @@ import java.util.Map;
 import io.fabric.sdk.android.Fabric;
 
 public class FragmentOTP extends Fragment {
-    private static final String TAG = "DEBUG";
+    /*private static final String TAG = "DEBUG";*/
     private TextView resend;
     private EditText otp;
     private String email;
@@ -123,7 +123,7 @@ public class FragmentOTP extends Fragment {
                 public void onResponse(String response) {
                     try {
                         customLoading.cancel();
-                        Log.d(TAG, "Checking OTP");
+                       /* Log.d(TAG, "Checking OTP");*/
                         parseCheckOTPString(response);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -183,7 +183,7 @@ public class FragmentOTP extends Fragment {
         Crashlytics.setUserEmail(email);
         editor.putString("sid", message);
         editor.putBoolean("is", true);
-        Log.d(TAG, "Making Session with " + email + " " + otp.getText().toString() + " " + message);
+        /*Log.d(TAG, "Making Session with " + email + " " + otp.getText().toString() + " " + message);*/
         editor.apply();
     }
 
@@ -193,7 +193,7 @@ public class FragmentOTP extends Fragment {
                 public void onResponse(String response) {
                     try {
                         customLoading.cancel();
-                        Log.d(TAG, "OTP SENT");
+                        /*Log.d(TAG, "OTP SENT");*/
                         parseStringOTP(response);
                     } catch (Exception e) {
                         Toast.makeText(getActivity(), "" + e.toString(), Toast.LENGTH_SHORT).show();

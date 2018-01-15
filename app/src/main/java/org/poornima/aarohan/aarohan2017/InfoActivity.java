@@ -57,6 +57,7 @@ public class InfoActivity extends AppCompatActivity {
                     try {
                         parseSponserDetail(response);
                     } catch (Exception e) {
+                        Toast.makeText(InfoActivity.this, "Error in Loading", Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
                     }
                 }
@@ -84,12 +85,12 @@ public class InfoActivity extends AppCompatActivity {
 
         JSONObject jsonObject = new JSONObject(response);
         String error = jsonObject.getString("error");
-        Log.d("DEBUG",""+error);
+     //   Log.d("DEBUG",""+error);
 
         if(error.equals("false"))
         {
             JSONArray jsonArray = new JSONArray(jsonObject.getString("message"));
-            Log.d("DEBUG",jsonArray.toString());
+          //  Log.d("DEBUG",jsonArray.toString());
 
             DatabaseHelper db = new DatabaseHelper(InfoActivity.this);
             TableSponserDetails.deleteTableData(db.getWritableDatabase(),"delete from "+TableSponserDetails.TABLE_NAME);
@@ -107,7 +108,7 @@ public class InfoActivity extends AppCompatActivity {
             }
         }
         else{
-            Toast.makeText(this, "Dataarsing error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error in Loading Data", Toast.LENGTH_SHORT).show();
         }
     }
 
