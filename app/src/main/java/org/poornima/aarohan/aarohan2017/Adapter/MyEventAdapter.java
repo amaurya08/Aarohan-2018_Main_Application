@@ -47,25 +47,10 @@ public class MyEventAdapter extends ArrayAdapter {
         mapLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                // Create a Uri from an intent string. Use the result to create an Intent.
-                /*Uri gmmIntentUri = Uri.parse("google.streetview:cbll=46.414382,10.013988");
-                * Uri gmmIntentUri = Uri.parse("geo:37.7749,-122.4194");*/
-                Uri gmmIntentUri = Uri.parse("geo:" + temp.getMaplati() + "," + temp.getMaplongi());
-
-// Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-// Make the Intent explicit by setting the Google Maps package
-                mapIntent.setPackage("com.google.android.apps.maps");
-
-// Attempt to start an activity that can handle the Intent
+                Uri uri = Uri.parse("http://maps.google.com").buildUpon()
+                        .appendQueryParameter("q", temp.getMaplati() + "," + temp.getMaplongi()).build();
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, uri);
                 context.startActivity(mapIntent);
-
-                /*String uri = "https://www.google.co.in/maps/@" +  + "15z";
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-                // intent.setPackage("com.google.android.apps.maps");
-                context.startActivity(intent);*/
             }
         });
         return CustomView;
