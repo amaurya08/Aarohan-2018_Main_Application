@@ -67,7 +67,7 @@ class FaceGraphic extends GraphicOverlay.Graphic {
         mBoxPaint.setColor(selectedColor);
         mBoxPaint.setStyle(Paint.Style.STROKE);
         mBoxPaint.setStrokeWidth(BOX_STROKE_WIDTH);
-        bitmap = BitmapFactory.decodeResource(getOverlay().getContext().getResources(), R.drawable.krish);
+        bitmap = BitmapFactory.decodeResource(getOverlay().getContext().getResources(), R.drawable.op);
         op = bitmap;
     }
 
