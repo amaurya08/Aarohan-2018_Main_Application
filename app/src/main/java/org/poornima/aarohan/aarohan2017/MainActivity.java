@@ -29,6 +29,7 @@ import com.ramotion.circlemenu.CircleMenuView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.poornima.aarohan.aarohan2017.AarohanClasses.CustomLoading;
 import org.poornima.aarohan.aarohan2017.AarohanClasses.URLHelper;
 import org.poornima.aarohan.aarohan2017.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2017.Tables.ProfileTable;
@@ -42,7 +43,7 @@ import io.fabric.sdk.android.Fabric;
 public class MainActivity extends AppCompatActivity {
 
     private Button aarohan_selfi,Loginlogout;
-    ProgressDialog progressDialog;
+    private CustomLoading customLoading;
     private CircleMenuView circleMenu;
     private boolean back = false;
     View toplay;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         init();
         if (checkSession()) {
             Loginlogout.setText("Log Out");
-            progressDialog.show();
+            customLoading.show();
             profileAPI();
         } else {
             Loginlogout.setText("Log In");
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         stringRequest = new StringRequest(Request.Method.POST, URLHelper.studenteventdetails, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                progressDialog.cancel();
+                customLoading.cancel();
                 try {
                     Log.d("DEBUG",""+response);
                     parsestudenteventDetail(response);
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                progressDialog.cancel();
+                customLoading.cancel();
                 Toast.makeText(MainActivity.this, "Error in loding myevents", Toast.LENGTH_SHORT).show();
             }
         }) {
@@ -171,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                progressDialog.cancel();
+                customLoading.cancel();
                 Log.d("DEBUG", "" + error.getMessage());
             }
         }) {
@@ -232,9 +233,7 @@ public class MainActivity extends AppCompatActivity {
         aarohan_selfi = findViewById(R.id.selfi);
         circleMenu = findViewById(R.id.circleMenu);
         Loginlogout = findViewById(R.id.login_logout);
-        progressDialog = new ProgressDialog(MainActivity.this,R.style.dialog);
-        progressDialog.setMessage("Please Wait...");
-        progressDialog.setCancelable(false);
+        customLoading = new CustomLoading(MainActivity.this);
     }
 
     private void methodListener() {
@@ -253,7 +252,8 @@ public class MainActivity extends AppCompatActivity {
                     editor.apply();
                     DatabaseHelper db = new DatabaseHelper(MainActivity.this);
                     ProfileTable.clearProfile(db.getWritableDatabase(), "delete from " + ProfileTable.tablename);
-
+                    startActivity(new Intent(MainActivity.this, MainActivity.class));
+                    finish();
                 } else {
                     startActivity(new Intent(MainActivity.this, PromptUserLogin.class));
                     finish();
@@ -359,7 +359,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 startActivity(new Intent(MainActivity.this, myclass));
             }
-        }, 600);
+        }, 900);
     }
 
     public Boolean checkSession() {

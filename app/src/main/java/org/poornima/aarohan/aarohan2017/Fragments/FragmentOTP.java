@@ -1,6 +1,5 @@
 package org.poornima.aarohan.aarohan2017.Fragments;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -28,6 +27,7 @@ import com.crashlytics.android.Crashlytics;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.poornima.aarohan.aarohan2017.AarohanClasses.CustomLoading;
 import org.poornima.aarohan.aarohan2017.AarohanClasses.NetWorkManager;
 import org.poornima.aarohan.aarohan2017.AarohanClasses.URLHelper;
 import org.poornima.aarohan.aarohan2017.MainActivity;
@@ -44,7 +44,7 @@ public class FragmentOTP extends Fragment {
     private EditText otp;
     private String email;
     private Button verify;
-    private ProgressDialog progressDialog;
+    private CustomLoading customLoading;
     private TextView countdownTextView;
 
 
@@ -56,9 +56,7 @@ public class FragmentOTP extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fragment_ot, container, false);
         init(view);
         methodListener();
-        progressDialog.setMessage("Sending OTP....");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+        customLoading.show();
         if (NetWorkManager.checkInternetAccess(getActivity())) {
             sendOTP(email);
         } else {
@@ -73,7 +71,7 @@ public class FragmentOTP extends Fragment {
         SharedPreferences sharedPref = getActivity().getSharedPreferences("aarohan", Context.MODE_PRIVATE);
         email = sharedPref.getString("email","");
         otp = view.findViewById(R.id.otp);
-        progressDialog = new ProgressDialog(getActivity(),R.style.dialog);
+        customLoading = new CustomLoading(getActivity());
         verify = view.findViewById(R.id.verify);
         resend = view.findViewById(R.id.resend);
         countdownTextView = view.findViewById(R.id.countdownTimer);
@@ -84,9 +82,7 @@ public class FragmentOTP extends Fragment {
             @Override
             public void onClick(View view) {
                 if (otp.getText().toString().length() == 8) {
-                    progressDialog.setMessage("Verifying OTP....");
-                    progressDialog.setCancelable(false);
-                        progressDialog.show();
+                    customLoading.show();
                         checkOTP(otp.getText().toString());
                 } else
                     Toast.makeText(getActivity(), "Invalid OTP", Toast.LENGTH_SHORT).show();
@@ -126,7 +122,7 @@ public class FragmentOTP extends Fragment {
                 @Override
                 public void onResponse(String response) {
                     try {
-                        progressDialog.cancel();
+                        customLoading.cancel();
                         Log.d(TAG, "Checking OTP");
                         parseCheckOTPString(response);
                     } catch (Exception e) {
@@ -137,7 +133,7 @@ public class FragmentOTP extends Fragment {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    progressDialog.cancel();
+                    customLoading.cancel();
                     Toast.makeText(getActivity(), "Please Check Your Internet Connection", Toast.LENGTH_SHORT).show();
                 }
             }) {
@@ -196,7 +192,7 @@ public class FragmentOTP extends Fragment {
                 @Override
                 public void onResponse(String response) {
                     try {
-                        progressDialog.cancel();
+                        customLoading.cancel();
                         Log.d(TAG, "OTP SENT");
                         parseStringOTP(response);
                     } catch (Exception e) {
@@ -206,7 +202,7 @@ public class FragmentOTP extends Fragment {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    progressDialog.cancel();
+                    customLoading.cancel();
                     Toast.makeText(getActivity(), "" + error.toString(), Toast.LENGTH_SHORT).show();
                 }
             }) {

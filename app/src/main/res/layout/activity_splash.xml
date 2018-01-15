@@ -6,10 +6,4 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_login"
     tools:context="org.poornima.aarohan.aarohan2017.SplashActivity">
-    <ProgressBar
-        android:id="@+id/splash_screen_progress_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        style="@android:style/Widget.DeviceDefault.Light.ProgressBar" />
 </RelativeLayout>

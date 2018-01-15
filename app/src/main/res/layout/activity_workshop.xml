@@ -8,6 +8,7 @@
     tools:context="org.poornima.aarohan.aarohan2017.WorkshopActivity">
     <TextView
         android:layout_width="wrap_content"
+        android:textColor="#fff"
         android:layout_centerInParent="true"
         android:layout_height="wrap_content"
         android:textSize="18sp"

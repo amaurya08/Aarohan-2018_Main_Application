@@ -29,6 +29,7 @@ import com.crashlytics.android.Crashlytics;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.poornima.aarohan.aarohan2017.AarohanClasses.CustomLoading;
 import org.poornima.aarohan.aarohan2017.AarohanClasses.NetWorkManager;
 import org.poornima.aarohan.aarohan2017.AarohanClasses.URLHelper;
 import org.poornima.aarohan.aarohan2017.R;
@@ -45,7 +46,7 @@ public class FragmentLogin extends Fragment {
     private TextInputEditText emailEditText;
     private String email;
     private String emailMatcher;
-    private ProgressDialog progressDialog;
+    private CustomLoading customLoading;
 
     public FragmentLogin() {
         // Required empty public constructor
@@ -67,11 +68,10 @@ public class FragmentLogin extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Verifying EMail");
                 if (NetWorkManager.checkInternetAccess(getActivity())) {
                     email = emailEditText.getText().toString();
                     if (email.matches(emailMatcher) && email.length() > 0) {
-                        progressDialog.show();
+                        customLoading.show();
                         verifyEmail(email);
                     } else {
                         inputLayout.setError("Invalid Email");
@@ -87,28 +87,26 @@ public class FragmentLogin extends Fragment {
         emailMatcher = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         emailEditText = view.findViewById(R.id.email);
         submit = view.findViewById(R.id.submit_email);
-        progressDialog = new ProgressDialog(getActivity(),R.style.dialog);
-        progressDialog.setMessage("Verifying Email...");
-        progressDialog.setCancelable(false);
+        customLoading = new CustomLoading(getActivity());
         inputLayout = view.findViewById(R.id.email_layout);
         email = "";
     }
 
 
     private void verifyEmail(final String s) {
-            Log.d(TAG, "Request Sent");
+
             StringRequest request = new StringRequest(Request.Method.POST, URLHelper.verifyEmail, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    progressDialog.cancel();
-                    Log.d(TAG, "Verify E-Mail Response Recieved");
+                    customLoading.cancel();
+
                     verifyParseString(response, s);
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Log.d("TAG", error + "");
-                    progressDialog.cancel();
+
+                    customLoading.cancel();
                     Toast.makeText(getActivity(), "" + error, Toast.LENGTH_SHORT).show();
                 }
             }) {
@@ -148,7 +146,7 @@ public class FragmentLogin extends Fragment {
                 Toast.makeText(getActivity(), ""+message, Toast.LENGTH_SHORT).show();
             }
         } catch (JSONException e) {
-            Log.d(TAG, e.getMessage());
+            Toast.makeText(getActivity(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
     public void changeFragment(Fragment fragment) {

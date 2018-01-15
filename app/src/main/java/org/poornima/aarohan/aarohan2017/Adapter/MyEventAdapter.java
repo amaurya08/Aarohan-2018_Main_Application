@@ -13,11 +13,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.poornima.aarohan.aarohan2017.Pojo.myeventsPojo;
-import org.poornima.aarohan.aarohan2017.Pojo.sponserPojo;
 import org.poornima.aarohan.aarohan2017.R;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 import static org.poornima.aarohan.aarohan2017.R.layout.myevent_customlist_row;
 
@@ -49,10 +47,25 @@ public class MyEventAdapter extends ArrayAdapter {
         mapLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String uri = String.format(Locale.ENGLISH, "geo:%f,%f", Float.parseFloat(temp.getMaplati()), Float.parseFloat(temp.getMaplongi()));
+
+
+                // Create a Uri from an intent string. Use the result to create an Intent.
+                /*Uri gmmIntentUri = Uri.parse("google.streetview:cbll=46.414382,10.013988");
+                * Uri gmmIntentUri = Uri.parse("geo:37.7749,-122.4194");*/
+                Uri gmmIntentUri = Uri.parse("geo:" + temp.getMaplati() + "," + temp.getMaplongi());
+
+// Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+// Make the Intent explicit by setting the Google Maps package
+                mapIntent.setPackage("com.google.android.apps.maps");
+
+// Attempt to start an activity that can handle the Intent
+                context.startActivity(mapIntent);
+
+                /*String uri = "https://www.google.co.in/maps/@" +  + "15z";
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-                intent.setPackage("com.google.android.apps.maps");
-                context.startActivity(intent);
+                // intent.setPackage("com.google.android.apps.maps");
+                context.startActivity(intent);*/
             }
         });
         return CustomView;

@@ -8,31 +8,31 @@
     android:orientation="vertical"
     tools:context="org.poornima.aarohan.aarohan2017.FaceFilterActivity">
 
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <org.poornima.aarohan.aarohan2017.camera.CameraSourcePreview
-        android:id="@+id/preview"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <org.poornima.aarohan.aarohan2017.camera.GraphicOverlay
-            android:id="@+id/faceOverlay"
+        android:layout_height="match_parent">
+        <org.poornima.aarohan.aarohan2017.camera.CameraSourcePreview
+            android:id="@+id/preview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </org.poornima.aarohan.aarohan2017.camera.CameraSourcePreview>
-</LinearLayout>
+            android:layout_height="wrap_content">
+            <org.poornima.aarohan.aarohan2017.camera.GraphicOverlay
+                android:id="@+id/faceOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </org.poornima.aarohan.aarohan2017.camera.CameraSourcePreview>
+    </LinearLayout>
 
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:gravity="center_horizontal">
-    <Button
-        android:id="@+id/btn_img_click"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/ic_camera_click"/>
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal">
+        <Button
+            android:id="@+id/btn_img_click"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/ic_camera_click"/>
+    </RelativeLayout>
 </RelativeLayout>

@@ -76,6 +76,7 @@ public class Fragment_Profile_events extends Fragment {
         while(cursor.moveToNext()){
             arrayList.add(new myeventsPojo(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4)
             ,cursor.getString(5)));
+            Log.d("DEBUG", "" + cursor.getString(1) + cursor.getString(2) + cursor.getString(3) + cursor.getString(4) + cursor.getString(5));
         }
         cursor.close();
     }
