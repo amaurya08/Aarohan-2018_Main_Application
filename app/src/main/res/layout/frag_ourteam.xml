@@ -39,79 +39,66 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="25dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
                     android:weightSum="1">
-
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.6"
+                        android:layout_weight="0.5"
                         android:orientation="vertical"
                         android:padding="5dp">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingRight="10dp"
                             android:text="Ashish Maurya"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
-
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingRight="10dp"
                             android:text="7357953831"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textColor="@color/white" />
-
                         <TextView
-
+                            android:fontFamily="@font/comicsansmsregular"
+                            android:textSize="12sp"
+                            android:gravity="center"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:paddingRight="10dp"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
                             android:text="2014pcecsashish022@poornima.org"
-                            android:textAlignment="center"
                             android:textColor="@color/white" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.4"
+                        android:layout_weight="0.5"
                         android:orientation="vertical"
-                        android:padding="5dp">
-
+                        android:padding="3dp" >
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
                             android:text="Kuldeep Saharan"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
-
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
                             android:text="9587838853"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textColor="@color/white" />
-
                         <TextView
                             android:id="@id/email"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingLeft="10dp"
-                            android:text="2015pcecskuldeep@poornima.org"
-                            android:textAlignment="center"
+                            android:text="2014pcecskuldeep@poornima.org"
+                            android:gravity="center"
+                            android:layout_gravity="center"
                             android:textColor="@color/white" />
                     </LinearLayout>
                 </TableRow>
@@ -119,51 +106,34 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="25dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                    android:padding="3dp"
                     android:weightSum="1">
-
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.6"
+                        android:layout_weight="0.5"
                         android:orientation="vertical"
-                        android:padding="5dp">
-
+                        android:padding="3dp" >
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingRight="10dp"
                             android:text="Mayank Jain"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
-
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingRight="10dp"
-                            android:text="9462820330"
-                            android:textAlignment="center"
-                            android:textColor="@color/white" />
-
-                        <TextView
-
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:paddingRight="10dp"
                             android:text="2015pcecsmayank025@poornima.org"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textColor="@color/white" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.4"
+                        android:layout_weight="0.5"
                         android:orientation="vertical"
                         android:padding="5dp">
 
@@ -172,26 +142,17 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:text="Jagrati Katariya"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
-                            android:text="7297928661"
-                            android:textAlignment="center"
-                            android:textColor="@color/white" />
-
                         <TextView
                             android:id="@id/email"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
                             android:text="2015pcecsjagrati@poornima.org"
-                            android:textAlignment="center"
+                            android:gravity="center"
                             android:textColor="@color/white" />
                     </LinearLayout>
                 </TableRow>
@@ -199,137 +160,98 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="25dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                   android:padding="3dp"
                     android:weightSum="1">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:padding="5dp">
-
+                        android:padding="3dp" >
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingRight="30dp"
                             android:text="Bhumika"
                             android:textAlignment="center"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
-                            android:textStyle="bold" />
-
+                            android:textStyle="bold"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingRight="30dp"
-                            android:text="7061486108"
-                            android:textAlignment="center"
-                            android:textColor="@color/white" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="30dp"
-                            android:paddingRight="30dp"
                             android:text="2015pcecsbhumika@poornima.org"
                             android:textAlignment="center"
-                            android:textColor="@color/colorAccent" />
+                            android:textColor="@color/white" />
                     </LinearLayout>
                 </TableRow>
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:paddingBottom="20dp"
-                    android:paddingTop="20dp"></TableRow>
 
                 <TextView
+                    android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="WEB DEVELOPERS"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="25sp" />
-
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="25dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                    android:padding="3dp"
                     android:weightSum="1">
-
-
                     <LinearLayout
+                        android:padding="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.6"
-                        android:orientation="vertical"
-                        android:padding="5dp">
-
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingRight="10dp"
                             android:text="Sachin kumar meena"
                             android:textAlignment="center"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
-
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingRight="10dp"
                             android:text="9024325912"
                             android:textAlignment="center"
                             android:textColor="@color/white" />
-
                         <TextView
-
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingRight="10dp"
                             android:text="2014pietcssachin@poornima.org"
                             android:textAlignment="center"
                             android:textColor="@color/white" />
                     </LinearLayout>
 
                     <LinearLayout
+                        android:padding="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.4"
-                        android:orientation="vertical"
-                        android:padding="5dp">
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
                             android:text="Shubham raj jain"
                             android:textAlignment="center"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
-
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
                             android:text="9413138380"
                             android:textAlignment="center"
                             android:textColor="@color/white" />
-
                         <TextView
                             android:id="@id/email"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingLeft="10dp"
                             android:text="2014pietcsshubham@poornima.org"
                             android:textAlignment="center"
                             android:textColor="@color/white" />
@@ -339,157 +261,96 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="25dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                    android:padding="3dp"
                     android:weightSum="1">
-
-
                     <LinearLayout
+                        android:padding="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.6"
-                        android:orientation="vertical"
-                        android:padding="5dp">
-
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingRight="10dp"
                             android:text="Aayushi Jain"
                             android:textAlignment="center"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
-
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingRight="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/white" />
-
-                        <TextView
-
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingRight="10dp"
                             android:text="2015pcecsaayushi@poornima.org"
                             android:textAlignment="center"
                             android:textColor="@color/white" />
                     </LinearLayout>
-
                     <LinearLayout
+                        android:padding="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.4"
-                        android:orientation="vertical"
-                        android:padding="5dp">
-
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
                             android:text="Harshita sharma"
                             android:textAlignment="center"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/white" />
-
                         <TextView
                             android:id="@id/email"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingLeft="10dp"
                             android:text="2015pietcsharshita@poornima.org"
                             android:textAlignment="center"
                             android:textColor="@color/white" />
                     </LinearLayout>
                 </TableRow>
-
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="25dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                     android:padding="3dp"
                     android:weightSum="1">
-
-
                     <LinearLayout
+                        android:padding="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.6"
-                        android:orientation="vertical"
-                        android:padding="5dp">
-
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingRight="10dp"
                             android:text="Prashita Jain"
                             android:textAlignment="center"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
-
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingRight="10dp"
-                            android:text=""
-                            android:textAlignment="center"
-                            android:textColor="@color/white" />
-
-                        <TextView
-
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingRight="10dp"
                             android:text="2015pietcsprashita@poornima.org"
                             android:textAlignment="center"
                             android:textColor="@color/white" />
                     </LinearLayout>
-
                     <LinearLayout
+                        android:padding="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.4"
-                        android:orientation="vertical"
-                        android:padding="5dp">
-
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
                             android:text="Gaurav goyal"
                             android:textAlignment="center"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
-                            android:text="7611858675"
-                            android:textAlignment="center"
-                            android:textColor="@color/white" />
-
                         <TextView
                             android:id="@id/email"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingLeft="10dp"
                             android:text="2015pietcsgouravgoyal@poornima.org"
                             android:textAlignment="center"
                             android:textColor="@color/white" />
@@ -498,41 +359,25 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="25dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                    android:padding="3dp"
                     android:weightSum="1">
-
                     <LinearLayout
+                        android:padding="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:padding="5dp">
-
+                        android:orientation="vertical">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingRight="30dp"
                             android:text="Shubham purohit"
                             android:textAlignment="center"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
-                            android:textStyle="bold" />
-
+                            android:textStyle="bold"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingRight="30dp"
-                            android:text="8854096807"
-                            android:textAlignment="center"
-                            android:textColor="@color/white" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="30dp"
-                            android:paddingRight="30dp"
                             android:text="2016pietceshubham124@poornima.org"
                             android:textAlignment="center"
                             android:textColor="@color/white" />
@@ -543,89 +388,56 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:paddingBottom="20dp"
-                    android:paddingTop="20dp">
-
+                    android:layout_marginTop="10dp">
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="GRAPHICS DESIGNERS"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="25sp" />
-
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="25dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                   android:padding="3dp"
                     android:weightSum="1">
-
-
                     <LinearLayout
+                        android:padding="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="0.6"
-                        android:orientation="vertical"
-                        android:padding="5dp">
-
+                        android:orientation="vertical">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingRight="10dp"
                             android:text="Ajay Verma"
                             android:textAlignment="center"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
-
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingRight="10dp"
-                            android:text="8058877487"
-                            android:textAlignment="center"
-                            android:textColor="@color/white" />
-
-                        <TextView
-
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingRight="10dp"
                             android:text="2015pcemeajay004@poornima.org"
                             android:textAlignment="center"
                             android:textColor="@color/white" />
                     </LinearLayout>
-
                     <LinearLayout
+                        android:padding="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="0.4"
-                        android:orientation="vertical"
-                        android:padding="5dp">
-
+                        android:orientation="vertical">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
                             android:text="Vijay chouhan"
                             android:textAlignment="center"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
-                            android:text="9587838853"
-                            android:textAlignment="center"
-                            android:textColor="@color/white" />
-
+                            android:textStyle="bold"/>
                         <TextView
                             android:id="@id/email"
                             android:layout_width="match_parent"
@@ -639,18 +451,14 @@
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="25dp"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp"
+                    android:padding="3dp"
                     android:weightSum="1">
-
                     <LinearLayout
+                        android:padding="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:padding="5dp">
-
+                        android:orientation="vertical">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -663,15 +471,6 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingRight="30dp"
-                            android:text="9799059886"
-                            android:textAlignment="center"
-                            android:textColor="@color/white" />
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="30dp"
-                            android:paddingRight="30dp"
                             android:text="2015pietcskanishk@poornima.org"
                             android:textAlignment="center"
                             android:textColor="@color/white"/>
@@ -681,14 +480,9 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:paddingBottom="20dp"
-                android:paddingTop="20dp">
-
+                android:layout_marginTop="10dp">
                 <TextView
-
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="PEMC Cordinators"
                     android:textAlignment="center"
@@ -698,21 +492,18 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="25dp"
-                android:paddingLeft="25dp"
-                android:paddingRight="25dp"
+                android:padding="3dp"
                 android:weightSum="1">
                 <LinearLayout
+                    android:padding="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.6"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingRight="10dp"
-                        android:text="Manvendra Singh Rathore"
+                        android:text="Manvendra singh Chauhan"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent"
                         android:textSize="17sp"
@@ -720,30 +511,26 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingRight="10dp"
-                        android:text="9079354359"
+                        android:text="90793554359"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingRight="10dp"
                         android:text="2014pietcsmanvendra@poornima.org"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:padding="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
                         android:text="Kapil Mehra"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent"
@@ -752,11 +539,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
                         android:text="7597812520"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
-
                     <TextView
                         android:id="@id/email"
                         android:layout_width="match_parent"
@@ -770,76 +555,59 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="25dp"
-                android:paddingLeft="25dp"
-                android:paddingRight="25dp"
+                android:padding="3dp"
                 android:weightSum="1">
-
-
                 <LinearLayout
+                    android:padding="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.6"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingRight="10dp"
                         android:text="Sumit Sharma"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent"
                         android:textSize="17sp"
                         android:textStyle="bold" />
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingRight="10dp"
                         android:text="7665239875"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
-
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingRight="10dp"
                         android:text="2014pceeesumit158@poornima.org"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
                 </LinearLayout>
-
                 <LinearLayout
+                    android:padding="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
                         android:text="Vaibhav Vyas"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent"
                         android:textSize="17sp"
                         android:textStyle="bold" />
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
                         android:text="8949596848"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
-
                     <TextView
                         android:id="@id/email"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingLeft="10dp"
                         android:text="sma.vishal@poornima.org"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
@@ -848,18 +616,16 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="25dp"
-                android:paddingLeft="25dp"
-                android:paddingRight="25dp"
+               android:padding="3dp"
                 android:weightSum="1">
 
 
                 <LinearLayout
+                    android:padding="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.6"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -892,9 +658,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4"
+                    android:layout_weight="0.5"
                     android:orientation="vertical"
-                    android:padding="5dp">
+                    android:padding="3dp" >
 
                     <TextView
                         android:layout_width="match_parent"
@@ -927,77 +693,59 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="25dp"
-                android:paddingLeft="25dp"
-                android:paddingRight="25dp"
+                android:padding="3dp"
                 android:weightSum="1">
-
-
                 <LinearLayout
+                    android:padding="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.6"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingRight="10dp"
                         android:text="Anand Kumar"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent"
                         android:textSize="17sp"
                         android:textStyle="bold" />
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingRight="10dp"
                         android:text="7062231034"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
-
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingRight="10dp"
                         android:text="2014pgicivanand@poornima.org"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
                 </LinearLayout>
-
                 <LinearLayout
+                    android:padding="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
                         android:text="Yathansh Arora"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent"
                         android:textSize="17sp"
                         android:textStyle="bold" />
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
                         android:text="9571388785"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
-
                     <TextView
                         android:id="@id/email"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingLeft="10dp"
                         android:text="2015pceecyathansh@poornima.org"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
@@ -1006,23 +754,17 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="25dp"
-                android:paddingLeft="25dp"
-                android:paddingRight="25dp"
+                android:padding="3dp"
                 android:weightSum="1">
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.6"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
+                    android:layout_weight="0.5"
+                    android:padding="3dp"
+                    android:orientation="vertical">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingRight="10dp"
                         android:text="Adarsh Sharma"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent"
@@ -1032,7 +774,6 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingRight="10dp"
                         android:text="9529797052"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
@@ -1041,7 +782,6 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingRight="10dp"
                         android:text="2015pietecadarsh@poornima.org"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
@@ -1050,14 +790,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:layout_weight="0.5"
+                    android:padding="3dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
                         android:text="HIMANSHU"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent"
@@ -1067,7 +806,6 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
                         android:text="7691802329"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
@@ -1076,7 +814,6 @@
                         android:id="@id/email"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingLeft="10dp"
                         android:text="2015pieteehimanshu@poornima.org"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
@@ -1085,23 +822,20 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="25dp"
-                android:paddingLeft="25dp"
-                android:paddingRight="25dp"
+                android:padding="3dp"
                 android:weightSum="1">
 
 
                 <LinearLayout
+                    android:padding="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.6"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingRight="10dp"
                         android:text="Devendra Singh Chundawat"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent"
@@ -1111,7 +845,6 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingRight="10dp"
                         android:text="9549955488"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
@@ -1120,7 +853,6 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingRight="10dp"
                         android:text="2015pietcvdevendra302@poornima.org"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
@@ -1129,14 +861,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.4"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:layout_weight="0.5"
+                    android:padding="3dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
                         android:text="Vishal Meena"
                         android:textAlignment="center"
                         android:textColor="@color/colorAccent"
@@ -1146,7 +877,6 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
                         android:text="9602037414"
                         android:textAlignment="center"
                         android:textColor="@color/white" />
@@ -1155,7 +885,6 @@
                         android:id="@id/email"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingLeft="10dp"
                         android:text="sma.vishal@poornima.org"
                         android:textAlignment="center"
                         android:textColor="@color/white" />

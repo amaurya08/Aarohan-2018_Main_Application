@@ -260,10 +260,13 @@ public class FaceFilterActivity extends AppCompatActivity {
         Context context = getApplicationContext();
         //Detecting face
         FaceDetector detector = new FaceDetector.Builder(context)
-                .setClassificationType(FaceDetector.ALL_CLASSIFICATIONS)
-                .setLandmarkType(FaceDetector.ALL_LANDMARKS)
+                .setClassificationType(FaceDetector.NO_CLASSIFICATIONS)
+                .setLandmarkType(FaceDetector.NO_LANDMARKS)
                 .setMode(FaceDetector.ACCURATE_MODE)
+                .setTrackingEnabled(true)
                 .build();
+
+
         detector.setProcessor(
                 new MultiProcessor.Builder<>(new GraphicFaceTrackerFactory())
                         .build());

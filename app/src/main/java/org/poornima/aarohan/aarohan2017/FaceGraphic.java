@@ -53,7 +53,6 @@ class FaceGraphic extends GraphicOverlay.Graphic {
 
     FaceGraphic(GraphicOverlay overlay) {
         super(overlay);
-
         mCurrentColorIndex = (mCurrentColorIndex + 1) % COLOR_CHOICES.length;
         final int selectedColor = COLOR_CHOICES[mCurrentColorIndex];
 
@@ -68,7 +67,7 @@ class FaceGraphic extends GraphicOverlay.Graphic {
         mBoxPaint.setColor(selectedColor);
         mBoxPaint.setStyle(Paint.Style.STROKE);
         mBoxPaint.setStrokeWidth(BOX_STROKE_WIDTH);
-        bitmap = BitmapFactory.decodeResource(getOverlay().getContext().getResources(), R.drawable.filtericon);
+        bitmap = BitmapFactory.decodeResource(getOverlay().getContext().getResources(), R.drawable.krish);
         op = bitmap;
     }
 
@@ -84,7 +83,7 @@ class FaceGraphic extends GraphicOverlay.Graphic {
     void updateFace(Face face) {
         mFace = face;
         op = Bitmap.createScaledBitmap(bitmap, (int) scaleX(face.getWidth()),
-                (int) scaleY(((bitmap.getHeight() * face.getWidth()) / bitmap.getWidth())), false);
+                (int) scaleY(((bitmap.getHeight() * face.getWidth()) / bitmap.getWidth())),true);
         postInvalidate();
     }
 
@@ -97,18 +96,32 @@ class FaceGraphic extends GraphicOverlay.Graphic {
         if (face == null) {
             return;
         }
-
         // Draws a circle at the position of the detected face, with the face's track id below.
         float x = translateX(face.getPosition().x + face.getWidth() / 2);
         float y = translateY(face.getPosition().y + face.getHeight() / 2);
+
         float xOffset = scaleX(face.getWidth() / 2.0f);
         float yOffset = scaleY(face.getHeight() / 2.0f);
+
         float left = x - xOffset;
         float top = y - yOffset;
         float right = x + xOffset;
         float bottom = y + yOffset;
-        //   canvas.drawRect(left, top, right, bottom, mBoxPaint);
+
+
+        canvas.rotate(face.getEulerZ(),x,y);
+       // canvas.drawRect(left, top, right, bottom, mBoxPaint);
         canvas.drawBitmap(op, left, top, new Paint());
+
+
+       /* float xx= (float) ((x*Math.cos(0.785398))-(y*Math.sin(0.785398)));
+        float yy= (float) ((y*Math.cos(0.785398))+(x*Math.sin(0.785398)));*/
+
+
+
+
+
+
     }
 
     private float getNoseAndMouthDistance(PointF nose, PointF mouth) {

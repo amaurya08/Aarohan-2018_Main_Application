@@ -80,7 +80,7 @@ public class PicPreview extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        deleteStoredImage();
-        /*finish();*/
+        /*deleteStoredImage();*/
+        finish();
     }
 }
