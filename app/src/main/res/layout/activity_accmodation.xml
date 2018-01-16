@@ -33,6 +33,7 @@
             android:id="@+id/textView" />
 
         <TextView
+            android:fontFamily="@font/comicsansmsregular"
             android:id="@+id/pay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,6 +46,7 @@
             android:text="150/- only forAccomodation per person in triple sharing basis"
             android:textSize="17sp"/>
         <TextView
+            android:fontFamily="@font/comicsansmsregular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
@@ -67,6 +69,6 @@
             android:textColor="#ffffff"
             android:fontFamily="@font/comicsansmsregular"
             android:background="@drawable/background_button_main_transparent"
-            android:text="Registration For Accomodation" />
+            android:text="Register For Accomodation" />
     </RelativeLayout>
 </RelativeLayout>

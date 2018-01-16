@@ -3,6 +3,7 @@ package org.poornima.aarohan.aarohan2017.Adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,9 +46,9 @@ public class EventAdapter extends ArrayAdapter{
         View CustomView = layoutInflater.inflate(R.layout.schedule_eventlist_row_layout, parent, false);
         eventPojo ep= (eventPojo) arraylist.get(position);
 
-        ((TextView)CustomView.findViewById(R.id.event_name)).setText(ep.getEvent_name());
-        ((TextView)CustomView.findViewById(R.id.event_time)).setText(ep.getEvent_time());
-        ((TextView)CustomView.findViewById(R.id.event_venue)).setText(ep.getEvent_location());
+        ((TextView)CustomView.findViewById(R.id.event_name)).setText(Html.fromHtml(ep.getEvent_name()));
+        ((TextView)CustomView.findViewById(R.id.event_time)).setText(Html.fromHtml(ep.getEvent_time()));
+        ((TextView)CustomView.findViewById(R.id.event_venue)).setText(Html.fromHtml(ep.getEvent_location()));
        ImageView sponserlogImageView= (ImageView)CustomView.findViewById(R.id.event_img);
 
         Picasso.with(getContext())
