@@ -37,7 +37,6 @@
         </activity>
         <activity android:name=".ScheduleActivity" />
         <activity android:name=".ProfileActivity" android:theme="@style/splash_theme"/>
-        <activity android:name=".ContactUsActivity" />
         <activity android:name=".ScheduleEventListActivity" />
         <activity android:name=".PromptUserLogin" android:theme="@style/splash_theme"/>
         <!--

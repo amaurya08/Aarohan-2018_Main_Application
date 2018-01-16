@@ -33,7 +33,7 @@ public class ScheduleEventListActivity extends AppCompatActivity {
 
          data_daybundle = new Bundle();
         data_daybundle.putString("day",getIntent().getStringExtra("day"));
-
+        getSupportActionBar().setTitle(getIntent().getStringExtra("dayCount")+"");
 
         ViewPager viewpager = findViewById(R.id.viewpager);
         setupViewPager(viewpager);

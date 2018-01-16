@@ -266,7 +266,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Ayushi Jain"
+                            android:text="Aayushi Jain"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />

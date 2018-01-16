@@ -14,6 +14,7 @@ public class WorkshopActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_workshop);
+        getSupportActionBar().setTitle("Workshops");
     }
 
     @Override

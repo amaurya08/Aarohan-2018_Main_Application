@@ -28,7 +28,7 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:textColor="@color/colorAccent"
-            android:text="Accomodation Facility"
+            android:text="Accommodation Facility"
             android:textSize="30sp"
             android:id="@+id/textView" />
 
@@ -69,6 +69,6 @@
             android:textColor="#ffffff"
             android:fontFamily="@font/comicsansmsregular"
             android:background="@drawable/background_button_main_transparent"
-            android:text="Register For Accomodation" />
+            android:text="Register For Accommodation" />
     </RelativeLayout>
 </RelativeLayout>

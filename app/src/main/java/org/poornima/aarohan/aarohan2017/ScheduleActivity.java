@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -39,6 +40,9 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_schedule);
+
+        getSupportActionBar().setTitle("Schedule");
+
         init();
         day1event.setOnClickListener(this);
         day2event.setOnClickListener(this);
@@ -137,16 +141,16 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.day1layout:
-                callNextActivity("30/01/2018");
+                callNextActivity("30/01/2018","Day 1");
                 break;
             case R.id.day2layout:
-                callNextActivity("31/01/2018");
+                callNextActivity("31/01/2018","Day 2");
                 break;
             case R.id.day3layout:
-                callNextActivity("01/02/2018");
+                callNextActivity("01/02/2018","Day 3");
                 break;
             case R.id.day4layout:
-                callNextActivity("02/02/2018");
+                callNextActivity("02/02/2018","Day 4");
                 break;
           /*  case R.id.day5layout:
                 callNextActivity("03/02/2018");
@@ -156,9 +160,10 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
-    private void callNextActivity(String day) {
+    private void callNextActivity(String day,String dayCount) {
      Intent intent=new Intent(ScheduleActivity.this,ScheduleEventListActivity.class);
      intent.putExtra("day",day);
+        intent.putExtra("dayCount",dayCount);
      startActivity(intent);
     }
 

@@ -48,6 +48,8 @@ public class EventAdapter extends ArrayAdapter{
 
         ((TextView)CustomView.findViewById(R.id.event_name)).setText(Html.fromHtml(ep.getEvent_name()));
         ((TextView)CustomView.findViewById(R.id.event_time)).setText(Html.fromHtml(ep.getEvent_time()));
+        /*String temp = ep.getEvent_location();
+        temp = temp.substring(3,temp.length()-4);*/
         ((TextView)CustomView.findViewById(R.id.event_venue)).setText(Html.fromHtml(ep.getEvent_location()));
        ImageView sponserlogImageView= (ImageView)CustomView.findViewById(R.id.event_img);
 

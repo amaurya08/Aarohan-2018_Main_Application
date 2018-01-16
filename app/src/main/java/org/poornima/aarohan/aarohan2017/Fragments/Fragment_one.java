@@ -48,7 +48,6 @@ public class Fragment_one extends Fragment {
         EventAdapter eventAdapter=new EventAdapter(getContext(),arrayList);
         eventListview=(ListView)view.findViewById(R.id.lv_events);
         eventListview.setAdapter(eventAdapter);
-
         eventListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

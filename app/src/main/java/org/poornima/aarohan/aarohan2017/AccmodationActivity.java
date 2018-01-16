@@ -21,6 +21,7 @@ public class AccmodationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_accmodation);
+        getSupportActionBar().setTitle("Accommodation");
         textView=(TextView)findViewById(R.id.accomodation);
         Animation anim = new AlphaAnimation(0.5f,1.0f);
         anim.setDuration(300);

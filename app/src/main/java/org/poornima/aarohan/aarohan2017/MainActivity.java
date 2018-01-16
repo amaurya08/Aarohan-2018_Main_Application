@@ -363,7 +363,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 startActivity(new Intent(MainActivity.this, myclass));
             }
-        }, 900);
+        }, 700);
     }
 
     public Boolean checkSession() {

@@ -7,5 +7,5 @@
             android:adjustViewBounds="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/background_about_us" />
+            android:src="@drawable/about_us" />
 </ScrollView>

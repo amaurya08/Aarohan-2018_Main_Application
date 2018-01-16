@@ -28,6 +28,7 @@ import org.poornima.aarohan.aarohan2017.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2017.Fragments.Frag_AboutAarohan;
 import org.poornima.aarohan.aarohan2017.Fragments.Frag_OurTeam;
 import org.poornima.aarohan.aarohan2017.Fragments.Frag_Sponsers;
+import org.poornima.aarohan.aarohan2017.Fragments.license;
 import org.poornima.aarohan.aarohan2017.Tables.TableSponserDetails;
 
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.info);
+        getSupportActionBar().setTitle("About ");
         loadSponsersDetails();
         ViewPager viewpager = findViewById(R.id.viewpager);
         setupViewPager(viewpager);
@@ -119,6 +121,7 @@ public class InfoActivity extends AppCompatActivity {
         adapter.addFragment(new Frag_AboutAarohan(),"About");
         adapter.addFragment(new Frag_Sponsers(),"Sponsers");
         adapter.addFragment(new Frag_OurTeam(),"Our Team");
+        adapter.addFragment(new license(),"Open Source Libraries");
         viewpager.setAdapter(adapter);
     }
     class ViewPagerAdapter extends FragmentPagerAdapter {

@@ -67,7 +67,7 @@ class FaceGraphic extends GraphicOverlay.Graphic {
         mBoxPaint.setColor(selectedColor);
         mBoxPaint.setStyle(Paint.Style.STROKE);
         mBoxPaint.setStrokeWidth(BOX_STROKE_WIDTH);
-        bitmap = BitmapFactory.decodeResource(getOverlay().getContext().getResources(), R.drawable.op);
+        bitmap = BitmapFactory.decodeResource(getOverlay().getContext().getResources(), R.drawable.mask_red_specs);
         op = bitmap;
     }
 
@@ -109,7 +109,7 @@ class FaceGraphic extends GraphicOverlay.Graphic {
         float bottom = y + yOffset;
 
 
-        canvas.rotate(face.getEulerZ(),x,y);
+        //canvas.rotate(face.getEulerZ(),x,y);
        // canvas.drawRect(left, top, right, bottom, mBoxPaint);
         canvas.drawBitmap(op, left, top, new Paint());
 

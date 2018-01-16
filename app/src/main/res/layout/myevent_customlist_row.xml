@@ -21,7 +21,8 @@
             <TextView
                 android:id="@+id/myeventname"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="18sp"
+                android:singleLine="true"
                 android:textColor="@color/colorAccent"
                 android:fontFamily="@font/comicsansmsregular"
                 android:text="200 meter boys rellay"
