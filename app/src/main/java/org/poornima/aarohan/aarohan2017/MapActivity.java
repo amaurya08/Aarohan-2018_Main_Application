@@ -106,10 +106,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.cafeteria_marker)));
         Marker m10=mMap.addMarker(new MarkerOptions().position(new LatLng(26.767979803203044,75.85102155804634))
                 .anchor(0.5f,0.5f).title("Arbuda Convention Center")
-                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.entry)));
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.arbuda)));
         Marker m11=mMap.addMarker(new MarkerOptions().position(new LatLng(26.768549758748648,75.85058838129044))
                 .anchor(0.5f,0.5f).title("ATM")
-                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.entry)));
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
         Marker m17=mMap.addMarker(new MarkerOptions().position(new LatLng(26.76846474455253,75.85053943097591))
                 .anchor(0.5f,0.5f).title("Help Desk(PIET)")
                 .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.helpdesk)));
@@ -132,8 +132,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 .anchor(0.5f,0.5f).title("Cafeteria PCE")
                 .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.cafeteria_marker)));
         Marker m11=mMap.addMarker(new MarkerOptions().position(new LatLng(26.766188495726425,75.85360586643219))
-                .anchor(0.5f,0.5f).title("ATM")
-                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.entry)));
+                .anchor(0.5f,0.5f).title("IDBI ATM")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
         Marker m12=mMap.addMarker(new MarkerOptions().position(new LatLng(26.765254514046642,75.85266709327698))
                 .anchor(0.5f,0.5f).title("Accomodation")
                 .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.accomodation)));
@@ -143,6 +143,12 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         Marker m22=mMap.addMarker(new MarkerOptions().position(new LatLng(26.76599691036687,75.85394516587257))
                 .anchor(0.5f,0.5f).title("Parking")
                 .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.parking)));
+        Marker m23=mMap.addMarker(new MarkerOptions().position(new LatLng(26.766892569146968,75.85278242826462))
+                .anchor(0.5f,0.5f).title("AXIS ATM")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
+        Marker m24=mMap.addMarker(new MarkerOptions().position(new LatLng(26.76711289054533,75.85298627614975))
+                .anchor(0.5f,0.5f).title("SBI ATM")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
 
 
     }

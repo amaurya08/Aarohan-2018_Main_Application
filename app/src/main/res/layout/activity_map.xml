@@ -18,7 +18,7 @@
         android:layout_above="@+id/fabpiet"
         android:layout_alignStart="@+id/fabpiet"
         app:backgroundTint="#fff"
-        android:src="@drawable/ic_map_fab_clg_24dp"/>
+        android:src="@drawable/pce"/>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabpiet"
         android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
         android:layout_alignStart="@+id/fabpgi"
         android:layout_marginTop="15dp"
         app:backgroundTint="#fff"
-        android:src="@drawable/ic_map_fab_events_24dp"/>
+        android:src="@drawable/piet"/>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabpgi"
         android:layout_width="wrap_content"
@@ -38,5 +38,5 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="80dp"
         app:backgroundTint="#fff    "
-        android:src="@drawable/ic_map_fab_food_24dp" />
+        android:src="@drawable/pgi" />
 </RelativeLayout>
