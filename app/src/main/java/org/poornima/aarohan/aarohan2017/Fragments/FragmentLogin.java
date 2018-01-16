@@ -51,7 +51,6 @@ public class FragmentLogin extends Fragment {
     public FragmentLogin() {
         // Required empty public constructor
     }
-    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,7 +62,6 @@ public class FragmentLogin extends Fragment {
 
         return view;
     }
-
     private void methodListener() {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

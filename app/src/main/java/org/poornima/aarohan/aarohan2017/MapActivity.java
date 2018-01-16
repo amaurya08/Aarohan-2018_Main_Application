@@ -70,7 +70,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     private void pgimapmarker(GoogleMap mMap) {
         mMap.clear();
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom((new LatLngBounds(
-                new LatLng(26.785340610802916, 75.85343688726425), new LatLng(26.785340610802916, 75.85343688726425))).getCenter(), (float) 18.0));
+                 new LatLng(26.785340610802916, 75.85343688726425), new LatLng(26.785340610802916, 75.85343688726425))).getCenter(), (float) 18.0));
 
         Marker m7=mMap.addMarker(new MarkerOptions().position(new LatLng(26.78612118612679,75.8544360101223))
                 .anchor(0.5f,0.5f).title("Poornima Group of Institute")
@@ -87,6 +87,13 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         Marker m19=mMap.addMarker(new MarkerOptions().position(new LatLng(26.78634386460614,75.85416778922081))
                 .anchor(0.5f,0.5f).title("HelpDesk(PGI)")
                 .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.helpdesk)));
+        Marker m35=mMap.addMarker(new MarkerOptions().position(new LatLng(26.785982311155017,75.85336178541183))
+                .anchor(0.5f,0.5f).title("BasketBall Court")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
+        Marker m36=mMap.addMarker(new MarkerOptions().position(new LatLng(26.785824280808004,26.785824280808004))
+                .anchor(0.5f,0.5f).title("Volleyball Court")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
+
 
     }
 
@@ -115,6 +122,21 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.helpdesk)));
         Marker m20=mMap.addMarker(new MarkerOptions().position(new LatLng(26.76840128320972,75.85087940096855))
                 .anchor(0.5f,0.5f).title("PARKING)")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
+        Marker m30=mMap.addMarker(new MarkerOptions().position(new LatLng(26.76740745000817,75.84994062781334))
+                .anchor(0.5f,0.5f).title("Volleyball Court")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
+        Marker m31=mMap.addMarker(new MarkerOptions().position(new LatLng(26.767450556206963,75.8505280315876))
+                .anchor(0.5f,0.5f).title("OAT")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
+        Marker m32=mMap.addMarker(new MarkerOptions().position(new LatLng(26.767807379113158,75.85012033581734))
+                .anchor(0.5f,0.5f).title("Online Lab")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.online)));
+        Marker m33=mMap.addMarker(new MarkerOptions().position(new LatLng(26.76791753897855,75.850420743227))
+                .anchor(0.5f,0.5f).title("Seminar Lab")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
+        Marker m34=mMap.addMarker(new MarkerOptions().position(new LatLng(26.768087568126305,75.85074260830879))
+                .anchor(0.5f,0.5f).title("Sirohi Hall")
                 .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.parking)));
     }
     private void pcemapmarkers(GoogleMap mMap) {
@@ -149,6 +171,27 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         Marker m24=mMap.addMarker(new MarkerOptions().position(new LatLng(26.76711289054533,75.85298627614975))
                 .anchor(0.5f,0.5f).title("SBI ATM")
                 .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
+        Marker m25=mMap.addMarker(new MarkerOptions().position(new LatLng(26.765493997260712,75.85360988974571))
+                .anchor(0.5f,0.5f).title("Vollyball Court")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
+        Marker m26=mMap.addMarker(new MarkerOptions().position(new LatLng(26.76561613350547,75.85268452763557))
+                .anchor(0.5f,0.5f).title("IBM lab")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.online)));
+        Marker m27=mMap.addMarker(new MarkerOptions().position(new LatLng(26.76575503338895,75.85282132029533))
+                .anchor(0.5f,0.5f).title("Admission cell")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
+        Marker m28=mMap.addMarker(new MarkerOptions().position(new LatLng(26.765637686946796,75.85349455475807))
+                .anchor(0.5f,0.5f).title("Centre Block")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
+        Marker m29=mMap.addMarker(new MarkerOptions().position(new LatLng(26.7654484954889,75.8530493080616))
+                .anchor(0.5f,0.5f).title("Administrative Block")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.marker)));
+        Marker m35=mMap.addMarker(new MarkerOptions().position(new LatLng(26.76574066444338,75.85270330309868))
+                .anchor(0.5f,0.5f).title("Aarohan Developers Room")
+                .snippet("AAROHAN-2K18").icon(BitmapDescriptorFactory.fromResource(R.mipmap.developers)));
+
+
+
 
 
     }
