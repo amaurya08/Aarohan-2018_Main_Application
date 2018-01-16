@@ -6,21 +6,21 @@
     android:background="#ec1717"
     android:keepScreenOn="true"
     android:orientation="vertical"
-    tools:context="org.poornima.aarohan.aarohan2017.FaceFilterActivity">
+    tools:context="org.poornima.aarohan.aarohan2018.FaceFilterActivity">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <org.poornima.aarohan.aarohan2017.camera.CameraSourcePreview
+        <org.poornima.aarohan.aarohan2018.camera.CameraSourcePreview
             android:id="@+id/preview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <org.poornima.aarohan.aarohan2017.camera.GraphicOverlay
+            <org.poornima.aarohan.aarohan2018.camera.GraphicOverlay
                 android:id="@+id/faceOverlay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-        </org.poornima.aarohan.aarohan2017.camera.CameraSourcePreview>
+        </org.poornima.aarohan.aarohan2018.camera.CameraSourcePreview>
     </LinearLayout>
 
 

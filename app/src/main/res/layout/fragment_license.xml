@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.poornima.aarohan.aarohan2017.Fragments.license">
+    tools:context="org.poornima.aarohan.aarohan2018.Fragments.license">
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView

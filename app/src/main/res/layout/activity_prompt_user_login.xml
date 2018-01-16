@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    tools:context="org.poornima.aarohan.aarohan2017.PromptUserLogin">
+    tools:context="org.poornima.aarohan.aarohan2018.PromptUserLogin">
 
     <RelativeLayout
         android:layout_width="match_parent"

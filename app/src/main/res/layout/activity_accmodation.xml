@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_main"
-    tools:context="org.poornima.aarohan.aarohan2017.AccmodationActivity">
+    tools:context="org.poornima.aarohan.aarohan2018.AccmodationActivity">
     <RelativeLayout
         android:layout_marginTop="25dp"
         android:layout_width="match_parent"

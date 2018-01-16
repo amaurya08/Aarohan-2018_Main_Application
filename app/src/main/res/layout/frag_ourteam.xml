@@ -275,7 +275,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/comicsansmsregular"
                             android:gravity="center"
-                            android:text="2015pcecsayushi@poornima.org"
+                            android:text="2015pcecsaayushi@poornima.org"
                             android:textColor="@color/white"
                             android:textSize="12sp" />
                     </LinearLayout>

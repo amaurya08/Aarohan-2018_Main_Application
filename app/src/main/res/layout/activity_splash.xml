@@ -5,5 +5,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/splashscreenfinal"
-    tools:context="org.poornima.aarohan.aarohan2017.SplashActivity">
+    tools:context="org.poornima.aarohan.aarohan2018.SplashActivity">
 </RelativeLayout>

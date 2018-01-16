@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_main"
-    tools:context="org.poornima.aarohan.aarohan2017.ScheduleEventListActivity">
+    tools:context="org.poornima.aarohan.aarohan2018.ScheduleEventListActivity">
     <android.support.design.widget.AppBarLayout
     android:layout_height="wrap_content"
     android:layout_width="match_parent"

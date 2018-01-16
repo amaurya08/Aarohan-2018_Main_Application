@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.poornima.aarohan.aarohan2017">
+    package="org.poornima.aarohan.aarohan2018">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -27,18 +27,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:theme="@style/splash_theme"/>
-        <activity android:name=".SplashActivity" android:theme="@style/splash_theme">
+        <activity android:name="org.poornima.aarohan.aarohan2018.MainActivity" android:theme="@style/splash_theme"/>
+        <activity android:name="org.poornima.aarohan.aarohan2018.SplashActivity" android:theme="@style/splash_theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ScheduleActivity" />
-        <activity android:name=".ProfileActivity" android:theme="@style/splash_theme"/>
-        <activity android:name=".ScheduleEventListActivity" />
-        <activity android:name=".PromptUserLogin" android:theme="@style/splash_theme"/>
+        <activity android:name="org.poornima.aarohan.aarohan2018.ScheduleActivity" />
+        <activity android:name="org.poornima.aarohan.aarohan2018.ProfileActivity" android:theme="@style/splash_theme"/>
+        <activity android:name="org.poornima.aarohan.aarohan2018.ScheduleEventListActivity" />
+        <activity android:name="org.poornima.aarohan.aarohan2018.PromptUserLogin" android:theme="@style/splash_theme"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -52,16 +52,14 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapActivity"
+            android:name="org.poornima.aarohan.aarohan2018.MapActivity"
             android:label="@string/title_activity_map" />
-        <activity android:name=".FaceFilterActivity" android:theme="@style/splash_theme"/>
-        <activity android:name=".PicPreview" android:theme="@style/splash_theme"/>
-        <activity android:name=".WorkshopActivity" />
-        <activity android:name=".AccmodationActivity" />
-        <activity android:name=".InfoActivity" />
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="9cc8939b567d4227169c5129755ce4372e029b25" />
+        <activity android:name="org.poornima.aarohan.aarohan2018.FaceFilterActivity" android:theme="@style/splash_theme"/>
+        <activity android:name="org.poornima.aarohan.aarohan2018.PicPreview" android:theme="@style/splash_theme"/>
+        <activity android:name="org.poornima.aarohan.aarohan2018.WorkshopActivity" />
+        <activity android:name="org.poornima.aarohan.aarohan2018.AccmodationActivity" />
+        <activity android:name="org.poornima.aarohan.aarohan2018.InfoActivity" />
+
     </application>
 
 </manifest>
