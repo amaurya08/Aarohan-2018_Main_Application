@@ -9,7 +9,7 @@
     android:orientation="horizontal">
 
     <LinearLayout
-        android:layout_weight="0.2"
+        android:layout_weight="0.16"
         android:weightSum="1"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -62,7 +62,7 @@
     </LinearLayout>
     <RelativeLayout
         android:id="@+id/myeventlocation"
-        android:layout_weight="0.8"
+        android:layout_weight="0.84"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
