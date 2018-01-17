@@ -411,7 +411,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Viajy Chouhan"
+                            android:text="Vijay Chouhan"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -519,7 +519,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Manvendra Rathore"
+                            android:text="Manvendra Singh Rathore"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -528,7 +528,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="90793554359"
+                            android:text="9079354359"
                             android:textColor="@color/white" />
                         <TextView
                             android:layout_width="match_parent"
@@ -626,14 +626,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="8949596848"
+                            android:text="7357068767"
                             android:textColor="@color/white" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/comicsansmsregular"
                             android:gravity="center"
-                            android:text="sma.vishal@poornima.org"
+                            android:text="2014pgimevaibhav081@poornima.org"
                             android:textColor="@color/white"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -655,7 +655,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Nilab Mathur"
+                            android:text="Nilabh Mathur"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -685,7 +685,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Deepak Kothani"
+                            android:text="Deepak Khotani"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -701,7 +701,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/comicsansmsregular"
                             android:gravity="center"
-                            android:text="2014pietdeepak@poornima.org"
+                            android:text="2014pceitdeepak@poornima.org"
                             android:textColor="@color/white"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -732,7 +732,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="7062231034"
+                            android:text="7062310345"
                             android:textColor="@color/white" />
                         <TextView
                             android:layout_width="match_parent"
@@ -859,7 +859,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Devendra Chundawat"
+                            android:text="Devendra Singh Chundawat"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -868,7 +868,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="95499555488"
+                            android:text="9549955488"
                             android:textColor="@color/white" />
                         <TextView
                             android:layout_width="match_parent"
