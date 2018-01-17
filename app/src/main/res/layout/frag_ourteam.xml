@@ -671,7 +671,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/comicsansmsregular"
                             android:gravity="center"
-                            android:text="2014pcecsnilab@poornima.org"
+                            android:text="2014pcecsnilabh@poornima.org"
                             android:textColor="@color/white"
                             android:textSize="12sp" />
                     </LinearLayout>
