@@ -55,7 +55,6 @@
         <Button
             android:id="@+id/login_logout"
             android:layout_width="0dp"
-            android:src="@drawable/login_four_fifty"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:fontFamily="@font/comicsansmsregular"

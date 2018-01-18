@@ -31,7 +31,7 @@ public class AccmodationActivity extends AppCompatActivity {
         textView.startAnimation(anim);
     }
     public void browser(View view){
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://aarohan.poornima.org/auth/google"));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://aarohan.poornima.org/"));
         startActivity(browserIntent);
     }
 

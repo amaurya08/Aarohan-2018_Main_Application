@@ -14,19 +14,21 @@ import org.poornima.aarohan.aarohan2018.R;
  */
 
 public class CustomLoading {
-    private AlertDialog.Builder builder;
+
     private AlertDialog alertDialog;
     private Context context;
 
     public CustomLoading(Context context) {
         this.context = context;
-        builder = new AlertDialog.Builder(context);
+         alertDialog = new AlertDialog.Builder(context).create();
         LayoutInflater inflater = LayoutInflater.from(context);
-        builder.setView(inflater.inflate(R.layout.dialog_loading,null));
-        builder.setCancelable(false);
-        alertDialog = builder.create();
+        alertDialog.setView(inflater.inflate(R.layout.dialog_loading,null));
+        alertDialog.setCancelable(false);
+        //alertDialog = builder.create();
         Window window = alertDialog.getWindow();
-        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        if (window != null) {
+            window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
 
     }
 
@@ -35,6 +37,6 @@ public class CustomLoading {
     }
 
     public void cancel() {
-        alertDialog.cancel();
+        alertDialog.dismiss();
     }
 }

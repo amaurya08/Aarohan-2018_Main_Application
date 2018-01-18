@@ -15,7 +15,6 @@ import org.poornima.aarohan.aarohan2018.AarohanClasses.CustomLoading;
 
 
 public class SplashActivity extends AppCompatActivity {
-    private boolean back = false;
     private CustomLoading customLoading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,21 +54,9 @@ public class SplashActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
-        if (back) {
-            super.onBackPressed();
-            return;
-        }
-        this.back = true;
-        Toast.makeText(this, "Please Click Twice to Exit", Toast.LENGTH_SHORT).show();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                back = false;
-            }
-        }, 2000);
-
+       finish();
     }
+
 }
 
 

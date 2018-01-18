@@ -195,7 +195,7 @@ public class FragmentOTP extends Fragment {
                         /*Log.d(TAG, "OTP SENT");*/
                         parseStringOTP(response);
                     } catch (Exception e) {
-                        Toast.makeText(getActivity(), "" + e.toString(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getActivity(), "" + e.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }, new Response.ErrorListener() {

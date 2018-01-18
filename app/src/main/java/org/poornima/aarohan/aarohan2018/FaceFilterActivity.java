@@ -214,7 +214,7 @@ public class FaceFilterActivity extends AppCompatActivity {
 //writing the image into storage
             try {
                 FileOutputStream fos = new FileOutputStream(myImage);
-                newImage.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+                newImage.compress(Bitmap.CompressFormat.JPEG, 80, fos);
                 fos.close();
             } catch (IOException e) {
                 Toast.makeText(FaceFilterActivity.this, "Pic not saved", Toast.LENGTH_SHORT).show();
@@ -287,11 +287,26 @@ public class FaceFilterActivity extends AppCompatActivity {
         int height = displayMetrics.heightPixels;
         int width = displayMetrics.widthPixels;
 
-        mCameraSource = new CameraSource.Builder(context, detector)
-                .setRequestedPreviewSize(height, width)
-                .setFacing(CameraSource.CAMERA_FACING_FRONT)
-                .setRequestedFps(15.0f)
-                .build();
+        try {
+            releaseCameraAndPreview();
+            mCameraSource = new CameraSource.Builder(context, detector)
+                    .setRequestedPreviewSize(height, width)
+                    .setFacing(CameraSource.CAMERA_FACING_FRONT)
+                    .setRequestedFps(15.0f)
+                    .build();
+        } catch (Exception e) {
+            Log.e(getString(R.string.app_name), "failed to open Camera");
+            e.printStackTrace();
+        }
+       
+    }
+
+    private void releaseCameraAndPreview() {
+       // myCameraPreview.setCamera(null);
+        if (mCameraSource != null) {
+            mCameraSource.release();
+            mCameraSource = null;
+        }
     }
 
     /**
@@ -443,6 +458,7 @@ public class FaceFilterActivity extends AppCompatActivity {
             mFaceGraphic.updateFace(face);
         }
         /**
+         * 
          * Hide the graphic when the corresponding face was not detected.  This can happen for
          * intermediate frames temporarily (e.g., if the face was momentarily blocked from
          * view).

@@ -45,7 +45,7 @@ public class SponsorAdapter extends ArrayAdapter{
         Picasso.with(getContext())
                 .load(sp.getSponserUrl())
                 .placeholder(R.drawable.placeholder)
-               .error(R.drawable.error)
+                .error(R.drawable.error)
                 .resize(600,200)
                 .into(sponserlogImageView);
         return CustomView;

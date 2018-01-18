@@ -104,14 +104,14 @@ public class MainActivity extends AppCompatActivity {
                     parsestudenteventDetail(response);
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(MainActivity.this, ""+errorString, Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(MainActivity.this, ""+errorString, Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 customLoading.cancel();
-                Toast.makeText(MainActivity.this, errorString, Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(MainActivity.this, errorString, Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override
@@ -157,8 +157,9 @@ public class MainActivity extends AppCompatActivity {
                 //    Log.d("DEBUG", "DATA INSERTED" + j);
 
             }
-        } else
-            Toast.makeText(this, "" + errorString, Toast.LENGTH_SHORT).show();
+        } else {
+           // Toast.makeText(this, "" + errorString, Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void profileAPI() {
@@ -174,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 customLoading.cancel();
-                Toast.makeText(MainActivity.this, "" + errorString, Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(MainActivity.this, "" + errorString, Toast.LENGTH_SHORT).show();
                 //  Log.d("DEBUG", "" + error.getMessage());
             }
         }) {
@@ -225,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
                 long x = ProfileTable.insertDetails(db.getWritableDatabase(), cv);
                 //  Log.d("DEBUG", "" + x);
             } else {
-                Toast.makeText(this, ""+errorString, Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(this, ""+errorString, Toast.LENGTH_SHORT).show();
                 //   Log.d("DEBUG",""+jsonObject.getString("message"));
             }
         } catch (JSONException e) {
@@ -327,7 +328,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     //   Log.d("TAG", error + "");
-                    Toast.makeText(MainActivity.this, "" + errorString, Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(MainActivity.this, "" + errorString, Toast.LENGTH_SHORT).show();
                 }
             }) {
                 @Override

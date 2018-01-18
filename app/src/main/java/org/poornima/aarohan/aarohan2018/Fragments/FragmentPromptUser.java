@@ -53,8 +53,8 @@ public class FragmentPromptUser extends Fragment {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://aarohan.poornima.org/student/register"));
+
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://aarohan.poornima.org/"));
                 startActivity(browserIntent);
             }
         });

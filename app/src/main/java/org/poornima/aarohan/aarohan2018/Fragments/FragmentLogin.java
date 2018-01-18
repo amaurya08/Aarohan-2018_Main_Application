@@ -150,7 +150,7 @@ public class FragmentLogin extends Fragment {
         transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         transaction.replace(R.id.fragment_container, fragment);
         transaction.remove(this);
-        transaction.commit();
+        transaction.commitAllowingStateLoss();
     }
 
 }
