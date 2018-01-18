@@ -321,7 +321,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Parshita Jain"
+                            android:text="Prashita Jain"
                             android:textColor="@color/colorAccent"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -330,7 +330,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/comicsansmsregular"
                             android:gravity="center"
-                            android:text="2015pietcsparshita@poornima.org"
+                            android:text="2015pietcsprashita@poornima.org"
                             android:textColor="@color/white"
                             android:textSize="12sp" />
                     </LinearLayout>
