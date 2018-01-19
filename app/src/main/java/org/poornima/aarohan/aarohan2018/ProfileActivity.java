@@ -44,7 +44,7 @@ public class ProfileActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new Fragment_Profile_Barcode(), "My Profile");
         adapter.addFragment(new Fragment_Profile_events(), "My Events");
-        adapter.addFragment(new Fragment_Profile_workshop(), "My Workshops");
+       /* adapter.addFragment(new Fragment_Profile_workshop(), "My Workshops");*/
         viewpager.setAdapter(adapter);
     }
     class ViewPagerAdapter extends FragmentPagerAdapter {

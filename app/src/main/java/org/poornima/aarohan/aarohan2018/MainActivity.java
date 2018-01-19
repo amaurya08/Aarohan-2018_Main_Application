@@ -368,15 +368,12 @@ public class MainActivity extends AppCompatActivity {
                                                     switchActivity(ScheduleActivity.class);
                                                     break;
                                                 case 2:
-                                                    switchActivity(WorkshopActivity.class);
-                                                    break;
-                                                case 3:
                                                     switchActivity(MapActivity.class);
                                                     break;
-                                                case 4:
+                                                case 3:
                                                     switchActivity(AccmodationActivity.class);
                                                     break;
-                                                case 5:
+                                                case 4:
                                                     switchActivity(InfoActivity.class);
                                                     break;
                                                 default:
