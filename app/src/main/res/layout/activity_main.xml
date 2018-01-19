@@ -100,14 +100,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_colorNormal="@color/colorPrimaryDark"
-                android:src="@drawable/share_insta"
+                android:src="@drawable/share_facebook"
                  />
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/fab2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_colorNormal="@color/colorPrimaryDark"
-                android:src="@drawable/share_facebook"
+                android:src="@drawable/share_insta"
                 />
         </com.github.clans.fab.FloatingActionMenu>
 </RelativeLayout>
