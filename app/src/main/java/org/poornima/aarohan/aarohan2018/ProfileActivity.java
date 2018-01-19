@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-
+import android.view.WindowManager;
 
 
 import org.poornima.aarohan.aarohan2018.Fragments.Fragment_Profile_Barcode;
@@ -25,7 +25,8 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_profile);
         ViewPager viewpager = findViewById(R.id.profile_viewpager);
         TabLayout tablayout = findViewById(R.id.profile_sliding_tabs);

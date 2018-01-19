@@ -51,7 +51,7 @@ public class PicPreview extends AppCompatActivity {
         saveLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),FaceFilterActivity.class));
+              //  startActivity(new Intent(getApplicationContext(),FaceFilterActivity.class));
                 finish();
             }
         });
@@ -72,7 +72,7 @@ public class PicPreview extends AppCompatActivity {
         boolean deleted = file.delete();
         if(deleted)
         {
-            startActivity(new Intent(getApplicationContext(),FaceFilterActivity.class));
+           // startActivity(new Intent(getApplicationContext(),FaceFilterActivity.class));
             finish();;
         }
     }

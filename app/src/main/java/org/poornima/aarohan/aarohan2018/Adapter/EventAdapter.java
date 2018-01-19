@@ -54,7 +54,8 @@ public class EventAdapter extends ArrayAdapter{
         Picasso.with(getContext())
                 .load("http://aarohan.poornima.org/"+ep.getEvent_image_location())
                 .placeholder(R.drawable.placeholder)
-               .error(R.drawable.error)
+                .error(R.drawable.error)
+                .resize(140,140)
                 .into(sponserlogImageView);
 
        /* Animation animation= new ScaleAnimation((float) 1.0, (float) 1.0,

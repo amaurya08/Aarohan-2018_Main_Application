@@ -82,8 +82,14 @@ public class FaceFilterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 boolean storagepermissionstatus=isStoragePermissionGranted();
                 if(storagepermissionstatus){
-                    mCameraSource.takePicture(myShutterCallback,
-                            myPictureCallback_JPG);
+   //surrounded by try catch to prevent app crash on double tap on camera
+                    try{
+                        mCameraSource.takePicture(myShutterCallback,
+                                myPictureCallback_JPG);
+                    }
+                    catch (RuntimeException re){
+                        Toast.makeText(FaceFilterActivity.this,"Take Picture Failed",Toast.LENGTH_LONG);
+                    }
                 }
                 else{
                     Toast.makeText(getApplicationContext(),
@@ -163,7 +169,7 @@ public class FaceFilterActivity extends AppCompatActivity {
             int hgt = cameraScaledBitmap.getHeight();
             Bitmap newImage = Bitmap.createBitmap(wid, hgt, Bitmap.Config.ARGB_8888);
 //it take the screenshot of particular layout or view.....used to create mask bitmap
-            View u = findViewById(R.id.faceOverlay);
+            GraphicOverlay u = findViewById(R.id.faceOverlay);
             u.setDrawingCacheEnabled(true);
             org.poornima.aarohan.aarohan2018.camera.GraphicOverlay z = (org.poornima.aarohan.aarohan2018.camera.GraphicOverlay) findViewById(R.id.faceOverlay);
             int totalHeight = z.getHeight();
@@ -411,8 +417,9 @@ public class FaceFilterActivity extends AppCompatActivity {
                 mPreview.start(mCameraSource, mGraphicOverlay);
             } catch (IOException e) {
                 Log.e(TAG, "Unable to start camera source.", e);
-                mCameraSource.release();
-                mCameraSource = null;
+               /* mCameraSource.release();
+                mCameraSource = null;*/
+                releaseCameraAndPreview();
             }
         }
     }
