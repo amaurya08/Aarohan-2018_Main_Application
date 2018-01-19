@@ -1,13 +1,16 @@
 package org.poornima.aarohan.aarohan2018;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -27,6 +30,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.ramotion.circlemenu.CircleMenuView;
 
 import org.json.JSONArray;
@@ -49,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
     private CircleMenuView circleMenu;
     private boolean back = false;
     View toplay;
+
+    private FloatingActionMenu fam;
+    private FloatingActionButton fab1, fab2, fab3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -315,6 +323,13 @@ public class MainActivity extends AppCompatActivity {
 
         Loginlogout = findViewById(R.id.login_logout);
         customLoading = new CustomLoading(MainActivity.this);
+
+
+        fab1 = (FloatingActionButton) findViewById(R.id.fab1);
+        fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+
+        fam = (FloatingActionMenu) findViewById(R.id.fab_menu);
+
     }
 
     private void methodListener() {
@@ -398,8 +413,47 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), FaceFilterActivity.class));
             }
         });
+
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent facebookIntent = new Intent(Intent.ACTION_VIEW);
+                String facebookUrl = getFacebookPageURL(MainActivity.this);
+                facebookIntent.setData(Uri.parse(facebookUrl));
+                startActivity(facebookIntent);
+            }
+        });
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent likeIng = new Intent(Intent.ACTION_VIEW,  Uri.parse("http://instagram.com/aarohanpoornima"));
+                likeIng.setPackage("com.instagram.android");
+                try {
+                    startActivity(likeIng);
+                } catch (ActivityNotFoundException e) {
+                            startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://instagram.com/aarohanpoornima")));
+                }
+            }
+        });
     }
 
+    public static String FACEBOOK_URL = "https://www.facebook.com/PoornimaAarohan";
+    public static String FACEBOOK_PAGE_ID = "PoornimaAarohan";
+
+    public String getFacebookPageURL(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            int versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode;
+            if (versionCode >= 3002850) { //newer versions of fb app
+                return "fb://facewebmodal/f?href=" + FACEBOOK_URL;
+            } else { //older versions of fb app
+                return "fb://page/" + FACEBOOK_PAGE_ID;
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            return FACEBOOK_URL; //normal web url
+        }
+    }
     private void logout() {
         try {
             //    Log.d("DEBUG", "Request Sent");

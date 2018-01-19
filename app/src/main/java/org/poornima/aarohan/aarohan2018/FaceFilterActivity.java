@@ -298,7 +298,7 @@ public class FaceFilterActivity extends AppCompatActivity {
             mCameraSource = new CameraSource.Builder(context, detector)
                     .setRequestedPreviewSize(height, width)
                     .setFacing(CameraSource.CAMERA_FACING_FRONT)
-                    .setRequestedFps(15.0f)
+                    .setRequestedFps(18.0f)
                     .build();
         } catch (Exception e) {
             Log.e(getString(R.string.app_name), "failed to open Camera");
