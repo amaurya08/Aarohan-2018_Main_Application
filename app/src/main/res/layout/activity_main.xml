@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background_main_home"
     tools:context="org.poornima.aarohan.aarohan2018.MainActivity">
     <RelativeLayout
@@ -64,14 +65,51 @@
             android:layout_marginLeft="5dp"/>
     </LinearLayout>
 
-    <com.ramotion.circlemenu.CircleMenuView
-        android:id="@+id/circleMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        app:button_colors="@array/colors"
-        app:button_icons="@array/icons"
-        />
+
+        <com.ramotion.circlemenu.CircleMenuView
+            android:id="@+id/circleMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:button_colors="@array/colors"
+            app:button_icons="@array/icons"
+            />
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/fab_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:paddingBottom="60dp"
+            android:paddingEnd="5dp"
+            app:menu_icon="@drawable/ic_shareimage"
+            app:menu_colorNormal="@color/colorPrimaryDark"
+            app:menu_colorPressed="@color/colorPrimary"
+
+
+            fab:menu_backgroundColor="#00ffffff"
+            fab:menu_fab_label="Follow us on"
+
+            fab:fab_colorRipple="#99FFFFFF"
+            fab:fab_showShadow="true"
+            fab:menu_openDirection="up"
+            fab:fab_shadowColor="#66000000">
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/colorPrimaryDark"
+                android:src="@drawable/share_facebook"
+                 />
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/colorPrimaryDark"
+                android:src="@drawable/share_insta"
+                />
+        </com.github.clans.fab.FloatingActionMenu>
 </RelativeLayout>
 
     <RelativeLayout
