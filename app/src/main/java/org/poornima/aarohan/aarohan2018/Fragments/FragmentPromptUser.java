@@ -13,6 +13,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -80,8 +82,15 @@ public class FragmentPromptUser extends Fragment {
 
     private void init(View view) {
         loginButton = view.findViewById(R.id.sign_in_button);
-        skipTextView = view.findViewById(R.id.skip_text);
+        skipTextView = view.findViewById(R.id.SKIP_text);
         register = view.findViewById(R.id.register_button);
+
+        Animation anim = new AlphaAnimation(0.5f,1.0f);
+        anim.setDuration(300);
+        anim.setStartOffset(15);
+        anim.setRepeatMode(Animation.REVERSE);
+        anim.setRepeatCount(Animation.INFINITE);
+        skipTextView.startAnimation(anim);
     }
 
     public void changeFragment(Fragment fragment) {
