@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +25,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,34 +48,48 @@ public class FragmentOTP extends Fragment {
     private CustomLoading customLoading;
     private TextView countdownTextView;
 
+    private FragmentActivity activity;
+    private Context context;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.context = context;
+        activity = (FragmentActivity) context;
+    }
 
-        View view = inflater.inflate(R.layout.fragment_fragment_ot, container, false);
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        customLoading = new CustomLoading(context);
+        SharedPreferences sharedPref = activity.getSharedPreferences("aarohan", Context.MODE_PRIVATE);
+        email = sharedPref.getString("email", "");
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         init(view);
         methodListener();
         customLoading.show();
-        if (NetWorkManager.checkInternetAccess(getActivity())) {
+        if (NetWorkManager.checkInternetAccess(context)) {
             sendOTP(email);
         } else {
-            Toast.makeText(getActivity(), "Enable Network Access", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Enable Network Access", Toast.LENGTH_SHORT).show();
         }
-        return view;
     }
 
-
     private void init(View view) {
-        getActivity();
-        SharedPreferences sharedPref = getActivity().getSharedPreferences("aarohan", Context.MODE_PRIVATE);
-        email = sharedPref.getString("email","");
         otp = view.findViewById(R.id.otp);
-        customLoading = new CustomLoading(getActivity());
         verify = view.findViewById(R.id.verify);
         resend = view.findViewById(R.id.resend);
         countdownTextView = view.findViewById(R.id.countdownTimer);
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_fragment_ot, container, false);
     }
 
     private void methodListener() {
@@ -84,7 +100,7 @@ public class FragmentOTP extends Fragment {
                     customLoading.show();
                         checkOTP(otp.getText().toString());
                 } else
-                    Toast.makeText(getActivity(), "Invalid OTP", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Invalid OTP", Toast.LENGTH_SHORT).show();
             }
         });
         resend.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +110,7 @@ public class FragmentOTP extends Fragment {
             }
         });
     }
+
 
     private void resendotp() {
         resend.setVisibility(View.INVISIBLE);
@@ -133,7 +150,7 @@ public class FragmentOTP extends Fragment {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     customLoading.cancel();
-                    Toast.makeText(getActivity(), "Please Check Your Internet Connection", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Please Check Your Internet Connection", Toast.LENGTH_SHORT).show();
                 }
             }) {
                 @Override
@@ -152,7 +169,7 @@ public class FragmentOTP extends Fragment {
                             DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
                     )
             );
-            RequestQueue queue = Volley.newRequestQueue(getActivity());
+        RequestQueue queue = Volley.newRequestQueue(activity);
             queue.add(stringRequest);
             /*RequestQueue queue = Volley.newRequestQueue(OTPActivity.this);
             queue.add(stringRequest);*/
@@ -167,14 +184,14 @@ public class FragmentOTP extends Fragment {
             makeSession(message);
             Intent intent = new Intent(getActivity(), MainActivity.class);
             startActivity(intent);
-            getActivity().finish();
+            activity.finish();
         } else
             Toast.makeText(getActivity(), "" + message, Toast.LENGTH_SHORT).show();
     }
 
     private void makeSession(String message) {
         getActivity();
-        SharedPreferences sharedPref = getActivity().getSharedPreferences("aarohan", Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = activity.getSharedPreferences("aarohan", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("email", email);
 
@@ -220,7 +237,7 @@ public class FragmentOTP extends Fragment {
                             DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
                     )
             );
-            RequestQueue queue = Volley.newRequestQueue(getActivity());
+        RequestQueue queue = Volley.newRequestQueue(activity);
             queue.add(stringRequest);
 
     }
@@ -232,7 +249,7 @@ public class FragmentOTP extends Fragment {
         if (error.equals("false")) {
             Toast.makeText(getActivity(), "" + message, Toast.LENGTH_SHORT).show();
         } else
-            Toast.makeText(getActivity(), "Email ID is not Registered. Please Contact Web / Aplication Developer", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Email ID is not Registered. Please Contact Web / Aplication Developer", Toast.LENGTH_SHORT).show();
     }
 
 

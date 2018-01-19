@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -38,7 +39,7 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_schedule);
 
         getSupportActionBar().setTitle("Schedule");
-
+        Log.d("Error","On create called");
         init();
         day1event.setOnClickListener(this);
         day2event.setOnClickListener(this);

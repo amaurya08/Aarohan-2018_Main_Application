@@ -75,7 +75,7 @@ public class CameraSourcePreview extends ViewGroup {
         }
     }
 
-    private void startIfReady() throws IOException {
+    private void startIfReady() {
         if (mStartRequested && mSurfaceAvailable) {
             if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
@@ -87,7 +87,11 @@ public class CameraSourcePreview extends ViewGroup {
                 // for ActivityCompat#requestPermissions for more details.
                 return;
             }
-            mCameraSource.start(mSurfaceView.getHolder());
+            try {
+                mCameraSource.start(mSurfaceView.getHolder());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             if (mOverlay != null) {
                 Size size = mCameraSource.getPreviewSize();
                 int min = Math.min(size.getWidth(), size.getHeight());
@@ -109,11 +113,7 @@ public class CameraSourcePreview extends ViewGroup {
         @Override
         public void surfaceCreated(SurfaceHolder surface) {
             mSurfaceAvailable = true;
-            try {
-                startIfReady();
-            } catch (IOException e) {
-                Log.e(TAG, "Could not start camera source.", e);
-            }
+            startIfReady();
         }
 
         @Override
@@ -166,12 +166,8 @@ public class CameraSourcePreview extends ViewGroup {
         for (int i = 0; i < getChildCount(); ++i) {
             getChildAt(i).layout(0, 0, childWidth, layoutHeight);
         }
-
-        try {
-            startIfReady();
-        } catch (IOException e) {
-            Log.e(TAG, "Could not start camera source.", e);
-        }
+        //Error suspect
+        startIfReady();
     }
 
     private boolean isPortraitMode() {

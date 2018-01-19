@@ -19,7 +19,6 @@ public class PromptUserLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_prompt_user_login);
         changeFragment(new FragmentPromptUser());
     }
@@ -34,7 +33,6 @@ public class PromptUserLogin extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(PromptUserLogin.this,PromptUserLogin.class));
         finish();
     }
 }

@@ -11,6 +11,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Libraries We Use</string>
+
     <string name="accomodation"> \n * 1 Night Stay \n * 2 Meals/day \n * 24*7 Security \n * Free Transportation \n * Under CCTV surveillance</string>
-    <string name="gifimageview">    </string>
+
 </resources>
