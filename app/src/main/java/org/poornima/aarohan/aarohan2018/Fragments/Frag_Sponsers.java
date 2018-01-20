@@ -1,7 +1,10 @@
 package org.poornima.aarohan.aarohan2018.Fragments;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -26,8 +29,21 @@ import java.util.ArrayList;
  */
 
 public class Frag_Sponsers extends Fragment {
-    ListView sponserListview;
+    private ListView sponserListview;
+    private Context context;
+    private SponsorAdapter sponsor_adapter;
     private ArrayList<sponserPojo> arrayList;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.context = context;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
@@ -35,10 +51,9 @@ public class Frag_Sponsers extends Fragment {
         View view = inflater.inflate(R.layout.frag_sponsers, container, false);
         arrayList = new ArrayList<>();
         fatchsponsers();
-        SponsorAdapter sponsor_adapter=new SponsorAdapter(getContext(),arrayList);
+        sponsor_adapter=new SponsorAdapter(getContext(),arrayList);
         sponserListview=(ListView)view.findViewById(R.id.lv_sponsor);
         sponserListview.setAdapter(sponsor_adapter);
-
    /*     String[] SponserName={"Pizza City","Dominos","Engineers Academy","Spicy King"};
         String[] SponserLogoUrl={ "http://i.imgur.com/rFLNqWI.jpg",
                 "http://i.imgur.com/C9pBVt7.jpg",
@@ -61,4 +76,5 @@ public class Frag_Sponsers extends Fragment {
        }
        cursor.close();
     }
+
 }

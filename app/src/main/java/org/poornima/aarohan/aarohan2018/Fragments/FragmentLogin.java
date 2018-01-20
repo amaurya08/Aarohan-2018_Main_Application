@@ -1,5 +1,6 @@
 package org.poornima.aarohan.aarohan2018.Fragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -29,7 +30,6 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.poornima.aarohan.aarohan2018.AarohanClasses.CustomLoading;
 import org.poornima.aarohan.aarohan2018.AarohanClasses.NetWorkManager;
 import org.poornima.aarohan.aarohan2018.AarohanClasses.URLHelper;
 import org.poornima.aarohan.aarohan2018.R;
@@ -52,7 +52,7 @@ public class FragmentLogin extends Fragment {
     private String email;
 
     private String emailMatcher;
-    private CustomLoading customLoading;
+    private ProgressDialog customLoading;
     public FragmentLogin() {
         // Required empty public constructor
     }
@@ -78,7 +78,8 @@ public class FragmentLogin extends Fragment {
         email = "";
         emailMatcher = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         activity = (FragmentActivity) context;
-        customLoading = new CustomLoading(context);
+        customLoading = new ProgressDialog(context,ProgressDialog.THEME_HOLO_DARK);
+        customLoading.setCancelable(false);
     }
 
     @Override
@@ -95,6 +96,7 @@ public class FragmentLogin extends Fragment {
                 if (NetWorkManager.checkInternetAccess(context)) {
                     email = emailEditText.getText().toString();
                     if (email.matches(emailMatcher) && email.length() > 0) {
+                        customLoading.setMessage("Veryfying Email...");
                         customLoading.show();
                         verifyEmail(email);
                     } else {
@@ -123,15 +125,13 @@ public class FragmentLogin extends Fragment {
             StringRequest request = new StringRequest(Request.Method.POST, URLHelper.verifyEmail, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    customLoading.cancel();
-
+                    customLoading.dismiss();
                     verifyParseString(response, s);
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-
-                    customLoading.cancel();
+                    customLoading.dismiss();
                     Toast.makeText(context, "" + error, Toast.LENGTH_SHORT).show();
                 }
             }) {

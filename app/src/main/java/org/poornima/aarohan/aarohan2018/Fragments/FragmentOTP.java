@@ -1,5 +1,6 @@
 package org.poornima.aarohan.aarohan2018.Fragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -28,8 +29,6 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.poornima.aarohan.aarohan2018.AarohanClasses.CustomLoading;
-import org.poornima.aarohan.aarohan2018.AarohanClasses.NetWorkManager;
 import org.poornima.aarohan.aarohan2018.AarohanClasses.URLHelper;
 import org.poornima.aarohan.aarohan2018.MainActivity;
 import org.poornima.aarohan.aarohan2018.R;
@@ -45,7 +44,7 @@ public class FragmentOTP extends Fragment {
     private EditText otp;
     private String email;
     private Button verify;
-    private CustomLoading customLoading;
+    private ProgressDialog customLoading;
     private TextView countdownTextView;
 
     private FragmentActivity activity;
@@ -61,7 +60,8 @@ public class FragmentOTP extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        customLoading = new CustomLoading(context);
+        customLoading = new ProgressDialog(context,ProgressDialog.THEME_HOLO_DARK);
+        customLoading.setCancelable(false);
         SharedPreferences sharedPref = activity.getSharedPreferences("aarohan", Context.MODE_PRIVATE);
         email = sharedPref.getString("email", "");
     }
@@ -71,12 +71,9 @@ public class FragmentOTP extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         init(view);
         methodListener();
+        customLoading.setMessage("Sending OTP...");
         customLoading.show();
-        if (NetWorkManager.checkInternetAccess(context)) {
-            sendOTP(email);
-        } else {
-            Toast.makeText(context, "Enable Network Access", Toast.LENGTH_SHORT).show();
-        }
+        sendOTP(email);
     }
 
     private void init(View view) {
@@ -97,8 +94,9 @@ public class FragmentOTP extends Fragment {
             @Override
             public void onClick(View view) {
                 if (otp.getText().toString().length() == 8) {
+                    customLoading.setMessage("Verifying OTP, Please Wait...");
                     customLoading.show();
-                        checkOTP(otp.getText().toString());
+                    checkOTP(otp.getText().toString());
                 } else
                     Toast.makeText(context, "Invalid OTP", Toast.LENGTH_SHORT).show();
             }
@@ -138,10 +136,11 @@ public class FragmentOTP extends Fragment {
                 @Override
                 public void onResponse(String response) {
                     try {
-                        customLoading.cancel();
+                        customLoading.dismiss();
                        /* Log.d(TAG, "Checking OTP");*/
                         parseCheckOTPString(response);
                     } catch (Exception e) {
+                        customLoading.dismiss();
                         e.printStackTrace();
                     }
 
@@ -149,7 +148,7 @@ public class FragmentOTP extends Fragment {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    customLoading.cancel();
+                    customLoading.dismiss();
                     Toast.makeText(context, "Please Check Your Internet Connection", Toast.LENGTH_SHORT).show();
                 }
             }) {
@@ -208,7 +207,7 @@ public class FragmentOTP extends Fragment {
                 @Override
                 public void onResponse(String response) {
                     try {
-                        customLoading.cancel();
+                        customLoading.dismiss();
                         /*Log.d(TAG, "OTP SENT");*/
                         parseStringOTP(response);
                     } catch (Exception e) {
@@ -218,7 +217,7 @@ public class FragmentOTP extends Fragment {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    customLoading.cancel();
+                    customLoading.dismiss();
                     Toast.makeText(getActivity(), "" + error.toString(), Toast.LENGTH_SHORT).show();
                 }
             }) {
@@ -247,7 +246,7 @@ public class FragmentOTP extends Fragment {
         String error = jsonObject.getString("error");
         String message = jsonObject.getString("message");
         if (error.equals("false")) {
-            Toast.makeText(getActivity(), "" + message, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "OTP sent to Your Email-ID", Toast.LENGTH_SHORT).show();
         } else
             Toast.makeText(activity, "Email ID is not Registered. Please Contact Web / Aplication Developer", Toast.LENGTH_SHORT).show();
     }

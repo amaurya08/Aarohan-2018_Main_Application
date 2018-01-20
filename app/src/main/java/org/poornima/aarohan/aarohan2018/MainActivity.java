@@ -1,6 +1,7 @@
 package org.poornima.aarohan.aarohan2018;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentValues;
 import android.content.Context;
@@ -10,9 +11,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -37,7 +36,6 @@ import com.ramotion.circlemenu.CircleMenuView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.poornima.aarohan.aarohan2018.AarohanClasses.CustomLoading;
 import org.poornima.aarohan.aarohan2018.AarohanClasses.URLHelper;
 import org.poornima.aarohan.aarohan2018.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2018.Tables.ProfileTable;
@@ -50,7 +48,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private Button aarohan_selfi,Loginlogout;
-    private CustomLoading customLoading;
+    private ProgressDialog customLoading;
     private CircleMenuView circleMenu;
     private boolean back = false;
     View toplay;
@@ -64,9 +62,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            requestPermissionLoc();
+            requestPermission();
         if (checkSession()) {
             Loginlogout.setText("Log Out");
+            customLoading.setMessage("Loading Profile...");
             customLoading.show();
             profileAPI();
         } else {
@@ -80,15 +79,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void requestPermissionLoc() {
-        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+    private void requestPermission() {
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+        || ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+       || ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainActivity.this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.READ_EXTERNAL_STORAGE,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.CAMERA},
                     1);
         }
     }
 
-    private void requestStorage() {
+   /* private void requestStorage() {
         if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
                 || ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
                 ) {
@@ -104,7 +109,8 @@ public class MainActivity extends AppCompatActivity {
                     new String[]{Manifest.permission.CAMERA},
                     3);
         }
-    }
+    }*/
+/*
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -150,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         }
     }
+*/
 
     private boolean isFirstTime()
     {
@@ -182,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
         stringRequest = new StringRequest(Request.Method.POST, URLHelper.studenteventdetails, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                customLoading.cancel();
+                customLoading.dismiss();
                 try {
                     //  Log.d("DEBUG",""+response);
                     parsestudenteventDetail(response);
@@ -194,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                customLoading.cancel();
+                customLoading.dismiss();
               //  Toast.makeText(MainActivity.this, errorString, Toast.LENGTH_SHORT).show();
             }
         }) {
@@ -242,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         } else {
-           // Toast.makeText(this, "" + errorString, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "" , Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -253,6 +260,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 //    Log.d("DEBUG", "response recieved");
                 parseProfile(response);
+                customLoading.setMessage("Loading Your Events...");
                 profileMyeventAPI();
             }
         }, new Response.ErrorListener() {
@@ -322,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
         circleMenu = findViewById(R.id.circleMenu);
 
         Loginlogout = findViewById(R.id.login_logout);
-        customLoading = new CustomLoading(MainActivity.this);
+        customLoading = new ProgressDialog(MainActivity.this,ProgressDialog.THEME_HOLO_DARK);
 
 
         fab1 = (FloatingActionButton) findViewById(R.id.fab1);
@@ -403,6 +411,7 @@ public class MainActivity extends AppCompatActivity {
                         || ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
                         || ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
                         ) {
+                    Toast.makeText(MainActivity.this, "Need permission !", Toast.LENGTH_SHORT).show();
                     ActivityCompat.requestPermissions(MainActivity.this,
                             new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                             3);

@@ -1,5 +1,6 @@
 package org.poornima.aarohan.aarohan2018;
 
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,11 +18,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.poornima.aarohan.aarohan2018.AarohanClasses.CustomLoading;
 import org.poornima.aarohan.aarohan2018.AarohanClasses.URLHelper;
 import org.poornima.aarohan.aarohan2018.DBhandler.DatabaseHelper;
 import org.poornima.aarohan.aarohan2018.Tables.TableEventDetails;
@@ -31,7 +30,7 @@ import org.poornima.aarohan.aarohan2018.Tables.TableSponserDetails;
 
 public class ScheduleActivity extends AppCompatActivity implements View.OnClickListener {
     RelativeLayout day1event,day2event,day3event,day4event,day5event;
-    private CustomLoading customLoading;
+    private ProgressDialog customLoading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +45,8 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
         day3event.setOnClickListener(this);
         day4event.setOnClickListener(this);
       //  day5event.setOnClickListener(this);
+        customLoading = new ProgressDialog(ScheduleActivity.this, ProgressDialog.THEME_HOLO_DARK);
+        customLoading.setMessage("Please Wait...");
         customLoading.show();
         loadEventDetails();
     }
@@ -56,7 +57,7 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
             StringRequest stringRequest = new StringRequest(Request.Method.GET, URLHelper.eventData, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    customLoading.cancel();
+                    customLoading.dismiss();
                     try {
                         parseEventDetails(response);
                     } catch (Exception e) {
@@ -66,7 +67,7 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    customLoading.cancel();
+                    customLoading.dismiss();
                     Toast.makeText(ScheduleActivity.this, "Error in loding Event Details", Toast.LENGTH_SHORT).show();
                 }
             });
@@ -126,7 +127,7 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void init() {
-        customLoading = new CustomLoading(ScheduleActivity.this);
+        customLoading = new ProgressDialog(ScheduleActivity.this, ProgressDialog.THEME_HOLO_DARK);
         day1event = findViewById(R.id.day1layout);
         day2event = findViewById(R.id.day2layout);
         day3event = findViewById(R.id.day3layout);

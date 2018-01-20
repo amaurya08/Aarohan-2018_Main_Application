@@ -1,5 +1,6 @@
 package org.poornima.aarohan.aarohan2018;
 
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -36,7 +37,7 @@ import java.util.List;
 
 
 public class InfoActivity extends AppCompatActivity {
-
+private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -44,11 +45,15 @@ public class InfoActivity extends AppCompatActivity {
 
         setContentView(R.layout.info);
         getSupportActionBar().setTitle("About ");
-        loadSponsersDetails();
+        progressDialog = new ProgressDialog(InfoActivity.this,ProgressDialog.THEME_HOLO_DARK);
+        progressDialog.setMessage("Loading Sponsors...");
         ViewPager viewpager = findViewById(R.id.viewpager);
         setupViewPager(viewpager);
         TabLayout tablayout = findViewById(R.id.tabs);
         tablayout.setupWithViewPager(viewpager);
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+        loadSponsersDetails();
     }
     private void loadSponsersDetails() {
         try {
@@ -56,16 +61,18 @@ public class InfoActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(String response) {
                     try {
+                        progressDialog.dismiss();
                         parseSponserDetail(response);
                     } catch (Exception e) {
-                        Toast.makeText(InfoActivity.this, "Error in Loading", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                        Toast.makeText(InfoActivity.this, "Error in loading Sponsors", Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
                     }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(InfoActivity.this, "Error in loding sponsers", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InfoActivity.this, "Error in loading sponsors", Toast.LENGTH_SHORT).show();
                 }
             });
             stringRequest.setRetryPolicy(
