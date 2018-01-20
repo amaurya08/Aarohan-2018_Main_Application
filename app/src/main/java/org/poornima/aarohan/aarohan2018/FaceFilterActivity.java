@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -27,6 +28,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 
@@ -47,7 +49,7 @@ import java.io.IOException;
 
 
 
-public class FaceFilterActivity extends AppCompatActivity {
+public class FaceFilterActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "FaceTracker";
     private CameraSource mCameraSource = null;
     private CameraSourcePreview mPreview;
@@ -55,7 +57,8 @@ public class FaceFilterActivity extends AppCompatActivity {
 
     private static final int RC_HANDLE_GMS = 9001;
     private static final int RC_HANDLE_CAMERA_PERM = 2;
-
+    private ImageButton filter1,filter2,filter3;
+private int filter_number=0;
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -66,7 +69,13 @@ public class FaceFilterActivity extends AppCompatActivity {
         mGraphicOverlay =  findViewById(R.id.faceOverlay);
         Button click_img = findViewById(R.id.btn_img_click);
 
+        filter1=findViewById(R.id.mask1);
+        filter2=findViewById(R.id.mask2);
+        filter3=findViewById(R.id.mask3);
 
+        filter1.setOnClickListener((View.OnClickListener) FaceFilterActivity.this);
+        filter2.setOnClickListener((View.OnClickListener) FaceFilterActivity.this);
+        filter3.setOnClickListener((View.OnClickListener) FaceFilterActivity.this);
         // Check for the camera permission before accessing the camera.  If the
         // permission is not granted yet, request permission.
         int rc = ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
@@ -98,6 +107,33 @@ public class FaceFilterActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.mask1:
+              filter_number=0;
+              findViewById(R.id.mask1).setBackground(getDrawable(R.drawable.mask_icon_backround_round));
+                findViewById(R.id.mask2).setBackgroundResource(0);
+                findViewById(R.id.mask3).setBackgroundResource(0);
+                break;
+            case R.id.mask2:
+                filter_number=1;
+                findViewById(R.id.mask1).setBackgroundResource(0);
+                findViewById(R.id.mask2).setBackground(getDrawable(R.drawable.mask_icon_backround_round));
+                findViewById(R.id.mask3).setBackgroundResource(0);
+                break;
+            case R.id.mask3:
+                filter_number=2;
+                findViewById(R.id.mask1).setBackgroundResource(0);
+                findViewById(R.id.mask2).setBackgroundResource(0);
+                findViewById(R.id.mask3).setBackground(getDrawable(R.drawable.mask_icon_backround_round));
+                break;
+            default:filter_number=0;
+        }
 
     }
 
@@ -423,6 +459,8 @@ public class FaceFilterActivity extends AppCompatActivity {
             }
         }
     }
+
+
     //==============================================================================================
     // Graphic Face Tracker
     //==============================================================================================
@@ -447,7 +485,7 @@ public class FaceFilterActivity extends AppCompatActivity {
         private FaceGraphic mFaceGraphic;
         GraphicFaceTracker(GraphicOverlay overlay) {
             mOverlay = overlay;
-            mFaceGraphic = new FaceGraphic(overlay);
+            mFaceGraphic = new FaceGraphic(overlay,filter_number);
         }
         /**
          * Start tracking the detected face instance within the face overlay.

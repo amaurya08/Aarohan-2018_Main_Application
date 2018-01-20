@@ -4,12 +4,15 @@ package org.poornima.aarohan.aarohan2018;
  * Created by kuldeep on 31-12-2017.
  */
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PointF;
+import android.graphics.drawable.Drawable;
 
 
 import com.google.android.gms.vision.face.Face;
@@ -51,7 +54,10 @@ class FaceGraphic extends GraphicOverlay.Graphic {
     private Bitmap bitmap;
     private Bitmap op;
 
-    FaceGraphic(GraphicOverlay overlay) {
+    private int[] face_filter={R.drawable.mask_red_specs,R.drawable.mask_batman,R.drawable.mask_coll_spece};
+
+
+    FaceGraphic(GraphicOverlay overlay,int filter_number) {
         super(overlay);
         mCurrentColorIndex = (mCurrentColorIndex + 1) % COLOR_CHOICES.length;
         final int selectedColor = COLOR_CHOICES[mCurrentColorIndex];
@@ -67,7 +73,10 @@ class FaceGraphic extends GraphicOverlay.Graphic {
         mBoxPaint.setColor(selectedColor);
         mBoxPaint.setStyle(Paint.Style.STROKE);
         mBoxPaint.setStrokeWidth(BOX_STROKE_WIDTH);
-        bitmap = BitmapFactory.decodeResource(getOverlay().getContext().getResources(), R.drawable.mask_red_specs);
+
+       // bitmap = BitmapFactory.decodeResource(getOverlay().getContext().getResources(), face_filter[filter_number]);
+        bitmap = BitmapFactory.decodeResource(getOverlay().getContext().getResources(), face_filter[(int) (Math.random()*3)]);
+
         op = bitmap;
     }
 
