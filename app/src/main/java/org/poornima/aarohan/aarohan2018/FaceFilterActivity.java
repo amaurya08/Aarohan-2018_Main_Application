@@ -458,6 +458,15 @@ private int filter_number=0;
                 releaseCameraAndPreview();
             }
         }
+        else{
+
+            try {
+                releaseCameraAndPreview();
+                mPreview.start(mCameraSource, mGraphicOverlay);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 
