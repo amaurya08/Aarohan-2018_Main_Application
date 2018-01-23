@@ -48,13 +48,121 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private Button aarohan_selfi,Loginlogout;
-    private ProgressDialog customLoading;
     private CircleMenuView circleMenu;
     private boolean back = false;
     View toplay;
 
     private FloatingActionMenu fam;
     private FloatingActionButton fab1, fab2, fab3;
+
+    private void init() {
+        aarohan_selfi = findViewById(R.id.selfi);
+        circleMenu = findViewById(R.id.circleMenu);
+        Loginlogout = findViewById(R.id.login_logout);
+        fab1 = findViewById(R.id.fab1);
+        fab2 = findViewById(R.id.fab2);
+        fam =  findViewById(R.id.fab_menu);
+    }
+
+    private void methodListener() {
+        Loginlogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkSession()) {
+                    logout();
+                    SharedPreferences sharedPref = getSharedPreferences("aarohan", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("email", "");
+                    editor.putString("stu_name", "");
+                    editor.putString("otp", "");
+                    editor.putString("sid", "");
+                    editor.putBoolean("is", false);
+                    editor.apply();
+                    DatabaseHelper db = new DatabaseHelper(MainActivity.this);
+                    ProfileTable.clearProfile(db.getWritableDatabase(), "delete from " + ProfileTable.tablename);
+                    startActivity(new Intent(MainActivity.this, MainActivity.class));
+                    finish();
+                } else {
+                    startActivity(new Intent(MainActivity.this, PromptUserLogin.class));
+                    finish();
+                }
+            }
+        });
+
+        circleMenu.setEventListener(new CircleMenuView.EventListener() {
+                                        @Override
+                                        public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int buttonIndex) {
+                                            switch (buttonIndex) {
+                                                case 0:
+                                                    switchActivity(ProfileActivity.class);
+                                                    break;
+                                                case 1:
+                                                    switchActivity(ScheduleActivity.class);
+                                                    break;
+                                                case 2:
+                                                    switchActivity(MapActivity.class);
+                                                    break;
+                                                case 3:
+                                                    switchActivity(AccmodationActivity.class);
+                                                    break;
+                                                case 4:
+                                                    switchActivity(InfoActivity.class);
+                                                    break;
+                                                default:
+                                                    Toast.makeText(MainActivity.this, ":)", Toast.LENGTH_SHORT).show();
+                                                    break;
+                                            }
+                                        }
+                                        @Override
+                                        public void onMenuOpenAnimationStart(@NonNull CircleMenuView view) {
+                                        }
+                                        @Override
+                                        public void onMenuCloseAnimationEnd(@NonNull CircleMenuView view) {
+                                        }
+                                    }
+
+        );
+        //openind camera activity
+        aarohan_selfi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
+                        || ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                        || ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                        ) {
+                    Toast.makeText(MainActivity.this, "Need permission !", Toast.LENGTH_SHORT).show();
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                            3);
+                } else
+                    startActivity(new Intent(getApplicationContext(), FaceFilterActivity.class));
+            }
+        });
+
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent facebookIntent = new Intent(Intent.ACTION_VIEW);
+                String facebookUrl = getFacebookPageURL(MainActivity.this);
+                facebookIntent.setData(Uri.parse(facebookUrl));
+                startActivity(facebookIntent);
+            }
+        });
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent likeIng = new Intent(Intent.ACTION_VIEW,  Uri.parse("http://instagram.com/aarohanpoornima"));
+                likeIng.setPackage("com.instagram.android");
+                try {
+                    startActivity(likeIng);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://instagram.com/aarohanpoornima")));
+                }
+            }
+        });
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,9 +173,7 @@ public class MainActivity extends AppCompatActivity {
             requestPermission();
         if (checkSession()) {
             Loginlogout.setText("Log Out");
-            customLoading.setMessage("Loading Profile...");
-            customLoading.show();
-            profileAPI();
+            /*profileAPI();*/
         } else {
             Loginlogout.setText("Log In");
         }
@@ -184,12 +290,12 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
     }
 
+/*
     private void profileMyeventAPI() {
         StringRequest stringRequest;
         stringRequest = new StringRequest(Request.Method.POST, URLHelper.studenteventdetails, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                customLoading.dismiss();
                 try {
                     //  Log.d("DEBUG",""+response);
                     parsestudenteventDetail(response);
@@ -201,7 +307,6 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                customLoading.dismiss();
               //  Toast.makeText(MainActivity.this, errorString, Toast.LENGTH_SHORT).show();
             }
         }) {
@@ -260,13 +365,11 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 //    Log.d("DEBUG", "response recieved");
                 parseProfile(response);
-                customLoading.setMessage("Loading Your Events...");
                 profileMyeventAPI();
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                customLoading.cancel();
               //  Toast.makeText(MainActivity.this, "" + errorString, Toast.LENGTH_SHORT).show();
                 //  Log.d("DEBUG", "" + error.getMessage());
             }
@@ -325,124 +428,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    private void init() {
-        aarohan_selfi = findViewById(R.id.selfi);
-        circleMenu = findViewById(R.id.circleMenu);
-
-        Loginlogout = findViewById(R.id.login_logout);
-        customLoading = new ProgressDialog(MainActivity.this,ProgressDialog.THEME_HOLO_DARK);
-
-
-        fab1 = (FloatingActionButton) findViewById(R.id.fab1);
-        fab2 = (FloatingActionButton) findViewById(R.id.fab2);
-
-        fam = (FloatingActionMenu) findViewById(R.id.fab_menu);
-
-    }
-
-    private void methodListener() {
-        Loginlogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (checkSession()) {
-                    logout();
-                    SharedPreferences sharedPref = getSharedPreferences("aarohan", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString("email", "");
-                    editor.putString("stu_name", "");
-                    editor.putString("otp", "");
-                    editor.putString("sid", "");
-                    editor.putBoolean("is", false);
-                    editor.apply();
-                    DatabaseHelper db = new DatabaseHelper(MainActivity.this);
-                    ProfileTable.clearProfile(db.getWritableDatabase(), "delete from " + ProfileTable.tablename);
-                    startActivity(new Intent(MainActivity.this, MainActivity.class));
-                    finish();
-                } else {
-                    startActivity(new Intent(MainActivity.this, PromptUserLogin.class));
-                    finish();
-                }
-            }
-        });
-
-        circleMenu.setEventListener(new CircleMenuView.EventListener() {
-                                        @Override
-                                        public void onButtonClickAnimationStart(@NonNull CircleMenuView view, int buttonIndex) {
-                                            switch (buttonIndex) {
-                                                case 0:
-                                                    switchActivity(ProfileActivity.class);
-                                                    break;
-                                                case 1:
-                                                    switchActivity(ScheduleActivity.class);
-                                                    break;
-                                                case 2:
-                                                    switchActivity(MapActivity.class);
-                                                    break;
-                                                case 3:
-                                                    switchActivity(AccmodationActivity.class);
-                                                    break;
-                                                case 4:
-                                                    switchActivity(InfoActivity.class);
-                                                    break;
-                                                default:
-                                                    Toast.makeText(MainActivity.this, ":)", Toast.LENGTH_SHORT).show();
-                                                    break;
-
-                                            }
-                                        }
-
-                                        @Override
-                                        public void onMenuOpenAnimationStart(@NonNull CircleMenuView view) {
-
-                                        }
-
-                                        @Override
-                                        public void onMenuCloseAnimationEnd(@NonNull CircleMenuView view) {
-
-                                        }
-                                    }
-
-        );
-        //openind camera activity
-        aarohan_selfi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
-                        || ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                        || ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                        ) {
-                    Toast.makeText(MainActivity.this, "Need permission !", Toast.LENGTH_SHORT).show();
-                    ActivityCompat.requestPermissions(MainActivity.this,
-                            new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                            3);
-                } else
-                    startActivity(new Intent(getApplicationContext(), FaceFilterActivity.class));
-            }
-        });
-
-        fab1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent facebookIntent = new Intent(Intent.ACTION_VIEW);
-                String facebookUrl = getFacebookPageURL(MainActivity.this);
-                facebookIntent.setData(Uri.parse(facebookUrl));
-                startActivity(facebookIntent);
-            }
-        });
-        fab2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent likeIng = new Intent(Intent.ACTION_VIEW,  Uri.parse("http://instagram.com/aarohanpoornima"));
-                likeIng.setPackage("com.instagram.android");
-                try {
-                    startActivity(likeIng);
-                } catch (ActivityNotFoundException e) {
-                            startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("http://instagram.com/aarohanpoornima")));
-                }
-            }
-        });
-    }
+*/
 
     public static String FACEBOOK_URL = "https://www.facebook.com/PoornimaAarohan";
     public static String FACEBOOK_PAGE_ID = "PoornimaAarohan";

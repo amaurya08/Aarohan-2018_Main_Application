@@ -30,7 +30,6 @@ import org.poornima.aarohan.aarohan2018.Tables.TableSponserDetails;
 
 public class ScheduleActivity extends AppCompatActivity implements View.OnClickListener {
     RelativeLayout day1event,day2event,day3event,day4event,day5event;
-    private ProgressDialog customLoading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,13 +44,10 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
         day3event.setOnClickListener(this);
         day4event.setOnClickListener(this);
       //  day5event.setOnClickListener(this);
-        customLoading = new ProgressDialog(ScheduleActivity.this, ProgressDialog.THEME_HOLO_DARK);
-        customLoading.setMessage("Please Wait...");
-        customLoading.show();
-        loadEventDetails();
+        /*loadEventDetails();*/
     }
 
-
+/*
     private void loadEventDetails() {
         try {
             StringRequest stringRequest = new StringRequest(Request.Method.GET, URLHelper.eventData, new Response.Listener<String>() {
@@ -124,10 +120,9 @@ public class ScheduleActivity extends AppCompatActivity implements View.OnClickL
         else{
             Toast.makeText(this, "Error Loading Data", Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 
     private void init() {
-        customLoading = new ProgressDialog(ScheduleActivity.this, ProgressDialog.THEME_HOLO_DARK);
         day1event = findViewById(R.id.day1layout);
         day2event = findViewById(R.id.day2layout);
         day3event = findViewById(R.id.day3layout);

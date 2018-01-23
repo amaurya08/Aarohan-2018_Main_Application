@@ -18,6 +18,7 @@ import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.poornima.aarohan.aarohan2018.LoadingActivity;
 import org.poornima.aarohan.aarohan2018.MainActivity;
 import org.poornima.aarohan.aarohan2018.R;
 
@@ -65,7 +66,7 @@ public class FragmentPromptUser extends Fragment {
         skipTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), MainActivity.class));
+                startActivity(new Intent(getActivity(), LoadingActivity.class));
                 activity.finish();
             }
         });

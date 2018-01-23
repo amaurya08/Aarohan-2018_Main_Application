@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_main_home"
+    tools:context="org.poornima.aarohan.aarohan2018.LoadingActivity">
+
+    <ProgressBar
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:id="@+id/aarohan_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/trashco"
+        android:text="AAROHAN"
+        android:textColor="#FFFFFFFF"
+        android:textSize="60dp" />
+
+    <TextView
+        android:id="@+id/aarohan_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/aarohan_name"
+        android:fontFamily="@font/shogunsclan"
+        android:text="Towards The Horizon"
+        android:textColor="#FFFFFFFF"
+        android:textSize="18dp" />
+    <TextView
+        android:id="@+id/message_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:fontFamily="@font/comicsansmsregular"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:textSize="20sp"
+        android:text="Please Wait"/>
+</RelativeLayout>

@@ -37,7 +37,6 @@ import java.util.List;
 
 
 public class InfoActivity extends AppCompatActivity {
-private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -45,17 +44,14 @@ private ProgressDialog progressDialog;
 
         setContentView(R.layout.info);
         getSupportActionBar().setTitle("About ");
-        progressDialog = new ProgressDialog(InfoActivity.this,ProgressDialog.THEME_HOLO_DARK);
-        progressDialog.setMessage("Loading Sponsors...");
+
         ViewPager viewpager = findViewById(R.id.viewpager);
         setupViewPager(viewpager);
         TabLayout tablayout = findViewById(R.id.tabs);
         tablayout.setupWithViewPager(viewpager);
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-        loadSponsersDetails();
+        /*loadSponsersDetails();*/
     }
-    private void loadSponsersDetails() {
+   /* private void loadSponsersDetails() {
         try {
             StringRequest stringRequest = new StringRequest(Request.Method.GET, URLHelper.getsponsorsDetails, new Response.Listener<String>() {
                 @Override
@@ -119,7 +115,7 @@ private ProgressDialog progressDialog;
             Toast.makeText(this, "Error in Loading Data", Toast.LENGTH_SHORT).show();
         }
     }
-
+*/
 
 
     public void setupViewPager(ViewPager viewpager) {

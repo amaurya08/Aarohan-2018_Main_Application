@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
     private void startApp() {
         //Checking Session Whether User is Logged in or Not
         if (checkSession()) {
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            Intent intent = new Intent(SplashActivity.this, LoadingActivity.class);
             startActivity(intent);
             finish();
         } else {

@@ -30,6 +30,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.poornima.aarohan.aarohan2018.AarohanClasses.URLHelper;
+import org.poornima.aarohan.aarohan2018.LoadingActivity;
 import org.poornima.aarohan.aarohan2018.MainActivity;
 import org.poornima.aarohan.aarohan2018.R;
 
@@ -181,7 +182,7 @@ public class FragmentOTP extends Fragment {
         String message = jsonObject.getString("message");
         if (error.equals("false")) {
             makeSession(message);
-            Intent intent = new Intent(getActivity(), MainActivity.class);
+            Intent intent = new Intent(getActivity(), LoadingActivity.class);
             startActivity(intent);
             activity.finish();
         } else
